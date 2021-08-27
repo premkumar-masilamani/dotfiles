@@ -1,6 +1,23 @@
-# ZSH Settings
+# Lines configured by zsh-newuser-install
+HISTFILE=~/.histfile
+HISTSIZE=1000
+SAVEHIST=1000
+bindkey -v
+# End of lines configured by zsh-newuser-install
+
+# The following lines were added by compinstall
+zstyle :compinstall filename '/Users/smileprem/.zshrc'
+autoload -Uz compinit
+compinit
+# End of lines added by compinstall
+
+# ZSH Prompt
+source <(kubectl completion zsh)
+source /Users/smileprem/Code/personal/kube-ps1/kube-ps1.sh
+PROMPT='%1~ $(kube_ps1) '
+
+# ZSH Utilities
 source /Users/smileprem/Library/Preferences/org.dystroy.broot/launcher/bash/br
-export PROMPT=$PROMPT'$(kube_ps1) '
 
 # Path Settings
 export GOROOT=/usr/local/go
