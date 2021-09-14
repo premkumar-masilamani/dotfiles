@@ -14,7 +14,15 @@ compinit
 # ZSH Prompt
 source <(kubectl completion zsh)
 source /Users/smileprem/Code/personal/kube-ps1/kube-ps1.sh
-PROMPT='%1~ $(kube_ps1) '
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' formats ' %s(%b)'
+precmd () { vcs_info }
+setopt prompt_subst
+
+PROMPT='%F{41}%~%f ${vcs_info_msg_0_} $(kube_ps1) '
+
 
 # ZSH Utilities
 source /Users/smileprem/Library/Preferences/org.dystroy.broot/launcher/bash/br
@@ -85,29 +93,29 @@ alias bb='kubectl run -i --tty busybox --image=yauritux/busybox-curl --restart=N
 
 # Kubernetes Pods - Olympus DB
 alias local-olympus-db='pgcli "postgres://postgres_user:postgres_password@localhost:5432/olympus?sslmode=disable"'
-alias sibros-dev-olympus-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:Cs6h2qwI6V4Ypfg@us-west-2-rds-cluster.cluster-cmsezeuapyek.us-west-2.rds.amazonaws.com:5432/cloudapi'
-alias sibros-staging-olympus-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:knd958vXDPzUkLv@us-west-2-rds-cluster.cluster-cvwbr9hwsmni.us-west-2.rds.amazonaws.com:5432/cloudapi'
+alias sibros-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:Cs6h2qwI6V4Ypfg@us-west-2-rds-cluster.cluster-cmsezeuapyek.us-west-2.rds.amazonaws.com:5432/cloudapi'
+alias sibros-staging-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:knd958vXDPzUkLv@us-west-2-rds-cluster.cluster-cvwbr9hwsmni.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias sibros-prod-olympus-db='echo to-be-added'
-alias sibros-demo-olympus-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:LvV77YxRvHMBk9FG@us-west-2-rds-cluster.cluster-c6aj9ugrsy9v.us-west-2.rds.amazonaws.com:5432/cloudapi'
-alias lyft-prod-olympus-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:naW4GXjrmZ328Bf@us-west-2-rds-cluster-olympus.cluster-cq7fqrw6ubxv.us-west-2.rds.amazonaws.com:5432/cloudapi'
-alias bajaj-prod-olympus-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:12Ykl8st8QVDK0J@ap-south-1-olympus-cluster.cluster-c9ltpnagyuxt.ap-south-1.rds.amazonaws.com:5432/cloudapi'
+alias sibros-demo-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:LvV77YxRvHMBk9FG@us-west-2-rds-cluster.cluster-c6aj9ugrsy9v.us-west-2.rds.amazonaws.com:5432/cloudapi'
+alias lyft-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:naW4GXjrmZ328Bf@us-west-2-rds-cluster-olympus.cluster-cq7fqrw6ubxv.us-west-2.rds.amazonaws.com:5432/cloudapi'
+alias bajaj-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:12Ykl8st8QVDK0J@ap-south-1-olympus-cluster.cluster-c9ltpnagyuxt.ap-south-1.rds.amazonaws.com:5432/cloudapi'
 
 # Kubernetes Pods - Timescale DB
 alias local-timescale-db='pgcli "postgres://timescale_user:timescale_password@localhost:5433/postgres?sslmode=disable"'
-alias sibros-dev-timescale-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:34HJjT9zxnN65h9@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
-alias sibros-staging-timescale-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:FTjM04UwyFcp7lF@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias sibros-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:34HJjT9zxnN65h9@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias sibros-staging-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:FTjM04UwyFcp7lF@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 alias sibros-prod-timescale-db='echo to-be-added'
-alias sibros-demo-timescale-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:22mQfbymLtDKyF3Z@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
-alias lyft-prod-timescale-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:eeH9782Cyzet@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
-alias bajaj-prod-timescale-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:D2cYe2Fq8yJ5oVn@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias sibros-demo-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:22mQfbymLtDKyF3Z@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
+alias lyft-prod-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:eeH9782Cyzet@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias bajaj-prod-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:D2cYe2Fq8yJ5oVn@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 
 # Kubernetes Pods - Mobile DB
 alias local-mobile-db=''
-alias sibros-dev-mobile-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:y7cTYP72P5muZm2g@us-west-2-mobile-db-cluster.cluster-cmsezeuapyek.us-west-2.rds.amazonaws.com:5432/mobiledb'
-alias sibros-staging-mobile-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://postgres:Q2KU6Q3NLJ8xfRTM@us-west-2-mobile-db-cluster.cluster-cvwbr9hwsmni.us-west-2.rds.amazonaws.com:5432/mobiledb'
+alias sibros-dev-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:y7cTYP72P5muZm2g@us-west-2-mobile-db-cluster.cluster-cmsezeuapyek.us-west-2.rds.amazonaws.com:5432/mobiledb'
+alias sibros-staging-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://postgres:Q2KU6Q3NLJ8xfRTM@us-west-2-mobile-db-cluster.cluster-cvwbr9hwsmni.us-west-2.rds.amazonaws.com:5432/mobiledb'
 alias sibros-prod-mobile-db='echo to-be-added'
 alias lyft-prod-mobile-db='no-mobile-db-for-lyft'
-alias bajaj-prod-mobile-db='kubectl run -i --tty pgcli-mobile-db --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:9AsVciR8PRUNe4x@ap-south-1-mobile-db-cluster.cluster-c9ltpnagyuxt.ap-south-1.rds.amazonaws.com:5432/mobiledb'
+alias bajaj-prod-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:9AsVciR8PRUNe4x@ap-south-1-mobile-db-cluster.cluster-c9ltpnagyuxt.ap-south-1.rds.amazonaws.com:5432/mobiledb'
 alias sibros-demo-mobile-db='echo to-be-added'
 
 # Terraform Aliases
@@ -133,6 +141,7 @@ alias lyft-prod='cd /Users/smileprem/Code/sibros/infrastructure/aws/lyft/prod;ex
 alias lightyear-dev='cd /Users/smileprem/Code/sibros/infrastructure/aws/lightyear/dev;export AWS_PROFILE=lightyear-dev;kc lightyear-dev'
 alias harleydavidson-dev='cd /Users/smileprem/Code/sibros/infrastructure/aws/harleydavidson/dev;export AWS_PROFILE=harleydavidson-dev;kc harleydavidson-dev'
 alias bajaj-dev='cd /Users/smileprem/Code/sibros/infrastructure/aws/bajaj/dev;export AWS_PROFILE=bajaj-dev;kc bajaj-dev'
+alias jcb-dev='cd /Users/smileprem/Code/sibros/infrastructure/aws/jcb/dev;export AWS_PROFILE=jcb-dev;kc sibros-dev'
 
 # Azure Projects
 alias azbajaj='cd /Users/smileprem/Code/sibros/infrastructure/azure/bajaj/dev;az account set -s 47d0c041-5d78-4c12-8f4e-2363f798e807;'
@@ -151,13 +160,16 @@ alias reload='source ~/.zshrc'
 alias python=/usr/local/bin/python3
 alias pip=/usr/local/bin/pip3
 
+# Git aliases
+alias gcm='git checkout master; git pull'
+
 # Directory aliases
-alias fe=/Users/smileprem/Code/sibros/frontend
-alias be=/Users/smileprem/go/src/gitlab.com/sibros/cloud/backend
-alias infra=/Users/smileprem/Code/sibros/infrastructure
-alias not=/Users/smileprem/go/src/gitlab.com/sibros/cloud/notary
-alias plat=/Users/smileprem/Code/sibros/platform
-alias cred=/Users/smileprem/Documents/Sibros/Credentials
+alias fe='cd /Users/smileprem/Code/sibros/frontend'
+alias be='cd /Users/smileprem/go/src/gitlab.com/sibros/cloud/backend'
+alias infra='cd /Users/smileprem/Code/sibros/infrastructure'
+alias not='cd /Users/smileprem/go/src/gitlab.com/sibros/cloud/notary'
+alias plat='cd /Users/smileprem/Code/sibros/platform'
+alias cred='cd /Users/smileprem/Documents/Sibros/Credentials'
 
 # Make some possibly destructive commands more interactive.
 alias rm='rm -i'
