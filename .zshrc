@@ -97,7 +97,7 @@ alias sibros-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --imag
 alias sibros-staging-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:knd958vXDPzUkLv@us-west-2-rds-cluster.cluster-cvwbr9hwsmni.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias sibros-prod-olympus-db='echo no olympus db for sibros prod'
 alias sibros-demo-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:LvV77YxRvHMBk9FG@us-west-2-rds-cluster.cluster-c6aj9ugrsy9v.us-west-2.rds.amazonaws.com:5432/cloudapi'
-alias bajaj-dev-olympus-db='echo no olympus db for bajaj dev'
+alias bajaj-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:66FeBcuHFvX4acT9@ap-south-1-rds-cluster-instance-0.cszdn7qvjkhc.ap-south-1.rds.amazonaws.com:5432/cloudapi'
 alias bajaj-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:12Ykl8st8QVDK0J@ap-south-1-olympus-cluster.cluster-c9ltpnagyuxt.ap-south-1.rds.amazonaws.com:5432/cloudapi'
 alias lyft-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:naW4GXjrmZ328Bf@us-west-2-rds-cluster-olympus.cluster-cq7fqrw6ubxv.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias lightyear-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:66FeBcuHFvX4acT9@eu-central-1-rds-cluster.cluster-cohrmnxfrmlt.eu-central-1.rds.amazonaws.com:5432/cloudapi'
@@ -110,7 +110,7 @@ alias sibros-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --
 alias sibros-staging-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:FTjM04UwyFcp7lF@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 alias sibros-prod-timescale-db='echo no timescale db for sibros prod'
 alias sibros-demo-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:22mQfbymLtDKyF3Z@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
-alias bajaj-dev-timescale-db='echo no timescale db for bajaj dev'
+alias bajaj-dev-timescale-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:13mQfbymLtDKyF3U@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
 alias bajaj-prod-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:D2cYe2Fq8yJ5oVn@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 alias lyft-prod-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:eeH9782Cyzet@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 alias lightyear-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:DVqXwcB36EgVVubg@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
@@ -123,7 +123,7 @@ alias sibros-dev-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=
 alias sibros-staging-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://postgres:Q2KU6Q3NLJ8xfRTM@us-west-2-mobile-db-cluster.cluster-cvwbr9hwsmni.us-west-2.rds.amazonaws.com:5432/mobiledb'
 alias sibros-prod-mobile-db='echo no mobile db for sibros prod'
 alias sibros-demo-mobile-db='echo no mobile db for sibros demo'
-alias bajaj-dev-mobile-db='echo no mobile db for bajaj prod'
+alias bajaj-dev-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:13mQfbymLtDKyF3U@ap-south-1-rds-cluster-instance-0.cszdn7qvjkhc.ap-south-1.rds.amazonaws.com:5432/mobiledb'
 alias bajaj-prod-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:9AsVciR8PRUNe4x@ap-south-1-mobile-db-cluster.cluster-c9ltpnagyuxt.ap-south-1.rds.amazonaws.com:5432/mobiledb'
 alias lyft-prod-mobile-db='echo no mobile db for lyft prod'
 alias lightyear-dev-mobile-db='echo no mobile db for lightyear-dev'
@@ -169,6 +169,7 @@ alias flushdns='sudo killall -HUP mDNSResponder'
 alias proto='rm -rf ~/protodot/ && protodot -src ~/go/src/gitlab.com/sibros/cloud/backend/interop/proto/sibros/deep_logger/live_logger.proto -output live_logger && protodot -src ~/go/src/gitlab.com/sibros/cloud/backend/interop/proto/sibros/deep_updater/cloud.proto && protodot -src ~/go/src/gitlab.com/sibros/cloud/backend/interop/proto/sibros/deep_updater/uptane.proto && protodot -src ~/go/src/gitlab.com/sibros/cloud/backend/interop/proto/customers/lyft/*.proto'
 alias profile='code /Users/smileprem/Code/personal/dotfiles/.zshrc'
 alias reload='source ~/.zshrc'
+alias chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
 
 # Python aliases
 alias python=/usr/local/bin/python3
@@ -190,15 +191,14 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias cp='cp -i'
 
-# Make grep more user friendly by highlighting matches
-# and exclude grepping through .svn folders.
-alias grep='grep --color=auto --exclude-dir=\.git'
-
-# Functions
+# Utility Functions
 print_tls() {
-  echo | openssl s_client -connect $1:443 < /dev/null 2>/dev/null | openssl x509 -noout -text
+  echo | openssl s_client -connect $1:443 -showcerts -servername $1
 }
 
+cer_to_pem() {
+  openssl x509 -inform der -in $1 -out $1.pem
+}
 
 # The next line enables shell command completion for gcloud.
 if [ -f '/Users/smileprem/Softwares/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/smileprem/Softwares/google-cloud-sdk/completion.zsh.inc'; fi
