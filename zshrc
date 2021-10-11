@@ -192,12 +192,20 @@ alias mv='mv -i'
 alias cp='cp -i'
 
 # Utility Functions
+dns() {
+  nslookup -debug $1
+}
+
 print_tls() {
   echo | openssl s_client -connect $1:443 -showcerts -servername $1
 }
 
 cer_to_pem() {
   openssl x509 -inform der -in $1 -out $1.pem
+}
+
+pem_to_der() {
+  openssl x509 -inform pem -in $1 -outform der -out $1.der
 }
 
 # The next line enables shell command completion for gcloud.
