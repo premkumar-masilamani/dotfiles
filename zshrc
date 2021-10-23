@@ -6,14 +6,14 @@ bindkey -v
 # End of lines configured by zsh-newuser-install
 
 # The following lines were added by compinstall
-zstyle :compinstall filename '/Users/smileprem/.zshrc'
+zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
 
 # ZSH Prompt
 source <(kubectl completion zsh)
-source /Users/smileprem/Code/personal/kube-ps1/kube-ps1.sh
+source ~/Code/personal/kube-ps1/kube-ps1.sh
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
@@ -23,29 +23,14 @@ setopt prompt_subst
 
 PROMPT='%F{41}%~%f ${vcs_info_msg_0_} $(kube_ps1) '
 
-
 # ZSH Utilities
-source /Users/smileprem/Library/Preferences/org.dystroy.broot/launcher/bash/br
+source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
 # Path Settings
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH=~/.cargo/bin:~/.poetry/bin:~/Softwares:~/Softwares/google-cloud-sdk/bin:/usr/local/opt/llvm@8/bin:/Users/smileprem/bin:/Users/smileprem/bin/gcc-arm-none-eabi-8-2019-q3-update/bin:/Users/smileprem/.local/bin:${KREW_ROOT:-$HOME/.krew}/bin:$GOROOT:$GOROOT/bin:$GOPATH:$GOPATH/bin:$GOBIN:$PATH
-
-# Google Backend API Configurations
-export GOOGLE_APPLICATION_CREDENTIALS=/Users/smileprem/Documents/Sibros/Credentials/sibros-staging-259522-cloud-development.json
-export PROJECT_ID=sibros-staging-259522
-export BUCKET_APPSPOT=sibros-staging-259522.appspot.com
-export BUCKET_RAW_LOGS=sibros-staging-raw-logs
-export BUCKET_RAW_DASHBOARD_LOGS=sibros-staging-proto-dashboard-logs
-export KMS_KEY_RING=staging
-export KMS_KEY_LOCATION=global
-export KMS_KEY=cloud_key
-export ENCODED_FILE=sibros-staging.enc
-
-#export SERVICE_CONFIG_PATH=/Users/smileprem/go/src/gitlab.com/sibros/cloud/backend/services/cloudapi/config/config.local.yaml
-#export ATLAS_CONFIG_PATH=/Users/smileprem/go/src/gitlab.com/sibros/cloud/backend/services/atlas/config/config.local.yaml
+export PATH=~/.cargo/bin:~/.poetry/bin:~/.krew/bin:~/Softwares:~/Softwares/google-cloud-sdk/bin:/usr/local/opt/llvm@8/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/ncurses/bin:$GOROOT:$GOROOT/bin:$GOPATH:$GOPATH/bin:$GOBIN:$PATH
 
 # Gitlab CI config
 export GITLAB_USER=smileprem@gitlab.com
@@ -103,6 +88,8 @@ alias lyft-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image
 alias lightyear-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:66FeBcuHFvX4acT9@eu-central-1-rds-cluster.cluster-cohrmnxfrmlt.eu-central-1.rds.amazonaws.com:5432/cloudapi'
 alias harleydavidson-dev-olympus-db='echo no olympus db for harleydavidson-dev'
 alias jcb-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:MAJLbvrX7fmpg4hm@us-west-2-rds-cluster.cluster-c0gcpiz6bgpx.us-west-2.rds.amazonaws.com:5432/cloudapi'
+alias proterra-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:32bjH7dOgS3VlusZ@us-west-2-rds-cluster.cluster-cgkpne9hd04r.us-west-2.rds.amazonaws.com:5432/cloudapi'
+alias ktm-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:Yk2Fr3zZk82TrsuK@us-west-2-rds-cluster.cluster-csxrawazdvuw.us-west-2.rds.amazonaws.com:5432/cloudapi'
 
 # Kubernetes Pods - Timescale DB
 alias local-timescale-db='pgcli "postgres://timescale_user:timescale_password@localhost:5433/postgres?sslmode=disable"'
@@ -116,6 +103,8 @@ alias lyft-prod-timescale-db='kubectl run -i --tty timescale-db-client-$USER --i
 alias lightyear-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:DVqXwcB36EgVVubg@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
 alias harleydavidson-dev-timescale-db='echo no timescale db for harleydavidson-dev'
 alias jcb-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:C5vZjFgrhPsjmCCY@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
+alias proterra-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:4MWGl3jOuUNqaR63@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
+alias ktm-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:76IUfbymLtDKyHU7@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
 
 # Kubernetes Pods - Mobile DB
 alias local-mobile-db='pgcli "postgres://mobile_user:mobile_password@localhost:5434/mobiledb?sslmode=disable"'
@@ -129,6 +118,8 @@ alias lyft-prod-mobile-db='echo no mobile db for lyft prod'
 alias lightyear-dev-mobile-db='echo no mobile db for lightyear-dev'
 alias harleydavidson-dev-mobile-db='echo no mobile db for harleydavidson-dev'
 alias jcb-dev-mobile-db='echo no mobile db for jcb-dev'
+alias proterra-dev-mobile-db='echo no mobile db for proterra-dev'
+alias ktm-dev-mobile-db='echo no mobile db for ktm-dev'
 
 # Terraform Aliases
 alias t='terraform'
@@ -137,28 +128,33 @@ alias tp='terraform plan'
 alias ta='terraform apply'
 
 # AWS Projects
-alias sibros-master='cd /Users/smileprem/Code/sibros/infrastructure/aws/sibros/master;export AWS_PROFILE=sibros-master;kubectl config unset current-context'
-alias sibros-logarchive='cd /Users/smileprem/Code/sibros/infrastructure/aws/sibros/logarchive;export AWS_PROFILE=sibros-logarchive;kubectl config unset current-context'
-alias sibros-audit='cd /Users/smileprem/Code/sibros/infrastructure/aws/sibros/audit;export AWS_PROFILE=sibros-audit;kubectl config unset current-context'
-alias sibros-infra='cd /Users/smileprem/Code/sibros/infrastructure/aws/sibros/infra;export AWS_PROFILE=sibros-infra;kubectl config unset current-context'
-alias sibros-interview='cd /Users/smileprem/Code/sibros/infrastructure/aws/sibros/interview;export AWS_PROFILE=sibros-interview;kubectl config unset current-context'
+alias sibros-master='cd ~/Code/sibros/infrastructure/aws/sibros/master;export AWS_PROFILE=sibros-master;kubectl config unset current-context'
+alias sibros-logarchive='cd ~/Code/sibros/infrastructure/aws/sibros/logarchive;export AWS_PROFILE=sibros-logarchive;kubectl config unset current-context'
+alias sibros-audit='cd ~/Code/sibros/infrastructure/aws/sibros/audit;export AWS_PROFILE=sibros-audit;kubectl config unset current-context'
+alias sibros-infra='cd ~/Code/sibros/infrastructure/aws/sibros/infra;export AWS_PROFILE=sibros-infra;kubectl config unset current-context'
+alias sibros-interview='cd ~/Code/sibros/infrastructure/aws/sibros/interview;export AWS_PROFILE=sibros-interview;kubectl config unset current-context'
 
-alias sibros-dev='cd /Users/smileprem/Code/sibros/infrastructure/aws/sibros/dev;export AWS_PROFILE=sibros-dev;kc sibros-dev'
-alias sibros-staging='cd /Users/smileprem/Code/sibros/infrastructure/aws/sibros/staging;export AWS_PROFILE=sibros-staging;kc sibros-staging'
-alias sibros-prod='cd /Users/smileprem/Code/sibros/infrastructure/aws/sibros/prod;export AWS_PROFILE=sibros-prod;kubectl config unset current-context'
-alias sibros-demo='cd /Users/smileprem/Code/sibros/infrastructure/aws/sibros/demo;export AWS_PROFILE=sibros-demo;kc sibros-demo'
+alias sibros-dev='cd ~/Code/sibros/infrastructure/aws/sibros/dev;export AWS_PROFILE=sibros-dev;kc sibros-dev'
+alias sibros-staging='cd ~/Code/sibros/infrastructure/aws/sibros/staging;export AWS_PROFILE=sibros-staging;kc sibros-staging'
+alias sibros-prod='cd ~/Code/sibros/infrastructure/aws/sibros/prod;export AWS_PROFILE=sibros-prod;kubectl config unset current-context'
+alias sibros-demo='cd ~/Code/sibros/infrastructure/aws/sibros/demo;export AWS_PROFILE=sibros-demo;kc sibros-demo'
 
-alias bajaj-dev='cd /Users/smileprem/Code/sibros/infrastructure/aws/bajaj/dev;export AWS_PROFILE=bajaj-dev;kc bajaj-dev'
-alias bajaj-prod='cd /Users/smileprem/Code/sibros/infrastructure/aws/bajaj/prod;export AWS_PROFILE=bajaj-prod;kc bajaj-prod'
+alias bajaj-dev='cd ~/Code/sibros/infrastructure/aws/bajaj/dev;export AWS_PROFILE=bajaj-dev;kc bajaj-dev'
+alias bajaj-prod='cd ~/Code/sibros/infrastructure/aws/bajaj/prod;export AWS_PROFILE=bajaj-prod;kc bajaj-prod'
 
-alias lyft-prod='cd /Users/smileprem/Code/sibros/infrastructure/aws/lyft/prod;export AWS_PROFILE=lyft-prod;kc lyft-prod'
-alias lightyear-dev='cd /Users/smileprem/Code/sibros/infrastructure/aws/lightyear/dev;export AWS_PROFILE=lightyear-dev;kc lightyear-dev'
-alias harleydavidson-dev='cd /Users/smileprem/Code/sibros/infrastructure/aws/harleydavidson/dev;export AWS_PROFILE=harleydavidson-dev;kc harleydavidson-dev'
-alias jcb-dev='cd /Users/smileprem/Code/sibros/infrastructure/aws/jcb/dev;export AWS_PROFILE=jcb-dev;kc jcb-dev'
+alias lyft-prod='cd ~/Code/sibros/infrastructure/aws/lyft/prod;export AWS_PROFILE=lyft-prod;kc lyft-prod'
+alias lightyear-dev='cd ~/Code/sibros/infrastructure/aws/lightyear/dev;export AWS_PROFILE=lightyear-dev;kc lightyear-dev'
+alias harleydavidson-dev='cd ~/Code/sibros/infrastructure/aws/harleydavidson/dev;export AWS_PROFILE=harleydavidson-dev;kc harleydavidson-dev'
+alias jcb-dev='cd ~/Code/sibros/infrastructure/aws/jcb/dev;export AWS_PROFILE=jcb-dev;kc jcb-dev'
+alias proterra-dev='cd ~/Code/sibros/infrastructure/aws/proterra/dev;export AWS_PROFILE=proterra-dev;kc proterra-dev'
+alias ktm-dev='cd ~/Code/sibros/infrastructure/aws/ktm/dev;export AWS_PROFILE=ktm-dev;kc ktm-dev'
+
+# GCP Projects
+alias ford-dev-gcp='cd ~/Code/sibros/infrastructure/gcp/ford/dev;gcloud config set project ford-dev-329523;kubectl config unset current-context'
 
 # Azure Projects
-alias azbajaj='cd /Users/smileprem/Code/sibros/infrastructure/azure/bajaj/dev;az account set -s 47d0c041-5d78-4c12-8f4e-2363f798e807;'
-alias azdev='cd /Users/smileprem/Code/sibros/infrastructure/azure/sibros/dev;az account set -s 9b72bbcd-7e7b-48b0-acda-14e60a9de11e;'
+alias azbajaj='cd ~/Code/sibros/infrastructure/azure/bajaj/dev;az account set -s 47d0c041-5d78-4c12-8f4e-2363f798e807;'
+alias azdev='cd ~/Code/sibros/infrastructure/azure/sibros/dev;az account set -s 9b72bbcd-7e7b-48b0-acda-14e60a9de11e;'
 
 # Utility Softwares
 alias top='htop'
@@ -167,7 +163,7 @@ alias help='tldr'
 alias ping='prettyping --nolegend'
 alias flushdns='sudo killall -HUP mDNSResponder'
 alias proto='rm -rf ~/protodot/ && protodot -src ~/go/src/gitlab.com/sibros/cloud/backend/interop/proto/sibros/deep_logger/live_logger.proto -output live_logger && protodot -src ~/go/src/gitlab.com/sibros/cloud/backend/interop/proto/sibros/deep_updater/cloud.proto && protodot -src ~/go/src/gitlab.com/sibros/cloud/backend/interop/proto/sibros/deep_updater/uptane.proto && protodot -src ~/go/src/gitlab.com/sibros/cloud/backend/interop/proto/customers/lyft/*.proto'
-alias profile='code /Users/smileprem/Code/personal/dotfiles/.zshrc'
+alias profile='code ~/.zshrc'
 alias reload='source ~/.zshrc'
 alias chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
 
@@ -179,12 +175,12 @@ alias pip=/usr/local/bin/pip3
 alias gcm='git checkout master; git pull'
 
 # Directory aliases
-alias fe='cd /Users/smileprem/Code/sibros/frontend'
-alias be='cd /Users/smileprem/go/src/gitlab.com/sibros/cloud/backend'
-alias infra='cd /Users/smileprem/Code/sibros/infrastructure'
-alias not='cd /Users/smileprem/go/src/gitlab.com/sibros/cloud/notary'
-alias plat='cd /Users/smileprem/Code/sibros/platform'
-alias cred='cd /Users/smileprem/Documents/Sibros/Credentials'
+alias fe='cd ~/Code/sibros/frontend'
+alias be='cd ~/go/src/gitlab.com/sibros/cloud/backend'
+alias infra='cd ~/Code/sibros/infrastructure'
+alias not='cd ~/go/src/gitlab.com/sibros/cloud/notary'
+alias plat='cd ~/Code/sibros/platform'
+alias cred='cd ~/Documents/Sibros/Credentials'
 
 # Make some possibly destructive commands more interactive.
 alias rm='rm -i'
@@ -207,18 +203,3 @@ cer_to_pem() {
 pem_to_der() {
   openssl x509 -inform pem -in $1 -outform der -out $1.der
 }
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/smileprem/Softwares/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/smileprem/Softwares/google-cloud-sdk/completion.zsh.inc'; fi
-
-export PATH=$PATH:/usr/local/Cellar/llvm@8/8.0.1/bin
-export PATH=$PATH:/Users/smileprem/.gem/ruby/2.6.0/bin
-export PATH=$PATH:/Users/smileprem/.local/bin
-export PATH="/usr/local/opt/openjdk/bin:$PATH"
-export PATH=$PATH:/usr/local/anaconda3/bin
-export PATH=/usr/local/opt/llvm@8/bin:$PATH
-export PATH=$PATH:/Users/smileprem/bin
-export PATH=$PATH:/Users/smileprem/bin/gcc-arm-none-eabi-8-2019-q3-update/bin
-export PATH=$PATH:/Library/Tex/texbin
-export PATH="/usr/local/opt/ncurses/bin:$PATH"
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
