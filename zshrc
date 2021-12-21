@@ -30,7 +30,7 @@ source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH=~/.cargo/bin:~/.poetry/bin:~/.krew/bin:~/Softwares:~/Softwares/google-cloud-sdk/bin:/usr/local/opt/llvm@8/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/ncurses/bin:$GOROOT:$GOROOT/bin:$GOPATH:$GOPATH/bin:$GOBIN:$PATH
+export PATH=~/.cargo/bin:~/.poetry/bin:~/.krew/bin:~/Softwares:~/Softwares/google-cloud-sdk/bin:/usr/local/opt/llvm@8/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/ncurses/bin:$GOROOT:$GOROOT/bin:$GOPATH:$GOPATH/bin:$GOBIN:/usr/local/opt/berkeley-db@4/bin:/usr/local/opt/sqlite/bin:$PATH
 
 # Gitlab CI config
 export GITLAB_USER=smileprem@gitlab.com
