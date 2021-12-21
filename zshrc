@@ -52,6 +52,7 @@ alias ktp='kubectl top pods --containers'
 alias ktn='kubectl top nodes'
 alias knp='kubectl get pod -o=custom-columns=NODE:.spec.nodeName,NAME:.metadata.name --all-namespaces'
 alias knr='kubectl get nodes --no-headers | awk '\''{print $1}'\'' | xargs -I {} sh -c '\''echo {} ; kubectl describe node {} | grep Allocated -A 5 | grep -ve Event -ve Allocated -ve percent -ve -- ; echo '\'''
+alias k8dash='kubectl port-forward service/k8dash 4654:4654 -n sibros-apps'
 
 # Kubernetes App Logs
 alias klo='kubectl logs -f deployments/olympus -n sibros-apps'
@@ -71,6 +72,7 @@ alias klhm='kubectl logs -f deployments/hasura-graphql-mobile -n sibros-apps'
 
 # Kubernetes Infra Logs
 alias kln='kubectl logs -f deployments/nginx-ingress-controller -n sibros-infra'
+alias klnp='kubectl logs deployments/nginx-ingress-controller -n sibros-infra | jq -r ". | [(.timestamp),(.http.request.method),(.http.response.status_code),(.http.upstream.status_code),(.url.original)] | @csv" | column -t -s,'
 alias klca='kubectl logs -f deployments/cluster-autoscaler -n kube-system'
 
 # Kubernetes Pods - General
@@ -104,7 +106,7 @@ alias lightyear-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER
 alias harleydavidson-dev-timescale-db='echo no timescale db for harleydavidson-dev'
 alias jcb-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:C5vZjFgrhPsjmCCY@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
 alias proterra-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:4MWGl3jOuUNqaR63@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
-alias ktm-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:76IUfbymLtDKyHU7@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
+alias ktm-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:76IUfbymLtDKyHU7@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 
 # Kubernetes Pods - Mobile DB
 alias local-mobile-db='pgcli "postgres://mobile_user:mobile_password@localhost:5434/mobiledb?sslmode=disable"'
@@ -131,7 +133,7 @@ alias ta='terraform apply'
 alias sibros-master='cd ~/Code/sibros/infrastructure/aws/sibros/master;export AWS_PROFILE=sibros-master;kubectl config unset current-context'
 alias sibros-logarchive='cd ~/Code/sibros/infrastructure/aws/sibros/logarchive;export AWS_PROFILE=sibros-logarchive;kubectl config unset current-context'
 alias sibros-audit='cd ~/Code/sibros/infrastructure/aws/sibros/audit;export AWS_PROFILE=sibros-audit;kubectl config unset current-context'
-alias sibros-infra='cd ~/Code/sibros/infrastructure/aws/sibros/infra;export AWS_PROFILE=sibros-infra;kubectl config unset current-context'
+alias sibros-infra='cd ~/Code/sibros/infrastructure/aws/sibros/infra;export AWS_PROFILE=sibros-infra;kc sibros-infra'
 alias sibros-interview='cd ~/Code/sibros/infrastructure/aws/sibros/interview;export AWS_PROFILE=sibros-interview;kubectl config unset current-context'
 
 alias sibros-dev='cd ~/Code/sibros/infrastructure/aws/sibros/dev;export AWS_PROFILE=sibros-dev;kc sibros-dev'
@@ -148,13 +150,19 @@ alias harleydavidson-dev='cd ~/Code/sibros/infrastructure/aws/harleydavidson/dev
 alias jcb-dev='cd ~/Code/sibros/infrastructure/aws/jcb/dev;export AWS_PROFILE=jcb-dev;kc jcb-dev'
 alias proterra-dev='cd ~/Code/sibros/infrastructure/aws/proterra/dev;export AWS_PROFILE=proterra-dev;kc proterra-dev'
 alias ktm-dev='cd ~/Code/sibros/infrastructure/aws/ktm/dev;export AWS_PROFILE=ktm-dev;kc ktm-dev'
+alias ford-dev='cd ~/Code/sibros/infrastructure/aws/ford/dev;export AWS_PROFILE=ford-dev;kc ford-dev'
 
 # GCP Projects
 alias ford-dev-gcp='cd ~/Code/sibros/infrastructure/gcp/ford/dev;gcloud config set project ford-dev-329523;kubectl config unset current-context'
+alias sibros-simulation='cd ~/Code/sibros/infrastructure;gcloud config set project sibros-simulation;kc sibros-simulation'
 
 # Azure Projects
 alias azbajaj='cd ~/Code/sibros/infrastructure/azure/bajaj/dev;az account set -s 47d0c041-5d78-4c12-8f4e-2363f798e807;'
 alias azdev='cd ~/Code/sibros/infrastructure/azure/sibros/dev;az account set -s 9b72bbcd-7e7b-48b0-acda-14e60a9de11e;'
+
+# Elastic Cloud Projects
+export EC_API_KEY="TUtqY3lId0I2MVRQUUF4cEZqdjY6dm1qcTJqM3ZUVFNudUV0dURLNUpXZw=="
+alias elastic-cloud='cd ~/Code/sibros/infrastructure/ec;export AWS_PROFILE=sibros-infra;kubectl config unset current-context'
 
 # Utility Softwares
 alias top='htop'
