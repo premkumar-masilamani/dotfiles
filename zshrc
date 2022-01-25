@@ -26,11 +26,26 @@ PROMPT='%F{41}%~%f ${vcs_info_msg_0_} $(kube_ps1) '
 # ZSH Utilities
 source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
-# Path Settings
+# Go Path Variables
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export PATH=~/.cargo/bin:~/.poetry/bin:~/.krew/bin:~/Softwares:~/Softwares/google-cloud-sdk/bin:/usr/local/opt/llvm@8/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/ncurses/bin:$GOROOT:$GOROOT/bin:$GOPATH:$GOPATH/bin:$GOBIN:/usr/local/opt/berkeley-db@4/bin:/usr/local/opt/sqlite/bin:$PATH
+export PATH=$GOROOT/bin:$GOPATH/bin:$GOBIN:$PATH
+
+# Rust Cargo Path Variables
+export PATH=~/.cargo/bin:$PATH
+
+# Python Poetry Path Variables
+export PATH=~/.poetry/bin:$PATH
+
+# Kubectl Krew Path Variables
+export PATH=~/.krew/bin:$PATH
+
+# Custom Software Path Variables
+export PATH=~/Softwares:~/Softwares/google-cloud-sdk/bin:$PATH
+
+# Local Path Variables
+export PATH=/usr/local/opt/llvm@8/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/ncurses/bin:/usr/local/opt/berkeley-db@4/bin:/usr/local/opt/sqlite/bin:$PATH
 
 # Gitlab CI config
 export GITLAB_USER=smileprem@gitlab.com
@@ -88,10 +103,11 @@ alias bajaj-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image
 alias bajaj-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:12Ykl8st8QVDK0J@ap-south-1-olympus-cluster.cluster-c9ltpnagyuxt.ap-south-1.rds.amazonaws.com:5432/cloudapi'
 alias lyft-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:naW4GXjrmZ328Bf@us-west-2-rds-cluster-olympus.cluster-cq7fqrw6ubxv.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias lightyear-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:66FeBcuHFvX4acT9@eu-central-1-rds-cluster.cluster-cohrmnxfrmlt.eu-central-1.rds.amazonaws.com:5432/cloudapi'
-alias harleydavidson-dev-olympus-db='echo no olympus db for harleydavidson-dev'
+alias harleydavidson-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:tR4nEZ3LLQ9megW@us-west-2-rds-cluster.cluster-cfnrfjlfmtge.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias jcb-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:MAJLbvrX7fmpg4hm@us-west-2-rds-cluster.cluster-c0gcpiz6bgpx.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias proterra-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:32bjH7dOgS3VlusZ@us-west-2-rds-cluster.cluster-cgkpne9hd04r.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias ktm-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:Yk2Fr3zZk82TrsuK@us-west-2-rds-cluster.cluster-csxrawazdvuw.us-west-2.rds.amazonaws.com:5432/cloudapi'
+alias ford-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:MxK2s6ZYpeE9jqAW@us-west-2-rds-cluster.cluster-cfskchm9bcsh.us-west-2.rds.amazonaws.com:5432/cloudapi'
 
 # Kubernetes Pods - Timescale DB
 alias local-timescale-db='pgcli "postgres://timescale_user:timescale_password@localhost:5433/postgres?sslmode=disable"'
@@ -103,10 +119,11 @@ alias bajaj-dev-timescale-db='kubectl run -i --tty pgsql-client --image=pygmy/pg
 alias bajaj-prod-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:D2cYe2Fq8yJ5oVn@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 alias lyft-prod-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:eeH9782Cyzet@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 alias lightyear-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:DVqXwcB36EgVVubg@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
-alias harleydavidson-dev-timescale-db='echo no timescale db for harleydavidson-dev'
+alias harleydavidson-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:KjlIrv48N3SUgrj@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 alias jcb-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:C5vZjFgrhPsjmCCY@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
 alias proterra-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:4MWGl3jOuUNqaR63@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
 alias ktm-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:76IUfbymLtDKyHU7@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias ford-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:ffyG8N5xS2HwgZPW@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 
 # Kubernetes Pods - Mobile DB
 alias local-mobile-db='pgcli "postgres://mobile_user:mobile_password@localhost:5434/mobiledb?sslmode=disable"'
@@ -122,10 +139,12 @@ alias harleydavidson-dev-mobile-db='echo no mobile db for harleydavidson-dev'
 alias jcb-dev-mobile-db='echo no mobile db for jcb-dev'
 alias proterra-dev-mobile-db='echo no mobile db for proterra-dev'
 alias ktm-dev-mobile-db='echo no mobile db for ktm-dev'
+alias ford-dev-mobile-db='echo no mobile db for ford-dev'
 
 # Terraform Aliases
 alias t='terraform'
 alias ti='terraform init'
+alias tiu='terraform init -upgrade'
 alias tp='terraform plan'
 alias ta='terraform apply'
 
@@ -153,7 +172,7 @@ alias ktm-dev='cd ~/Code/sibros/infrastructure/aws/ktm/dev;export AWS_PROFILE=kt
 alias ford-dev='cd ~/Code/sibros/infrastructure/aws/ford/dev;export AWS_PROFILE=ford-dev;kc ford-dev'
 
 # GCP Projects
-alias ford-dev-gcp='cd ~/Code/sibros/infrastructure/gcp/ford/dev;gcloud config set project ford-dev-329523;kubectl config unset current-context'
+alias ford-dev-gcp='cd ~/Code/sibros/infrastructure/gcp/ford/dev;gcloud config set project ford-dev-329523;kc cluster-1'
 alias sibros-simulation='cd ~/Code/sibros/infrastructure;gcloud config set project sibros-simulation;kc sibros-simulation'
 
 # Azure Projects
@@ -190,10 +209,8 @@ alias not='cd ~/go/src/gitlab.com/sibros/cloud/notary'
 alias plat='cd ~/Code/sibros/platform'
 alias cred='cd ~/Documents/Sibros/Credentials'
 
-# Make some possibly destructive commands more interactive.
-alias rm='rm -i'
-alias mv='mv -i'
-alias cp='cp -i'
+# Bitcoin aliases
+alias btc='bitcoind -disablewallet -datadir=/Volumes/Prem/Bitcoin/FullNode'
 
 # Utility Functions
 dns() {
