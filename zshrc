@@ -214,17 +214,19 @@ alias du='ncdu --color dark -rr -x'
 alias help='tldr'
 alias ping='prettyping --nolegend'
 alias flushdns='sudo killall -HUP mDNSResponder'
-alias proto='rm -rf ~/protodot/ && \
-protodot -src ~/Code/sibros/interop/proto/sibros/deep_logger/*.proto -output deep_logger && \
+alias proto='cd ~ && rm -rf ~/protodot/generated/*.* && \
+protodot -src ~/Code/sibros/interop/proto/sibros/deep_logger/live_logger.proto -output deep_logger && \
 protodot -src ~/Code/sibros/interop/proto/sibros/deep_updater/cloud.proto -output deep_updater && \
 protodot -src ~/Code/sibros/interop/proto/sibros/deep_updater/uptane.proto -output uptane && \
-protodot -src ~/Code/sibros/interop/proto/sibros/command_manager/*.proto -output command_manager && \
-protodot -src ~/Code/sibros/interop/proto/sibros/command_manager/j1939/*.proto -output command_manager_j1939 && \
-protodot -src ~/Code/sibros/interop/proto/sibros/command_manager/uds/*.proto -output command_manager_uds && \
-protodot -src ~/Code/sibros/interop/proto/sibros/command_manager/wifi/*.proto -output command_manager_wifi && \
-protodot -src ~/Code/sibros/interop/proto/sibros/decoder_id_manager/*.proto -output decoder_id_manager && \
+protodot -src ~/Code/sibros/interop/proto/sibros/command_manager/command_manager.proto -output command_manager && \
+protodot -src ~/Code/sibros/interop/proto/sibros/command_manager/j1939/command_manager_j1939.proto -output command_manager_j1939 && \
+protodot -src ~/Code/sibros/interop/proto/sibros/command_manager/uds/command_manager_uds.proto -output command_manager_uds && \
+protodot -src ~/Code/sibros/interop/proto/sibros/command_manager/wifi/command_manager_wifi.proto -output command_manager_wifi && \
+protodot -src ~/Code/sibros/interop/proto/sibros/decoder_id_manager/decoder_id_manager.proto -output decoder_id_manager && \
+protodot -src ~/Code/sibros/interop/proto/sibros/device/device_info.proto -output device && \
+protodot -src ~/Code/sibros/interop/proto/customers/lyft/heartbeat.proto -output lyft && \
 protodot -src ~/go/src/gitlab.com/sibros/cloud/backend/services/serverless/proto/payload.proto -output data_streaming && \
-protodot -src ~/Code/sibros/interop/proto/customers/lyft/*.proto -output lyft'
+rm -rf ~/protodot/generated/*.dot && cd -'
 alias profile='code ~/.zshrc'
 alias reload='source ~/.zshrc'
 alias chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
