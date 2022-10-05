@@ -11,4 +11,5 @@ ln -sf /Users/smileprem/Code/personal/dotfiles/protodot/config.json ~/config.jso
 
 # Configure Homebrew
 #brew bundle dump
-brew bundle install --file /Users/smileprem/Code/personal/dotfiles/homebrew/Brewfile
+#brew bundle --force cleanup
+cd /Users/smileprem/Code/personal/dotfiles/homebrew && brew bundle install

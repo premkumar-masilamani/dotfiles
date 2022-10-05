@@ -31,7 +31,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Go Path Variables (install from package, not using brew)
 export GOPATH=$HOME/go
-export GOROOT=/usr/homebrew/bin/go
+export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Rust Cargo Path Variables
