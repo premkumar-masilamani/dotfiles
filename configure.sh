@@ -8,3 +8,7 @@ ln -sf /Users/smileprem/Code/personal/dotfiles/alacritty/alacritty.yml ~/.alacri
 
 # Configure Prododot
 ln -sf /Users/smileprem/Code/personal/dotfiles/protodot/config.json ~/config.json
+
+# Configure Homebrew
+#brew bundle dump
+brew bundle install --file /Users/smileprem/Code/personal/dotfiles/homebrew/Brewfile

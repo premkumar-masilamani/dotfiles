@@ -26,9 +26,12 @@ PROMPT='%F{41}%~%f ${vcs_info_msg_0_} $(kube_ps1) '
 # ZSH Utilities
 source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
 
+# Set PATH, MANPATH, etc., for Homebrew.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
 # Go Path Variables (install from package, not using brew)
 export GOPATH=$HOME/go
-export GOROOT=/usr/local/go
+export GOROOT=/usr/homebrew/bin/go
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 
 # Rust Cargo Path Variables
@@ -44,7 +47,7 @@ export PATH=~/.krew/bin:$PATH
 export PATH=~/Softwares:~/Softwares/google-cloud-sdk/bin:$PATH
 
 # Local Path Variables
-export PATH=/usr/local/opt/llvm@8/bin:/usr/local/opt/openjdk/bin:/usr/local/opt/ncurses/bin:/usr/local/opt/berkeley-db@4/bin:/usr/local/opt/sqlite/bin:/usr/local/opt/libxml2/bin:$PATH
+export PATH=/usr/homebrew/opt/openjdk/bin:/usr/homebrew/opt/ncurses/bin:/usr/homebrew/opt/berkeley-db@4/bin:/usr/homebrew/opt/sqlite/bin:/usr/homebrew/opt/libxml2/bin:$PATH
 
 # Gitlab CI config
 export GITLAB_USER=smileprem@gitlab.com
@@ -56,6 +59,13 @@ export WORKSPACE_ID=57915
 export API_KEY=ee5e5955-ada9-4ab8-b477-1e1ef6267721
 export API_SECRET=b4c24d81-035f-4086-a7c9-7f0814295239
 export WORKSPACE_FILE=workspace.dsl
+
+
+# Rust Aliases
+alias rustbook='rustup docs --book'
+
+# Mac OS Aliases
+alias vm='open ~/Library/Application\ Support/com.apple.voicememos'
 
 # Docker Aliases
 alias gpg='docker run -it --rm -u $(id -u):$(id -g) -e HOME -v "$HOME":"$HOME" -v "$(pwd)":"$(pwd)" -w "$(pwd)" dockerizedtools/gpg:2.2.20'
@@ -111,6 +121,7 @@ alias local-olympus-db='pgcli "postgres://postgres_user:postgres_password@localh
 alias sibros-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:Cs6h2qwI6V4Ypfg@us-west-2-rds-cluster.cluster-cmsezeuapyek.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias sibros-staging-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:knd958vXDPzUkLv@us-west-2-rds-cluster.cluster-cvwbr9hwsmni.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias sibros-demo-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:LvV77YxRvHMBk9FG@us-west-2-rds-cluster.cluster-c6aj9ugrsy9v.us-west-2.rds.amazonaws.com:5432/cloudapi'
+alias sibros-preprod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:jcFXephGJn5KSQGj@us-west-2-rds-cluster.cluster-cmwazx98tfqg.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias bajaj-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:66FeBcuHFvX4acT9@ap-south-1-rds-cluster-instance-0.cszdn7qvjkhc.ap-south-1.rds.amazonaws.com:5432/cloudapi'
 alias bajaj-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:12Ykl8st8QVDK0J@ap-south-1-olympus-cluster.cluster-c9ltpnagyuxt.ap-south-1.rds.amazonaws.com:5432/cloudapi'
 alias lyft-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:naW4GXjrmZ328Bf@us-west-2-rds-cluster-olympus.cluster-cq7fqrw6ubxv.us-west-2.rds.amazonaws.com:5432/cloudapi'
@@ -179,6 +190,7 @@ alias sibros-dev='cd ~/Code/sibros/infrastructure/aws/sibros/dev;export AWS_PROF
 alias sibros-staging='cd ~/Code/sibros/infrastructure/aws/sibros/staging;export AWS_PROFILE=sibros-staging;kc sibros-staging'
 alias sibros-prod='cd ~/Code/sibros/infrastructure/aws/archived/sibros/prod;export AWS_PROFILE=sibros-prod;kubectl config unset current-context'
 alias sibros-demo='cd ~/Code/sibros/infrastructure/aws/sibros/demo;export AWS_PROFILE=sibros-demo;kc sibros-demo'
+alias sibros-preprod='cd ~/Code/sibros/infrastructure/aws/sibros/preprod;export AWS_PROFILE=sibros-preprod;kc sibros-preprod'
 
 alias bajaj-dev='cd ~/Code/sibros/infrastructure/aws/bajaj/dev;export AWS_PROFILE=bajaj-dev;kc bajaj-dev'
 alias bajaj-prod='cd ~/Code/sibros/infrastructure/aws/bajaj/prod;export AWS_PROFILE=bajaj-prod;kc bajaj-prod'
@@ -232,19 +244,17 @@ alias reload='source ~/.zshrc'
 alias chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
 
 # Python aliases
-alias python=/usr/local/bin/python3
-alias pip=/usr/local/bin/pip3
+alias python=/usr/homebrew/bin/python3
+alias pip=/usr/homebrew/bin/pip3
 export PYTHONPATH="~/Code/sibros/odxtools:$PYTHONPATH"
 
 # Git aliases
 alias gcm='git checkout master; git pull'
+alias gcmain='git checkout main; git pull'
 
 # Directory aliases
-alias fe='cd ~/Code/sibros/frontend'
-alias be='cd ~/go/src/gitlab.com/sibros/cloud/backend'
+alias be='cd ~/go/src/gitlab.com/sibros/private/software/backend'
 alias infra='cd ~/Code/sibros/infrastructure'
-alias not='cd ~/go/src/gitlab.com/sibros/cloud/notary'
-alias plat='cd ~/Code/sibros/platform'
 alias cred='cd ~/Documents/Sibros/Credentials'
 
 # Bitcoin aliases
