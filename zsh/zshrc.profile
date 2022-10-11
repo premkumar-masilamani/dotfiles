@@ -33,6 +33,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 export GOPATH=$HOME/go
 export GOROOT="$(brew --prefix golang)/libexec"
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+export GODEBUG=asyncpreemptoff=1
 
 # Rust Cargo Path Variables
 export PATH=~/.cargo/bin:$PATH
@@ -90,17 +91,6 @@ alias kltg='kubectl logs -f deployments/the-guardian -n sibros-apps'
 alias kla='kubectl logs -f deployments/atlas -n sibros-apps'
 alias klbs='kubectl logs -f deployments/bajaj-service -n sibros-apps'
 alias klc='kubectl logs -f deployments/cantools-api -n sibros-apps'
-alias kld='kubectl logs -f deployments/director -n sibros-apps'
-alias klcr='kubectl logs -f deployments/chronos -n sibros-apps'
-alias kldsr='kubectl logs -f deployments/director-notary-server -n sibros-apps'
-alias kldsn='kubectl logs -f deployments/director-notary-signer -n sibros-apps'
-alias klisr='kubectl logs -f deployments/image-notary-server -n sibros-apps'
-alias klisn='kubectl logs -f deployments/image-notary-signer -n sibros-apps'
-alias klg='kubectl logs -f deployments/grafana -n sibros-apps'
-alias klh='kubectl logs -f deployments/hasura-graphql -n sibros-apps'
-alias klhm='kubectl logs -f deployments/hasura-graphql-mobile -n sibros-apps'
-alias klms='kubectl logs -f deployments/metrics-server -n sibros-infra'
-alias klmso='kubectl logs -f deployments/metrics-server -n kube-system'
 alias klts0='kubectl logs -f timescaledb-single-0 -c timescaledb -n sibros-dbs'
 alias klts1='kubectl logs -f timescaledb-single-1 -c timescaledb -n sibros-dbs'
 alias klts2='kubectl logs -f timescaledb-single-2 -c timescaledb -n sibros-dbs'
@@ -169,7 +159,6 @@ alias harleydavidson-dev-mobile-db='echo no mobile db for harleydavidson-dev'
 alias ford-dev-mobile-db='echo no mobile db for ford-dev'
 
 # Terraform Aliases
-export GODEBUG=asyncpreemptoff=1
 alias t='terraform'
 alias ti='terraform init'
 alias tiu='terraform init -upgrade'
@@ -191,6 +180,7 @@ alias sibros-staging='cd ~/Code/sibros/infrastructure/aws/sibros/staging;export 
 alias sibros-prod='cd ~/Code/sibros/infrastructure/aws/archived/sibros/prod;export AWS_PROFILE=sibros-prod;kubectl config unset current-context'
 alias sibros-demo='cd ~/Code/sibros/infrastructure/aws/sibros/demo;export AWS_PROFILE=sibros-demo;kc sibros-demo'
 alias sibros-preprod='cd ~/Code/sibros/infrastructure/aws/sibros/preprod;export AWS_PROFILE=sibros-preprod;kc sibros-preprod'
+alias sibros-preprod-eu='cd ~/Code/sibros/infrastructure/aws/sibros/preprod-eu;export AWS_PROFILE=sibros-preprod-eu;kc sibros-preprod-eu'
 
 alias bajaj-dev='cd ~/Code/sibros/infrastructure/aws/bajaj/dev;export AWS_PROFILE=bajaj-dev;kc bajaj-dev'
 alias bajaj-prod='cd ~/Code/sibros/infrastructure/aws/bajaj/prod;export AWS_PROFILE=bajaj-prod;kc bajaj-prod'
