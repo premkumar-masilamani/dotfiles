@@ -31,7 +31,7 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Go Path Variables (install from package, not using brew)
 export GOPATH=$HOME/go
-export GOROOT="$(brew --prefix golang)/libexec"
+export GOROOT=/opt/homebrew/opt/go/libexec
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 export GODEBUG=asyncpreemptoff=1
 
@@ -67,6 +67,8 @@ alias rustbook='rustup docs --book'
 
 # Mac OS Aliases
 alias vm='open ~/Library/Application\ Support/com.apple.voicememos'
+alias intel='env /usr/bin/arch -x86_64 /bin/zsh --login'
+alias arm='env /usr/bin/arch -arm64 /bin/zsh --login'
 
 # Docker Aliases
 alias gpg='docker run -it --rm -u $(id -u):$(id -g) -e HOME -v "$HOME":"$HOME" -v "$(pwd)":"$(pwd)" -w "$(pwd)" dockerizedtools/gpg:2.2.20'
@@ -112,6 +114,7 @@ alias sibros-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --imag
 alias sibros-staging-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:knd958vXDPzUkLv@us-west-2-rds-cluster.cluster-cvwbr9hwsmni.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias sibros-demo-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:LvV77YxRvHMBk9FG@us-west-2-rds-cluster.cluster-c6aj9ugrsy9v.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias sibros-preprod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:jcFXephGJn5KSQGj@us-west-2-rds-cluster.cluster-cmwazx98tfqg.us-west-2.rds.amazonaws.com:5432/cloudapi'
+alias sibros-preprod-eu-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:CEq5yVQFs2aTuUvq@eu-central-1-rds-cluster.cluster-c9pyzp86giv8.eu-central-1.rds.amazonaws.com:5432/cloudapi'
 alias bajaj-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:66FeBcuHFvX4acT9@ap-south-1-rds-cluster-instance-0.cszdn7qvjkhc.ap-south-1.rds.amazonaws.com:5432/cloudapi'
 alias bajaj-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:12Ykl8st8QVDK0J@ap-south-1-olympus-cluster.cluster-c9ltpnagyuxt.ap-south-1.rds.amazonaws.com:5432/cloudapi'
 alias lyft-prod-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:naW4GXjrmZ328Bf@us-west-2-rds-cluster-olympus.cluster-cq7fqrw6ubxv.us-west-2.rds.amazonaws.com:5432/cloudapi'
@@ -119,7 +122,8 @@ alias lightyear-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --i
 alias jcb-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:MAJLbvrX7fmpg4hm@us-west-2-rds-cluster.cluster-c0gcpiz6bgpx.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias proterra-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:32bjH7dOgS3VlusZ@us-west-2-rds-cluster.cluster-cgkpne9hd04r.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias ktm-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:Yk2Fr3zZk82TrsuK@us-west-2-rds-cluster.cluster-csxrawazdvuw.us-west-2.rds.amazonaws.com:5432/cloudapi'
-
+alias sibros-prod-us-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:TFHpbKWP5IHHLCfa@us-west-2-rds-cluster.cluster-comkhmwswyav.us-west-2.rds.amazonaws.com:5432/cloudapi'
+alias sibros-prod-eu-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:uh5vqHBj0d1we3Dx@eu-central-1-rds-cluster.cluster-cfrarngk4qvf.eu-central-1.rds.amazonaws.com:5432/cloudapi'
 alias sibros-prod-olympus-db='echo no olympus db for sibros prod'
 alias harleydavidson-dev-olympus-db='echo no olympus db for harleydavidson dev'
 alias ford-dev-olympus-db='echo no olympus db for ford dev'
@@ -181,6 +185,9 @@ alias sibros-prod='cd ~/Code/sibros/infrastructure/aws/archived/sibros/prod;expo
 alias sibros-demo='cd ~/Code/sibros/infrastructure/aws/sibros/demo;export AWS_PROFILE=sibros-demo;kc sibros-demo'
 alias sibros-preprod='cd ~/Code/sibros/infrastructure/aws/sibros/preprod;export AWS_PROFILE=sibros-preprod;kc sibros-preprod'
 alias sibros-preprod-eu='cd ~/Code/sibros/infrastructure/aws/sibros/preprod-eu;export AWS_PROFILE=sibros-preprod-eu;kc sibros-preprod-eu'
+
+alias sibros-prod-us='cd ~/Code/sibros/infrastructure/aws/sibros/prod-us;export AWS_PROFILE=sibros-prod-us;kc sibros-prod-us'
+alias sibros-prod-eu='cd ~/Code/sibros/infrastructure/aws/sibros/prod-eu;export AWS_PROFILE=sibros-prod-eu;kc sibros-prod-eu'
 
 alias bajaj-dev='cd ~/Code/sibros/infrastructure/aws/bajaj/dev;export AWS_PROFILE=bajaj-dev;kc bajaj-dev'
 alias bajaj-prod='cd ~/Code/sibros/infrastructure/aws/bajaj/prod;export AWS_PROFILE=bajaj-prod;kc bajaj-prod'
@@ -278,4 +285,8 @@ function kga {
         kubectl -n ${1} get --ignore-not-found ${i}
     fi
   done
+}
+
+gitlab_docker_login() {
+	awk '/gitlab.com/{getline; getline; print $2}' ~/.netrc | docker login registry.gitlab.com -u pmasilamani@sibros.tech --password-stdin
 }

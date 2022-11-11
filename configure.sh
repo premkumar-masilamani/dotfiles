@@ -15,7 +15,11 @@ ln -sf /Users/smileprem/Code/personal/dotfiles/protodot/config.json ~/config.jso
 # Configure Homebrew
 echo "Configuring Homebrew..."
 cd /Users/smileprem/Code/personal/dotfiles/homebrew && \
-brew bundle install && \
-brew bundle --force cleanup && \
-rm -rf Brewfile && \
-brew bundle dump
+arch -arm64 brew bundle install && \
+arch -arm64 brew bundle --force cleanup
+
+# Upgrade Homebrew (manually)
+#arch -arm64 brew upgrade && \
+#cd /Users/smileprem/Code/personal/dotfiles/homebrew && \
+#rm -rf Brewfile && \
+#arch -arm64 brew bundle dump
