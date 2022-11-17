@@ -23,9 +23,6 @@ setopt prompt_subst
 
 PROMPT='%F{41}%~%f ${vcs_info_msg_0_} $(kube_ps1) '
 
-# ZSH Utilities
-source ~/Library/Preferences/org.dystroy.broot/launcher/bash/br
-
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
@@ -48,7 +45,7 @@ export PATH=~/.krew/bin:$PATH
 export PATH=~/Softwares:~/Softwares/google-cloud-sdk/bin:$PATH
 
 # Local Path Variables
-export PATH=/usr/homebrew/opt/openjdk/bin:/usr/homebrew/opt/ncurses/bin:/usr/homebrew/opt/berkeley-db@4/bin:/usr/homebrew/opt/sqlite/bin:/usr/homebrew/opt/libxml2/bin:$PATH
+export PATH=/opt/homebrew/opt/openjdk/bin:/opt/homebrew/opt/ncurses/bin:/opt/homebrew/opt/sqlite/bin:/opt/homebrew/opt/libxml2/bin:$PATH
 
 # Gitlab CI config
 export GITLAB_USER=smileprem@gitlab.com
@@ -61,14 +58,8 @@ export API_KEY=ee5e5955-ada9-4ab8-b477-1e1ef6267721
 export API_SECRET=b4c24d81-035f-4086-a7c9-7f0814295239
 export WORKSPACE_FILE=workspace.dsl
 
-
 # Rust Aliases
 alias rustbook='rustup docs --book'
-
-# Mac OS Aliases
-alias vm='open ~/Library/Application\ Support/com.apple.voicememos'
-alias intel='env /usr/bin/arch -x86_64 /bin/zsh --login'
-alias arm='env /usr/bin/arch -arm64 /bin/zsh --login'
 
 # Docker Aliases
 alias gpg='docker run -it --rm -u $(id -u):$(id -g) -e HOME -v "$HOME":"$HOME" -v "$(pwd)":"$(pwd)" -w "$(pwd)" dockerizedtools/gpg:2.2.20'
@@ -253,9 +244,6 @@ alias gcmain='git checkout main; git pull'
 alias be='cd ~/go/src/gitlab.com/sibros/private/software/backend'
 alias infra='cd ~/Code/sibros/infrastructure'
 alias cred='cd ~/Documents/Sibros/Credentials'
-
-# Bitcoin aliases
-alias btc='bitcoind -disablewallet -datadir=/Users/smileprem/Bitcoin/FullNode'
 
 # Utility Functions
 dns() {
