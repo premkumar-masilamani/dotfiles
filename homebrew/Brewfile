@@ -19,6 +19,7 @@ tap "kreuzwerker/taps"
 tap "mas-cli/tap"
 tap "mfuentesg/tap"
 tap "raphaelreyna/repo"
+tap "terrastruct/d2"
 tap "vektra/tap"
 tap "weaveworks/tap"
 brew "aws-iam-authenticator"
@@ -129,6 +130,7 @@ brew "go-swagger/go-swagger/go-swagger"
 brew "jcamiel/hurl/hurl"
 brew "kreuzwerker/taps/m1-terraform-provider-helper"
 brew "mfuentesg/tap/ksd"
+brew "terrastruct/d2/d2"
 brew "weaveworks/tap/eksctl"
 cask "dbeaver-community"
 cask "eul"
@@ -140,6 +142,7 @@ cask "xquartz"
 mas "Diagrams", id: 1276248849
 mas "GarageBand", id: 682658836
 mas "Grammarly for Safari", id: 1462114288
+mas "iMovie", id: 408981434
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541

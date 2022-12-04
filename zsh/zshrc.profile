@@ -82,14 +82,7 @@ alias k8dash='kubectl port-forward service/k8dash 4654:4654 -n sibros-apps'
 alias klo='kubectl logs -f deployments/olympus -n sibros-apps'
 alias kltg='kubectl logs -f deployments/the-guardian -n sibros-apps'
 alias kla='kubectl logs -f deployments/atlas -n sibros-apps'
-alias klbs='kubectl logs -f deployments/bajaj-service -n sibros-apps'
-alias klc='kubectl logs -f deployments/cantools-api -n sibros-apps'
-alias klts0='kubectl logs -f timescaledb-single-0 -c timescaledb -n sibros-dbs'
-alias klts1='kubectl logs -f timescaledb-single-1 -c timescaledb -n sibros-dbs'
-alias klts2='kubectl logs -f timescaledb-single-2 -c timescaledb -n sibros-dbs'
-alias kets0='kubectl exec -ti timescaledb-single-0  -n sibros-dbs -- /bin/bash'
-alias kets1='kubectl exec -ti timescaledb-single-1  -n sibros-dbs -- /bin/bash'
-alias kets2='kubectl exec -ti timescaledb-single-2  -n sibros-dbs -- /bin/bash'
+alias klc='kubectl logs -f deployments/command-api -n sibros-apps'
 
 # Kubernetes Infra Logs
 alias kln='kubectl logs -f deployments/nginx-ingress-controller -n sibros-infra'
@@ -115,9 +108,6 @@ alias proterra-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --im
 alias ktm-dev-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:Yk2Fr3zZk82TrsuK@us-west-2-rds-cluster.cluster-csxrawazdvuw.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias sibros-prod-us-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:TFHpbKWP5IHHLCfa@us-west-2-rds-cluster.cluster-comkhmwswyav.us-west-2.rds.amazonaws.com:5432/cloudapi'
 alias sibros-prod-eu-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:uh5vqHBj0d1we3Dx@eu-central-1-rds-cluster.cluster-cfrarngk4qvf.eu-central-1.rds.amazonaws.com:5432/cloudapi'
-alias sibros-prod-olympus-db='echo no olympus db for sibros prod'
-alias harleydavidson-dev-olympus-db='echo no olympus db for harleydavidson dev'
-alias ford-dev-olympus-db='echo no olympus db for ford dev'
 
 # Kubernetes Pods - Timescale DB
 alias local-timescale-db='pgcli "postgres://timescale_user:timescale_password@localhost:5433/postgres?sslmode=disable"'
@@ -132,10 +122,6 @@ alias jcb-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --ima
 alias proterra-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:4MWGl3jOuUNqaR63@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
 alias ktm-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:76IUfbymLtDKyHU7@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
 
-alias sibros-prod-timescale-db='echo no timescale db for sibros prod'
-alias harleydavidson-dev-timescale-db='echo no timescale db for harleydavidson dev'
-alias ford-dev-timescale-db='echo no timescale db for ford dev'
-
 # Kubernetes Pods - Mobile DB
 alias local-mobile-db='pgcli "postgres://mobile_user:mobile_password@localhost:5434/mobiledb?sslmode=disable"'
 alias sibros-dev-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:y7cTYP72P5muZm2g@us-west-2-mobile-db-cluster.cluster-cmsezeuapyek.us-west-2.rds.amazonaws.com:5432/mobiledb'
@@ -149,9 +135,9 @@ alias jcb-dev-mobile-db='echo no mobile db for jcb-dev'
 alias proterra-dev-mobile-db='echo no mobile db for proterra-dev'
 alias ktm-dev-mobile-db='echo no mobile db for ktm-dev'
 
-alias sibros-prod-mobile-db='echo no mobile db for sibros prod'
-alias harleydavidson-dev-mobile-db='echo no mobile db for harleydavidson-dev'
-alias ford-dev-mobile-db='echo no mobile db for ford-dev'
+# Kubernetes Pods - Command DB
+alias local-command-db='pgcli "postgres://command_db_user:command_db_password@localhost:5435/commanddb?sslmode=disable"'
+alias sibros-dev-command-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://commanduser:5NPuLttYB3QvzJsG@us-west-2-rds-cluster.cluster-cmsezeuapyek.us-west-2.rds.amazonaws.com:5432/commanddb'
 
 # Terraform Aliases
 alias t='terraform'
@@ -237,8 +223,11 @@ alias pip=/usr/homebrew/bin/pip3
 export PYTHONPATH="~/Code/sibros/odxtools:$PYTHONPATH"
 
 # Git aliases
-alias gcm='git checkout master; git pull'
-alias gcmain='git checkout main; git pull'
+alias gcm='git checkout master; git pull; git submodule update'
+alias gcmain='git checkout main; git pull; git submodule update'
+alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
+alias grs='git reset --soft HEAD~1'
+alias grh='git reset --hard HEAD~1'
 
 # Directory aliases
 alias be='cd ~/go/src/gitlab.com/sibros/private/software/backend'
