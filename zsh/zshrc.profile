@@ -58,6 +58,9 @@ export API_KEY=ee5e5955-ada9-4ab8-b477-1e1ef6267721
 export API_SECRET=b4c24d81-035f-4086-a7c9-7f0814295239
 export WORKSPACE_FILE=workspace.dsl
 
+# D2 TALA config
+export TSTRUCT_TOKEN=tstruct_eyJ2ZXJzaW9uIjoxLCJkYXRhIjp7InVzZXJJRCI6MSwidXNlckVtYWlsIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJ0ZWFtSUQiOjEsInRlYW1OYW1lIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJyZW5ld2FsRGF0ZSI6IjIwMjQtMDYtMjlUMjE6Mjg6MDVaIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yOVQyMToyODowOS43MjYyMjgxMjFaIn0sInNpZ25hdHVyZSI6ImZlRUI2NHltSHpyUFdJaUkweWhOTEFMSG5rcjRMUUYrdzZXTTBqREdTZUVORW5MV3gwWS9iQVExNm8vTjhMUmw3Q01ZQ0tzT0ZDNW0xS1ZUSDc2bkNRPT0ifQ==
+
 # GCP Atlas Config
 # export GOOGLE_APPLICATION_CREDENTIALS=~/Documents/Sibros/Credentials/atlas_key.json
 
@@ -117,13 +120,25 @@ alias sibros-prod-eu-olympus-db='kubectl run -i --tty olympus-db-client-$USER --
 alias sibros-dev-us-gcp-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:4gN7XLAcS6cobmE@10.168.0.11/cloudapi'
 alias sibros-staging-us-gcp-olympus-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://apiuser:g1mNwI1gK7ES5xd@10.103.0.3/cloudapi'
 
+# Kubernetes Pods - Timescale DB
+alias local-timescale-db='pgcli "postgres://timescale_user:timescale_password@localhost:5433/postgres?sslmode=disable"'
+alias sibros-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:34HJjT9zxnN65h9@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias sibros-staging-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:FTjM04UwyFcp7lF@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias sibros-demo-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:22mQfbymLtDKyF3Z@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias bajaj-dev-timescale-db='kubectl run -i --tty pgsql-client --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:13mQfbymLtDKyF3U@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias bajaj-prod-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:D2cYe2Fq8yJ5oVn@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias lyft-prod-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:eeH9782Cyzet@timescaledb-single.sibros-dbs.svc.cluster.local:5432/timescaledb'
+alias lightyear-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:DVqXwcB36EgVVubg@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+alias jcb-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:C5vZjFgrhPsjmCCY@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
+alias proterra-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:4MWGl3jOuUNqaR63@timescaledb-cluster.sibros-dbs.svc.cluster.local:5432/postgres'
+alias ktm-dev-timescale-db='kubectl run -i --tty timescale-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:76IUfbymLtDKyHU7@timescaledb-single.sibros-dbs.svc.cluster.local:5432/postgres'
+
 # Kubernetes Pods - Mobile DB
 alias local-mobile-db='pgcli "postgres://mobile_user:mobile_password@localhost:5434/mobiledb?sslmode=disable"'
 alias sibros-dev-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:y7cTYP72P5muZm2g@us-west-2-mobile-db-cluster.cluster-cmsezeuapyek.us-west-2.rds.amazonaws.com:5432/mobiledb'
 alias sibros-staging-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://postgres:Q2KU6Q3NLJ8xfRTM@us-west-2-mobile-db-cluster.cluster-cvwbr9hwsmni.us-west-2.rds.amazonaws.com:5432/mobiledb'
 alias bajaj-dev-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:13mQfbymLtDKyF3U@ap-south-1-rds-cluster-instance-0.cszdn7qvjkhc.ap-south-1.rds.amazonaws.com:5432/mobiledb'
 alias bajaj-prod-mobile-db='kubectl run -i --tty mobile-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://hasurauser:9AsVciR8PRUNe4x@ap-south-1-mobile-db-cluster.cluster-c9ltpnagyuxt.ap-south-1.rds.amazonaws.com:5432/mobiledb'
-
 
 # Kubernetes Pods - Command DB
 alias local-command-db='pgcli "postgres://command_db_user:command_db_password@localhost:5435/commanddb?sslmode=disable"'
@@ -133,6 +148,9 @@ alias sibros-prod-eu-command-db='kubectl run -i --tty command-db-client-$USER --
 alias sibros-dev-us-gcp-command-db='kubectl run -i --tty command-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://commanduser:sXl2aXSv5mQ5doC@10.168.0.11/commandapi'
 alias sibros-staging-us-gcp-command-db='kubectl run -i --tty command-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://commanduser:zm59hEmFhQk4D45@10.103.0.3/commandapi'
 alias sibros-preprod-ap-command-db='kubectl run -i --tty olympus-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://commanduser:8ON8CG4slP91Atm@ap-south-1-command-rds-cluster.cluster-ca8mjuqk0je9.ap-south-1.rds.amazonaws.com:5432/commanddb'
+
+# Kubernetes Pods - Mahindra DB
+alias sibros-preprod-ap-mahindra-db='kubectl run -i --tty mahindra-db-client-$USER --image=pygmy/pgcli --restart=Never --rm -- postgresql://mahindrauser:bc52sZoW3JY9CMu@ap-south-1-mahindra-rds-cluster.cluster-ca8mjuqk0je9.ap-south-1.rds.amazonaws.com:5432/mahindradb'
 
 # Terraform Aliases
 alias t='terraform'
@@ -152,10 +170,13 @@ alias sibros-infra='cd ~/Code/sibros/infrastructure/aws/sibros/infra;export AWS_
 alias sibros-interview='cd ~/Code/sibros/infrastructure/aws/sibros/interview;export AWS_PROFILE=sibros-interview;kubectl config unset current-context'
 
 alias sibros-dev='cd ~/Code/sibros/infrastructure/aws/sibros/dev;export AWS_PROFILE=sibros-dev;kc sibros-dev'
+alias sibros-dev-us-p='cd ~/Code/sibros/infrastructure/aws/sibros/dev-us-p;export AWS_PROFILE=sibros-dev-us-p;kubectl config unset current-context'
 alias sibros-staging='cd ~/Code/sibros/infrastructure/aws/sibros/staging;export AWS_PROFILE=sibros-staging;kc sibros-staging'
+alias sibros-staging-us-p='cd ~/Code/sibros/infrastructure/aws/sibros/staging-us-p;export AWS_PROFILE=sibros-staging-us-p;kubectl config unset current-context'
 alias sibros-demo='cd ~/Code/sibros/infrastructure/aws/sibros/demo;export AWS_PROFILE=sibros-demo;kc sibros-demo'
 alias sibros-preprod='cd ~/Code/sibros/infrastructure/aws/sibros/preprod;export AWS_PROFILE=sibros-preprod;kc sibros-preprod'
 alias sibros-preprod-eu='cd ~/Code/sibros/infrastructure/aws/sibros/preprod-eu;export AWS_PROFILE=sibros-preprod-eu;kc sibros-preprod-eu'
+alias sibros-preprod-eu-p='cd ~/Code/sibros/infrastructure/aws/sibros/preprod-eu-p;export AWS_PROFILE=sibros-preprod-eu-p;kubectl config unset current-context'
 alias sibros-preprod-ap='cd ~/Code/sibros/infrastructure/aws/sibros/preprod-ap;export AWS_PROFILE=sibros-preprod-ap;kc sibros-preprod-ap'
 
 alias sibros-prod-us='cd ~/Code/sibros/infrastructure/aws/sibros/prod-us;export AWS_PROFILE=sibros-prod-us;kc sibros-prod-us'
@@ -234,6 +255,9 @@ alias cred='cd ~/Documents/Sibros/Credentials'
 
 # Photography aliases
 alias cr2jpg='for infile in *.CR2; do convert $infile $(echo $infile|sed -n "s/CR2$/jpg/p"); done'
+
+# Application aliases
+alias run='SERVICE_CONFIG_PATH=config/config.local.yaml SERVICE_SECRET_PATH=config/secret.local.yaml make run'
 
 # Utility Functions
 dns() {
