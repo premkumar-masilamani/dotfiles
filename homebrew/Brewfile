@@ -44,13 +44,11 @@ brew "cfssl"
 brew "cloc"
 brew "cmake"
 brew "libssh2"
-brew "openldap"
 brew "rtmpdump"
 brew "curl"
 brew "freetds"
 brew "libavif"
-brew "krb5"
-brew "libpq"
+brew "gd"
 brew "libzip"
 brew "php"
 brew "composer"
@@ -81,6 +79,7 @@ brew "gobject-introspection"
 brew "golangci-lint"
 brew "jasper"
 brew "netpbm"
+brew "gts"
 brew "harfbuzz"
 brew "pango"
 brew "librsvg"
@@ -167,6 +166,7 @@ mas "Diagrams", id: 1276248849
 mas "GarageBand", id: 682658836
 mas "Grammarly for Safari", id: 1462114288
 mas "iMovie", id: 408981434
+mas "Kindle Classic", id: 405399194
 mas "Microsoft Remote Desktop", id: 1295203466
 mas "MQTTX", id: 1514074565
 mas "Numbers", id: 409203825
