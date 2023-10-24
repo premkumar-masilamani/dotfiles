@@ -14,6 +14,7 @@ cask "grammarly-desktop"
 cask "obsidian"
 cask "postman"
 cask "slack"
+cask "tiles"
 cask "visual-studio-code"
 cask "whatsapp"
 mas "Kindle Classic", id: 405399194
