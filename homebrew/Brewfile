@@ -17,7 +17,6 @@ cask "slack"
 cask "tiles"
 cask "visual-studio-code"
 cask "whatsapp"
-mas "Kindle Classic", id: 405399194
 mas "Numbers", id: 409203825
 mas "PhotoSweeper", id: 463362050
 vscode "golang.go"
