@@ -13,7 +13,7 @@ compinit
 
 # ZSH Prompt
 source <(kubectl completion zsh)
-source ~/Code/personal/kube-ps1/kube-ps1.sh
+source "/usr/local/Cellar/kube-ps1/0.8.0/share/kube-ps1.sh"
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
@@ -24,7 +24,7 @@ setopt prompt_subst
 PROMPT='%F{41}%~%f ${vcs_info_msg_0_} $(kube_ps1) '
 
 # Set PATH, MANPATH, etc., for Homebrew.
-eval "$(/opt/homebrew/bin/brew shellenv)"
+eval "$(/usr/local/bin/brew shellenv)"
 
 # Go Path Variables (install from package, not using brew)
 export GOPATH=$HOME/go
@@ -60,9 +60,6 @@ export WORKSPACE_FILE=workspace.dsl
 
 # D2 TALA config
 export TSTRUCT_TOKEN=tstruct_eyJ2ZXJzaW9uIjoxLCJkYXRhIjp7InVzZXJJRCI6MSwidXNlckVtYWlsIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJ0ZWFtSUQiOjEsInRlYW1OYW1lIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJyZW5ld2FsRGF0ZSI6IjIwMjQtMDYtMjlUMjE6Mjg6MDVaIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yOVQyMToyODowOS43MjYyMjgxMjFaIn0sInNpZ25hdHVyZSI6ImZlRUI2NHltSHpyUFdJaUkweWhOTEFMSG5rcjRMUUYrdzZXTTBqREdTZUVORW5MV3gwWS9iQVExNm8vTjhMUmw3Q01ZQ0tzT0ZDNW0xS1ZUSDc2bkNRPT0ifQ==
-
-# GCP Atlas Config
-# export GOOGLE_APPLICATION_CREDENTIALS=~/Documents/Sibros/Credentials/atlas_key.json
 
 # Rust Aliases
 alias rustbook='rustup docs --book'
@@ -237,8 +234,8 @@ alias reload='source ~/.zshrc'
 alias chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
 
 # Python aliases
-alias python=/opt/homebrew/bin/python3
-alias pip=/opt/homebrew/bin/pip3
+alias python=/usr/local/bin/python3
+alias pip=/usr/local/bin/pip3
 export PYTHONPATH="~/Code/sibros/odxtools:$PYTHONPATH"
 
 # Git aliases
@@ -251,7 +248,7 @@ alias grh='git reset --hard HEAD~1'
 # Directory aliases
 alias be='cd ~/go/src/gitlab.com/sibros/private/software/backend'
 alias infra='cd ~/Code/sibros/infrastructure'
-alias cred='cd ~/Documents/Sibros/Credentials'
+alias dot='cd ~/Code/personal/dotfiles'
 
 # Photography aliases
 alias cr2jpg='for infile in *.CR2; do convert $infile $(echo $infile|sed -n "s/CR2$/jpg/p"); done'

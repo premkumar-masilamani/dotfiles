@@ -1,11 +1,9 @@
 # dotfiles
-My configurations
+This repository contains the brew bundle and zsh profile files that manages most of the softwares that I use in my Macbook.
 
+## Instructions to configure a new macbook
 
-# Upgrade Homebrew (manually)
-```zshell
-arch -arm64 brew upgrade && \
-cd /Users/smileprem/Code/personal/dotfiles/homebrew && \
-rm -rf Brewfile && \
-arch -arm64 brew bundle dump
-```
+- [ ] Install Command Line Developer Tools
+- [ ] Install [Homebrew](https://brew.sh)
+- [ ] Download `dotfiles` GitHub private repo and run `make configure`
+- [ ] Use the `Dracula` theme for the terminal app.
