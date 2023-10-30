@@ -258,6 +258,12 @@
           "full_name": "drawio"
         }
       },
+      "google-chrome": {
+        "version": "118.0.5993.117",
+        "options": {
+          "full_name": "google-chrome"
+        }
+      },
       "grammarly-desktop": {
         "version": "1.41.2.0",
         "options": {
