@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "dracula/install": {
-        "revision": "eca3973d024726e4583d5ec86acce14eb660e63d"
+        "revision": "20ab6a451189a6a458eacda43b86f1cca0b8747f"
       },
       "homebrew/bundle": {
         "revision": "73fe1415f01bc26ce4df0c4f52099ab1a0ef5b9d"
@@ -259,7 +259,7 @@
         }
       },
       "grammarly-desktop": {
-        "version": "1.40.3.0",
+        "version": "1.41.2.0",
         "options": {
           "full_name": "grammarly-desktop"
         }
@@ -277,7 +277,7 @@
         }
       },
       "slack": {
-        "version": "4.34.121",
+        "version": "4.35.121",
         "options": {
           "full_name": "slack"
         }
@@ -295,17 +295,13 @@
         }
       },
       "whatsapp": {
-        "version": "2.23.20.81",
+        "version": "2.23.21.79",
         "options": {
           "full_name": "whatsapp"
         }
       }
     },
     "mas": {
-      "Kindle Classic": {
-        "id": "405399194",
-        "version": "1.40.2"
-      },
       "Numbers": {
         "id": "409203825",
         "version": "13.2"
@@ -328,7 +324,7 @@
         "Homebrew/homebrew-core": "api",
         "CLT": "15.0.0.0.1.1694021235",
         "Xcode": "15.0",
-        "macOS": "13.6"
+        "macOS": "13.6.1"
       }
     }
   }
