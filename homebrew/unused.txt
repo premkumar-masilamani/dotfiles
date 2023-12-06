@@ -1,0 +1,4 @@
+cask "drawio"
+cask "grammarly-desktop"
+cask "postman"
+cask "slack"

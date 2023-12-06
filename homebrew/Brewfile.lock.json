@@ -198,40 +198,16 @@
           "full_name": "dracula-terminal"
         }
       },
-      "drawio": {
-        "version": "22.1.2",
-        "options": {
-          "full_name": "drawio"
-        }
-      },
       "google-chrome": {
-        "version": "119.0.6045.159",
+        "version": "120.0.6099.62",
         "options": {
           "full_name": "google-chrome"
-        }
-      },
-      "grammarly-desktop": {
-        "version": "1.45.1.0",
-        "options": {
-          "full_name": "grammarly-desktop"
         }
       },
       "obsidian": {
         "version": "1.4.16",
         "options": {
           "full_name": "obsidian"
-        }
-      },
-      "postman": {
-        "version": "10.20.0",
-        "options": {
-          "full_name": "postman"
-        }
-      },
-      "slack": {
-        "version": "4.35.126",
-        "options": {
-          "full_name": "slack"
         }
       },
       "tiles": {
@@ -247,7 +223,7 @@
         }
       },
       "whatsapp": {
-        "version": "2.23.23.82",
+        "version": "2.23.24.80",
         "options": {
           "full_name": "whatsapp"
         }
@@ -283,13 +259,14 @@
     },
     "vscode": {
       "golang.go": null,
-      "hashicorp.terraform": null
+      "hashicorp.terraform": null,
+      "ms-vscode.makefile-tools": null
     }
   },
   "system": {
     "macos": {
       "ventura": {
-        "HOMEBREW_VERSION": "4.1.21",
+        "HOMEBREW_VERSION": "4.1.24",
         "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "api",
         "CLT": "15.0.0.0.1.1694021235",

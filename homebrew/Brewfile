@@ -8,12 +8,8 @@ brew "mas-cli/tap/mas"
 cask "appcleaner"
 cask "deckset"
 cask "dracula-terminal"
-#cask "drawio"
 cask "google-chrome"
-#cask "grammarly-desktop"
 cask "obsidian"
-#cask "postman"
-#cask "slack"
 cask "tiles"
 cask "visual-studio-code"
 cask "whatsapp"
@@ -21,7 +17,8 @@ cask "zoom"
 mas "Numbers", id: 409203825
 mas "Photos Exif Editor", id: 1202851767
 mas "PhotoSweeper", id: 463362050
-#mas "Presentify", id: 1507246666
-#mas "Unsplash Wallpapers", id: 1284863847
+mas "Presentify", id: 1507246666
+mas "Unsplash Wallpapers", id: 1284863847
 vscode "golang.go"
 vscode "hashicorp.terraform"
+vscode "ms-vscode.makefile-tools"
