@@ -2,3 +2,5 @@ cask "drawio"
 cask "grammarly-desktop"
 cask "postman"
 cask "slack"
+mas "Photos Exif Editor", id: 1202851767
+mas "Presentify", id: 1507246666
