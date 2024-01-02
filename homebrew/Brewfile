@@ -1,6 +1,8 @@
 tap "dracula/install"
 tap "homebrew/bundle"
 tap "mas-cli/tap"
+brew "go"
+brew "golangci-lint"
 brew "kube-ps1"
 brew "protobuf"
 brew "tree"

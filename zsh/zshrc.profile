@@ -28,7 +28,7 @@ eval "$(/usr/local/bin/brew shellenv)"
 
 # Go Path Variables (install from package, not using brew)
 export GOPATH=$HOME/go
-export GOROOT=/opt/homebrew/opt/go/libexec
+export GOROOT=/usr/local/opt/go/libexec
 export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 export GODEBUG=asyncpreemptoff=1
 
