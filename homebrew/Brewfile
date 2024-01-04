@@ -23,4 +23,6 @@ mas "PhotoSweeper", id: 463362050
 mas "Unsplash Wallpapers", id: 1284863847
 vscode "golang.go"
 vscode "hashicorp.terraform"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
 vscode "ms-vscode.makefile-tools"
