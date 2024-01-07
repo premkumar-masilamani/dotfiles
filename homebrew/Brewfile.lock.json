@@ -5,7 +5,7 @@
         "revision": "dbede24766c355fa0973594cbbf9c6ece86bea18"
       },
       "homebrew/bundle": {
-        "revision": "e4798d8075e1a793f065be3e5e1674ec09193d17"
+        "revision": "48adf4167da80d161e5e51e83dca6bd4d9d0643b"
       },
       "mas-cli/tap": {
         "revision": "727f5ae53ac1c97728667921ccd17d89ae062507"
@@ -604,11 +604,10 @@
       }
     },
     "vscode": {
+      "aaron-bond.better-comments": null,
       "golang.go": null,
-      "hashicorp.terraform": null,
       "ms-python.python": null,
-      "ms-python.vscode-pylance": null,
-      "ms-vscode.makefile-tools": null
+      "ms-python.vscode-pylance": null
     }
   },
   "system": {
