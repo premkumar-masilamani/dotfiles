@@ -534,22 +534,10 @@
           "full_name": "bitcoin-core"
         }
       },
-      "deckset": {
-        "version": "2.0.27,2641",
-        "options": {
-          "full_name": "deckset"
-        }
-      },
       "dracula-terminal": {
         "version": "1.2.6",
         "options": {
           "full_name": "dracula-terminal"
-        }
-      },
-      "github": {
-        "version": "3.3.6-4616f73d",
-        "options": {
-          "full_name": "github"
         }
       },
       "google-chrome": {
