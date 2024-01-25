@@ -1,6 +1,7 @@
 tap "dracula/install"
 tap "homebrew/bundle"
 tap "mas-cli/tap"
+brew "gmp"
 brew "go"
 brew "golangci-lint"
 brew "htop"
@@ -18,14 +19,15 @@ cask "bitcoin-core"
 cask "dracula-terminal"
 cask "google-chrome"
 cask "obsidian"
+cask "postman"
 cask "tiles"
 cask "visual-studio-code"
 cask "whatsapp"
 cask "zoom"
 mas "Numbers", id: 409203825
+mas "Photos Exif Editor", id: 1202851767
 mas "PhotoSweeper", id: 463362050
 mas "Unsplash Wallpapers", id: 1284863847
-vscode "aaron-bond.better-comments"
 vscode "golang.go"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"

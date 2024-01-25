@@ -1,9 +1,7 @@
 cask "drawio"
 cask "grammarly-desktop"
-cask "postman"
 cask "slack"
 cask "deckset"
 cask "github"
 cask "tor-browser"
-mas "Photos Exif Editor", id: 1202851767
 mas "Presentify", id: 1507246666
