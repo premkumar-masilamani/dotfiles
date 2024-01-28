@@ -5,7 +5,7 @@
         "revision": "dbede24766c355fa0973594cbbf9c6ece86bea18"
       },
       "homebrew/bundle": {
-        "revision": "d44243fe191e962fce60cbf8e25b6f2e3c1248b3"
+        "revision": "092a87834411b10357b0cb7ad1a54b6618fe4a79"
       },
       "mas-cli/tap": {
         "revision": "727f5ae53ac1c97728667921ccd17d89ae062507"
@@ -566,6 +566,12 @@
         "version": "26.0",
         "options": {
           "full_name": "bitcoin-core"
+        }
+      },
+      "docker": {
+        "version": "4.26.1,131620",
+        "options": {
+          "full_name": "docker"
         }
       },
       "dracula-terminal": {
