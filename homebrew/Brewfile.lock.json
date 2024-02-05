@@ -4,8 +4,11 @@
       "dracula/install": {
         "revision": "dbede24766c355fa0973594cbbf9c6ece86bea18"
       },
+      "gabotechs/taps": {
+        "revision": "946a8d5ec40690b92a2b2f634323ebb594fa368f"
+      },
       "homebrew/bundle": {
-        "revision": "092a87834411b10357b0cb7ad1a54b6618fe4a79"
+        "revision": "aa54974fcce3c4e55fdb88732b47dad9b1bacb0a"
       },
       "mas-cli/tap": {
         "revision": "727f5ae53ac1c97728667921ccd17d89ae062507"
@@ -569,7 +572,7 @@
         }
       },
       "docker": {
-        "version": "4.26.1,131620",
+        "version": "4.27.1,136059",
         "options": {
           "full_name": "docker"
         }
@@ -581,7 +584,7 @@
         }
       },
       "google-chrome": {
-        "version": "121.0.6167.85",
+        "version": "121.0.6167.139",
         "options": {
           "full_name": "google-chrome"
         }
@@ -605,7 +608,7 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.85.2",
+        "version": "1.86.0",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -643,14 +646,17 @@
     },
     "vscode": {
       "golang.go": null,
+      "ms-python.debugpy": null,
       "ms-python.python": null,
-      "ms-python.vscode-pylance": null
+      "ms-python.vscode-pylance": null,
+      "ms-vscode.makefile-tools": null,
+      "premparihar.gotestexplorer": null
     }
   },
   "system": {
     "macos": {
       "ventura": {
-        "HOMEBREW_VERSION": "4.2.5",
+        "HOMEBREW_VERSION": "4.2.7",
         "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "api",
         "CLT": "15.1.0.0.1.1700200546",

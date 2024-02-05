@@ -1,4 +1,5 @@
 tap "dracula/install"
+tap "gabotechs/taps"
 tap "homebrew/bundle"
 tap "mas-cli/tap"
 brew "gmp"
@@ -30,5 +31,8 @@ mas "Photos Exif Editor", id: 1202851767
 mas "PhotoSweeper", id: 463362050
 mas "Unsplash Wallpapers", id: 1284863847
 vscode "golang.go"
+vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
+vscode "ms-vscode.makefile-tools"
+vscode "premparihar.gotestexplorer"
