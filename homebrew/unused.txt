@@ -4,4 +4,6 @@ cask "slack"
 cask "deckset"
 cask "github"
 cask "tor-browser"
+cask "android-file-transfer"
+cask "arc"
 mas "Presentify", id: 1507246666
