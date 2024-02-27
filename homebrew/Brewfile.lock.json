@@ -8,7 +8,7 @@
         "revision": "e9bd98f7db80e6618e78e9a9013df730c79e283a"
       },
       "homebrew/bundle": {
-        "revision": "2f22c21799744c6b027a0695b36a37185d66a6a6"
+        "revision": "77f5526b935e5eb6714f905032616882ec7c1747"
       },
       "mas-cli/tap": {
         "revision": "727f5ae53ac1c97728667921ccd17d89ae062507"
@@ -55,6 +55,20 @@
               "cellar": ":any_skip_relocation",
               "url": "https://ghcr.io/v2/homebrew/core/gmp/blobs/sha256:3dca3544faca889c7389a5fdbd2b5b00582c34a4e14607033573ad3b06ca7882",
               "sha256": "3dca3544faca889c7389a5fdbd2b5b00582c34a4e14607033573ad3b06ca7882"
+            }
+          }
+        }
+      },
+      "cask": {
+        "version": "0.9.0",
+        "bottle": {
+          "rebuild": 0,
+          "root_url": "https://ghcr.io/v2/homebrew/core",
+          "files": {
+            "all": {
+              "cellar": ":any_skip_relocation",
+              "url": "https://ghcr.io/v2/homebrew/core/cask/blobs/sha256:124bb75dc1cca68ba3d71a02b3e0661527a346828ac713b2536cf9505ccc985a",
+              "sha256": "124bb75dc1cca68ba3d71a02b3e0661527a346828ac713b2536cf9505ccc985a"
             }
           }
         }
@@ -572,7 +586,7 @@
         }
       },
       "docker": {
-        "version": "4.27.2,137060",
+        "version": "4.28.0,139021",
         "options": {
           "full_name": "docker"
         }
@@ -584,19 +598,19 @@
         }
       },
       "google-chrome": {
-        "version": "121.0.6167.184",
+        "version": "122.0.6261.69",
         "options": {
           "full_name": "google-chrome"
         }
       },
       "obsidian": {
-        "version": "1.5.3",
+        "version": "1.5.8",
         "options": {
           "full_name": "obsidian"
         }
       },
       "postman": {
-        "version": "10.23.0",
+        "version": "10.23.5",
         "options": {
           "full_name": "postman"
         }
@@ -638,13 +652,13 @@
         }
       },
       "whatsapp": {
-        "version": "2.24.2.76",
+        "version": "2.24.3.79",
         "options": {
           "full_name": "whatsapp"
         }
       },
       "zoom": {
-        "version": "5.17.5.29101",
+        "version": "5.17.10.30974",
         "options": {
           "full_name": "zoom"
         }
@@ -661,7 +675,7 @@
       },
       "PhotoSweeper": {
         "id": "463362050",
-        "version": "4.8.4"
+        "version": "4.8.5"
       },
       "Unsplash Wallpapers": {
         "id": "1284863847",
@@ -680,7 +694,7 @@
   "system": {
     "macos": {
       "ventura": {
-        "HOMEBREW_VERSION": "4.2.8",
+        "HOMEBREW_VERSION": "4.2.10",
         "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "api",
         "CLT": "15.1.0.0.1.1700200546",
