@@ -1,3 +1,4 @@
+brew "gmp"
 cask "drawio"
 cask "grammarly-desktop"
 cask "slack"
@@ -6,4 +7,9 @@ cask "github"
 cask "tor-browser"
 cask "android-file-transfer"
 cask "arc"
+cask "qbittorrent"
+cask "send-to-kindle"
+cask "the-unarchiver"
 mas "Presentify", id: 1507246666
+mas "Photos Exif Editor", id: 1202851767
+mas "PhotoSweeper", id: 463362050

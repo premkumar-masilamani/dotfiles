@@ -8,7 +8,7 @@
         "revision": "e9bd98f7db80e6618e78e9a9013df730c79e283a"
       },
       "homebrew/bundle": {
-        "revision": "77f5526b935e5eb6714f905032616882ec7c1747"
+        "revision": "ffd2348507f77fb2a582e254e6da1a16bba8cc92"
       },
       "mas-cli/tap": {
         "revision": "727f5ae53ac1c97728667921ccd17d89ae062507"
@@ -598,7 +598,7 @@
         }
       },
       "google-chrome": {
-        "version": "122.0.6261.69",
+        "version": "122.0.6261.94",
         "options": {
           "full_name": "google-chrome"
         }
@@ -640,7 +640,7 @@
         }
       },
       "visual-studio-code": {
-        "version": "1.86.2",
+        "version": "1.87.0",
         "options": {
           "full_name": "visual-studio-code"
         }
@@ -669,14 +669,6 @@
         "id": "409203825",
         "version": "13.2"
       },
-      "Photos Exif Editor": {
-        "id": "1202851767",
-        "version": "2.18"
-      },
-      "PhotoSweeper": {
-        "id": "463362050",
-        "version": "4.8.5"
-      },
       "Unsplash Wallpapers": {
         "id": "1284863847",
         "version": "1.4.6"
@@ -687,8 +679,7 @@
       "ms-python.debugpy": null,
       "ms-python.python": null,
       "ms-python.vscode-pylance": null,
-      "ms-vscode.makefile-tools": null,
-      "premparihar.gotestexplorer": null
+      "ms-vscode.makefile-tools": null
     }
   },
   "system": {
