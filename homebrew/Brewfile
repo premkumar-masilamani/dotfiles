@@ -23,21 +23,16 @@ cask "dracula-terminal"
 cask "google-chrome"
 cask "obsidian"
 cask "postman"
-cask "qbittorrent"
-cask "send-to-kindle"
-cask "the-unarchiver"
 cask "tiles"
 cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 cask "zoom"
 mas "Numbers", id: 409203825
-mas "Photos Exif Editor", id: 1202851767
-mas "PhotoSweeper", id: 463362050
 mas "Unsplash Wallpapers", id: 1284863847
 vscode "golang.go"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"
 vscode "ms-python.vscode-pylance"
+vscode "ms-vscode-remote.remote-containers"
 vscode "ms-vscode.makefile-tools"
-vscode "premparihar.gotestexplorer"
