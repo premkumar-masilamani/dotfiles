@@ -2,6 +2,7 @@ tap "dracula/install"
 tap "gabotechs/taps"
 tap "homebrew/bundle"
 tap "mas-cli/tap"
+brew "gmp"
 brew "cask"
 brew "go"
 brew "golangci-lint"
@@ -30,8 +31,9 @@ cask "visual-studio-code"
 cask "vlc"
 cask "whatsapp"
 cask "zoom"
+mas "iMovie", id: 408981434
 mas "Numbers", id: 409203825
-mas "Unsplash Wallpapers", id: 1284863847
+mas "‎WhatsApp", id: 310633997
 vscode "golang.go"
 vscode "ms-python.debugpy"
 vscode "ms-python.python"

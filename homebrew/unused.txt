@@ -13,3 +13,4 @@ cask "the-unarchiver"
 mas "Presentify", id: 1507246666
 mas "Photos Exif Editor", id: 1202851767
 mas "PhotoSweeper", id: 463362050
+mas "Unsplash Wallpapers", id: 1284863847
