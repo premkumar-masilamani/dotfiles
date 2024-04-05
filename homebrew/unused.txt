@@ -10,6 +10,13 @@ cask "arc"
 cask "qbittorrent"
 cask "send-to-kindle"
 cask "the-unarchiver"
+cask "bitcoin-core"
+cask "discord"
+cask "dracula-terminal"
+cask "postman"
+cask "spotify"
+cask "vlc"
+mas "iMovie", id: 408981434
 mas "Presentify", id: 1507246666
 mas "Photos Exif Editor", id: 1202851767
 mas "PhotoSweeper", id: 463362050
