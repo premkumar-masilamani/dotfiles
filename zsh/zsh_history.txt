@@ -1,9 +1,13 @@
-: 1713037097:3;make dump
 : 1713037277:0;rm -rf ~/.zsh_history
-: 1713037284:16;make configure
-: 1713037303:0;reload
 : 1713037315:0;profile
 : 1713037345:0;make dump
 : 1713037350:0;make configure
 : 1713037370:0;reload
 : 1713037390:0;rm -rf .zsh_history
+: 1713038709:0;java
+: 1713038713:0;javac
+: 1713038718:0;java --help
+: 1713038771:0;which java
+: 1713038775:0;which javac
+: 1713078316:0;make dump
+: 1713078344:0;make configure
