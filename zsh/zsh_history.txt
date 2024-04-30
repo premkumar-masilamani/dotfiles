@@ -19,3 +19,13 @@
 : 1714141125:0;make configure
 : 1714338344:0;make dump
 : 1714338385:0;make configure
+: 1714447869:0;vim zsh/zshrc.profile
+: 1714447926:0;reload
+: 1714447929:0;cleear
+: 1714447934:0;dot
+: 1714447941:0;make dump
+: 1714447968:0;make configure
+: 1714448026:0;git diff
+: 1714448067:0;git add .
+: 1714448070:0;git status
+: 1714448096:0;git add .

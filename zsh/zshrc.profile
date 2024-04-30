@@ -261,10 +261,10 @@ alias grh='git reset --hard HEAD~1'
 # Directory aliases
 # alias be='cd ~/go/src/gitlab.com/sibros/private/software/backend'
 # alias infra='cd ~/Code/sibros/infrastructure'
-alias dot='code ~/Code/personal/dotfiles'
-alias miner='code ~/Code/personal/go-bitcoin-miner'
-alias blog='code ~/Code/personal/english-blog.github.io'
-alias tamil='code ~/Code/personal/tamil-blog.github.io'
+alias dot='cd ~/Code/personal/dotfiles'
+alias miner='cd ~/Code/personal/go-bitcoin-miner'
+alias blog='cd ~/Code/personal/english-blog.github.io'
+alias tamil='cd ~/Code/personal/tamil-blog.github.io'
 
 # Photography aliases
 alias cr2jpg='for infile in *.CR2; do convert $infile $(echo $infile|sed -n "s/CR2$/jpg/p"); done'
