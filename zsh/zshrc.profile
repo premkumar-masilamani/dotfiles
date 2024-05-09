@@ -46,10 +46,7 @@ export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
 export GODEBUG=asyncpreemptoff=1
 
 # Rust Cargo Path Variables
-# export PATH=~/.cargo/bin:$PATH
-
-# Python Poetry Path Variables
-# export PATH=~/.local/bin:$PATH
+export PATH=~/.cargo/bin:$PATH
 
 # Kubectl Krew Path Variables
 export PATH=~/.krew/bin:$PATH
