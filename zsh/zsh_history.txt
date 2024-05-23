@@ -35,7 +35,6 @@ cd /tmp/shellfirm\
 git reset --hard
 : 1715243343:0;git reset hard
 : 1715243354:0;git reset --hard
-: 1715243460:0;dot
 : 1715245464:0;gem -v
 : 1715245482:0;gcc -v
 : 1715245489:0;g++ -v
@@ -55,18 +54,8 @@ echo "chruby ruby-3.1.3" >> ~/.zshrc # run 'chruby' to see actual version\
 : 1715266535:0;ruby-install -h
 : 1715266546:0;ruby-install -r
 : 1715266652:0;rm -rf .rubies/
-: 1715266661:0;which ruby
-: 1715266803:0;make dump
-: 1715266819:0;make configure
 : 1715266875:0;which ruby
 : 1715266896:0;gem query --local
-: 1715267001:0;make dump
-: 1715267105:0;make dump
-: 1715267182:0;make dump
-: 1715267189:0;make configure
-: 1715267249:0;make dump
-: 1715267288:0;make dump
-: 1715267295:0;make configure
 : 1715267457:0;hugo version
 : 1715267492:0;hugo new site prem-blog
 : 1715267512:0;git init
@@ -76,3 +65,53 @@ echo "chruby ruby-3.1.3" >> ~/.zshrc # run 'chruby' to see actual version\
 
 : 1715267528:0;hugo server\
 
+: 1715267748:0;make dump
+: 1715267754:0;make configure
+: 1716364344:0;git clone https://github.com/glanceapp/glance.git
+: 1716364753:0;dot
+: 1716364771:0;cat Brewfile
+: 1716366617:0;gh repo clone glanceapp/glance
+: 1716366622:0;gh auth login
+: 1716367349:0;gh repo clone glanceapp/glance
+: 1716367419:0;gh repo clone glanceapp/glance
+: 1716369771:0;cat README.md
+: 1716369826:0;docker run -d -p 8080:8080 -v ./glance.yml:/app/glance.yml -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro glanceapp/glance
+: 1716371422:0;docker ps
+: 1716371429:0;docker run -d -p 8080:8080 -v ./glance.yml:/app/glance.yml -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro glanceapp/glance
+: 1716371473:0;touch glance.yml
+: 1716371476:0;docker run -d -p 8080:8080 -v ./glance.yml:/app/glance.yml -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro glanceapp/glance
+: 1716371521:0;rm -rf glance.yml
+: 1716371570:0;vim glance.yml
+: 1716371580:0;docker run -d -p 8080:8080 -v ./glance.yml:/app/glance.yml -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro glanceapp/glance
+: 1716387202:0;dot
+: 1716387237:0;make dump
+: 1716387611:0;make configure
+: 1716443734:0;git status
+: 1716443739:0;git diff
+: 1716443983:0;make dump
+: 1716448674:0;make configure
+: 1716449130:0;mkdir github
+: 1716449136:0;mv repos.txt github
+: 1716449145:0;cat repos.txt
+: 1716449165:0;gcm
+: 1716449172:0;git status
+: 1716449179:0;gcm
+: 1716449195:0;code .
+: 1716449209:0;/usr/bin/python3 /Users/smileprem/.vscode/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /Users/smileprem/.vscode/extensions/ms-python.python-2024.6.0/python_files/deactivate/zsh/envVars.txt
+: 1716449441:0;make configure
+: 1716449528:0;git remotes
+: 1716449531:0;git remote -v
+: 1716449750:0;git status
+: 1716449758:0;git push
+: 1716449889:0;make configure
+: 1716449996:0;git status
+: 1716450013:0;git add .
+: 1716450016:0;git status
+: 1716450155:0;vim zshrc.profile
+: 1716450250:0;reload
+: 1716450264:0;cat zsh/zsh_history.txt
+: 1716450279:0;cat zsh/zsh_history.txt | grep make
+: 1716450283:0;\
+
+: 1716450288:0;git status
+: 1716450297:0;git add .
