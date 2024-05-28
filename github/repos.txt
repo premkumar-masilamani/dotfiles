@@ -1,8 +1,3 @@
-bitaddress.org
-bitcoin-research
-dotfiles
-english-blog.github.io
-maybe
-ntgbtminer
-smileprem-www.github.io
-tamil-blog.github.io
+git@github.com:english-blog/english-blog.github.io
+git@github.com:smileprem-www/smileprem-www.github.io
+git@github.com:tamil-blog/tamil-blog.github.io
