@@ -19,17 +19,18 @@ else
     echo "Homebrew is already installed."
 fi
 
+# Git global config
+echo "Configuring git..."
+git config --global user.name "Premkumar Masilamani"
+git config --global user.email "premkumar.masilamani.2020@gmail.com"
+
 # Download personal github repos
 echo "Downloading personal github repos..."
 REPO_LIST=/Users/prem/Code/personal/dotfiles/github/repos.txt
 TARGET_DIR=/Users/prem/Code/personal
 mkdir -p "$TARGET_DIR"
-# Read each line from the repo list
 while IFS= read -r REPO_URL; do
-  # Extract the repo name from the URL (assuming URL ends with .git)
   REPO_NAME=$(echo "$REPO_URL" | awk -F'/' '{print $2}')
-  
-  # Check if the repo already exists in the target directory
   if [ ! -d "$TARGET_DIR/$REPO_NAME" ]; then
     echo "Cloning $REPO_URL into $TARGET_DIR"
     git clone "$REPO_URL" "$TARGET_DIR/$REPO_NAME"

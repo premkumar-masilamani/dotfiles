@@ -52,3 +52,5 @@
 : 1716838867:0;ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 : 1716838880:0;pbcopy < ~/.ssh/id_ed25519.pub
 : 1716838920:0;make setup
+: 1716883299:0;dot
+: 1716883344:0;make setup
