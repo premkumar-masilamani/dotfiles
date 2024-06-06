@@ -15,7 +15,6 @@
 : 1716371521:0;rm -rf glance.yml
 : 1716371570:0;vim glance.yml
 : 1716371580:0;docker run -d -p 8080:8080 -v ./glance.yml:/app/glance.yml -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro glanceapp/glance
-: 1716443739:0;git diff
 : 1716449130:0;mkdir github
 : 1716449136:0;mv repos.txt github
 : 1716449145:0;cat repos.txt
@@ -39,9 +38,6 @@
 : 1716837602:0;source <(kubectl completion zsh)
 : 1716837607:0;source "/usr/local/Cellar/kube-ps1/0.8.0/share/kube-ps1.sh"
 : 1716837639:0;which kubectl
-: 1716837701:0;make dump
-: 1716837708:0;make brew
-: 1716838395:0;dot
 : 1716838629:0;echo "git@github.com:english-blog/english-blog.github.io" | awk -F'[:/]' '{print $2}'\
 
 : 1716838681:0;echo "git@github.com:english-blog/english-blog.github.io" | awk -F'/' '{print $2}'\
@@ -51,6 +47,18 @@
 : 1716838850:0;cat ~/.ssh/config
 : 1716838867:0;ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 : 1716838880:0;pbcopy < ~/.ssh/id_ed25519.pub
-: 1716838920:0;make setup
 : 1716883299:0;dot
 : 1716883344:0;make setup
+: 1716883427:0;make dump
+: 1716883437:0;make brew
+: 1716883467:0;git diff
+: 1717679334:0;dot
+: 1717679337:0;git diff
+: 1717679347:0;cat Makefile
+: 1717679354:0;make dump
+: 1717679426:0;make brew
+: 1717679609:0;git diff
+: 1717679812:0;make dump
+: 1717679914:0;make brew
+: 1717679933:0;git diff
+: 1717679950:0;git add .
