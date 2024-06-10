@@ -1,6 +1,5 @@
 : 1714447869:0;vim zsh/zshrc.profile
 : 1714448112:0;git commit -m "updated aliases"
-: 1714500771:0;cat homebrew/Brewfile
 : 1714501008:0;ggit diff
 : 1714712878:0;which go
 : 1715243343:0;git reset hard
@@ -23,12 +22,10 @@
 : 1716449209:0;/usr/bin/python3 /Users/smileprem/.vscode/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /Users/smileprem/.vscode/extensions/ms-python.python-2024.6.0/python_files/deactivate/zsh/envVars.txt
 : 1716449528:0;git remotes
 : 1716449531:0;git remote -v
-: 1716449758:0;git push
 : 1716450155:0;vim zshrc.profile
 : 1716450264:0;cat zsh/zsh_history.txt
 : 1716450279:0;cat zsh/zsh_history.txt | grep make
 : 1716450288:0;git status
-: 1716450297:0;git add .
 : 1716835987:0;make configure
 : 1716836728:0;ping blog.smileprem.com
 : 1716837392:0;reload
@@ -47,18 +44,22 @@
 : 1716838850:0;cat ~/.ssh/config
 : 1716838867:0;ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 : 1716838880:0;pbcopy < ~/.ssh/id_ed25519.pub
-: 1716883299:0;dot
 : 1716883344:0;make setup
-: 1716883427:0;make dump
-: 1716883437:0;make brew
-: 1716883467:0;git diff
-: 1717679334:0;dot
-: 1717679337:0;git diff
 : 1717679347:0;cat Makefile
-: 1717679354:0;make dump
-: 1717679426:0;make brew
-: 1717679609:0;git diff
-: 1717679812:0;make dump
-: 1717679914:0;make brew
-: 1717679933:0;git diff
 : 1717679950:0;git add .
+: 1717679961:0;git commit -m "added google drive"
+: 1717679964:0;git push
+: 1717679971:0;git diff
+: 1717779573:0;cat homebrew/unused.txt
+: 1717779595:0;vim Brewfile
+: 1717862373:0;open .
+: 1717862796:0;cat homebrew/Brewfile
+: 1717873016:0;make dump
+: 1717873040:0;make brew
+: 1717875086:0;dot
+: 1717876117:0;du
+: 1717933792:0;dot
+: 1718001279:0;make dump
+: 1718001301:0;make brew
+: 1718001330:0;git diff
+: 1718001349:0;git add .
