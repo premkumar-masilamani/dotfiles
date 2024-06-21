@@ -23,6 +23,7 @@ cask "obsidian"
 cask "visual-studio-code"
 cask "whatsapp"
 cask "zoom"
+mas "Endel", id: 1346247457
 mas "Numbers", id: 409203825
 vscode "golang.go"
 vscode "ms-python.python"

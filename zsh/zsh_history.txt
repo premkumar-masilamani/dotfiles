@@ -46,20 +46,25 @@
 : 1716838880:0;pbcopy < ~/.ssh/id_ed25519.pub
 : 1716883344:0;make setup
 : 1717679347:0;cat Makefile
-: 1717679950:0;git add .
 : 1717679961:0;git commit -m "added google drive"
-: 1717679964:0;git push
-: 1717679971:0;git diff
 : 1717779573:0;cat homebrew/unused.txt
 : 1717779595:0;vim Brewfile
 : 1717862373:0;open .
-: 1717862796:0;cat homebrew/Brewfile
-: 1717873016:0;make dump
-: 1717873040:0;make brew
-: 1717875086:0;dot
 : 1717876117:0;du
-: 1717933792:0;dot
-: 1718001279:0;make dump
-: 1718001301:0;make brew
-: 1718001330:0;git diff
 : 1718001349:0;git add .
+: 1718001360:0;git commit -m "installed google products"
+: 1718001362:0;git push
+: 1718179508:0;git clone git@github.com:premkumar-masilamani/python-util-scripts.git
+: 1718179583:0;make create_env
+: 1718607459:0;dot
+: 1718607463:0;make dump
+: 1718607491:0;make brew
+: 1718607522:0;git diff
+: 1718607554:0;cat homebrew/Brewfile
+: 1718943810:0;dot
+: 1718943817:0;make brew
+: 1718943929:0;make dump
+: 1718943937:0;git diff
+: 1718943945:0;make brew
+: 1718943970:0;git diff
+: 1718943994:0;git add .
