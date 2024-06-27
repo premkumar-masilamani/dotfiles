@@ -27,7 +27,7 @@ compinit
 
 # ZSH Prompt
 source <(kubectl completion zsh)
-source "/usr/local/Cellar/kube-ps1/0.8.0/share/kube-ps1.sh"
+source "/usr/local/Cellar/kube-ps1/0.9.0/share/kube-ps1.sh"
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats ' %s(%b)'

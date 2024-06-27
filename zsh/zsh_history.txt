@@ -51,20 +51,34 @@
 : 1717779595:0;vim Brewfile
 : 1717862373:0;open .
 : 1717876117:0;du
-: 1718001349:0;git add .
 : 1718001360:0;git commit -m "installed google products"
-: 1718001362:0;git push
 : 1718179508:0;git clone git@github.com:premkumar-masilamani/python-util-scripts.git
 : 1718179583:0;make create_env
-: 1718607459:0;dot
-: 1718607463:0;make dump
-: 1718607491:0;make brew
-: 1718607522:0;git diff
 : 1718607554:0;cat homebrew/Brewfile
 : 1718943810:0;dot
-: 1718943817:0;make brew
 : 1718943929:0;make dump
-: 1718943937:0;git diff
 : 1718943945:0;make brew
 : 1718943970:0;git diff
 : 1718943994:0;git add .
+: 1718944010:0;git commit -m "installed endel"
+: 1718944013:0;git push
+: 1719480416:0;dot
+: 1719480428:0;cat homebrew/unused.txt
+: 1719480443:0;vim homebrew/Brewfile
+: 1719480462:0;make brew
+: 1719490375:0;du
+: 1719490956:0;qlmanage -m
+: 1719491403:0;dot
+: 1719491408:0;make dump
+: 1719491649:0;make brew
+: 1719491723:0;python chatgpt-summarizer.py
+: 1719491733:0;python3 chatgpt-summarizer.py
+: 1719491738:0;which python3
+: 1719491762:0;make create_env
+: 1719491777:0;git diff
+: 1719491812:0;which kube_ps1
+: 1719491819:0;source
+: 1719491824:0;profile
+: 1719491843:0;reload
+: 1719491862:0;git add -m "installed quick look for markdown"
+: 1719491874:0;git add .

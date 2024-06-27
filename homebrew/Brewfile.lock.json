@@ -2,7 +2,7 @@
   "entries": {
     "tap": {
       "homebrew/bundle": {
-        "revision": "450cf7f8dc759556dc25424cb369a0e732067755"
+        "revision": "f0aa10ce605d1400fdb0cbe490e012238ef93b0c"
       },
       "mas-cli/tap": {
         "revision": "727f5ae53ac1c97728667921ccd17d89ae062507"
@@ -332,15 +332,15 @@
         }
       },
       "kube-ps1": {
-        "version": "0.8.0",
+        "version": "0.9.0",
         "bottle": {
           "rebuild": 0,
           "root_url": "https://ghcr.io/v2/homebrew/core",
           "files": {
             "all": {
               "cellar": ":any_skip_relocation",
-              "url": "https://ghcr.io/v2/homebrew/core/kube-ps1/blobs/sha256:e5d9cf3512efbda9b7fcbabd2726adbee97ae8c38596835197f648b14b7d94ab",
-              "sha256": "e5d9cf3512efbda9b7fcbabd2726adbee97ae8c38596835197f648b14b7d94ab"
+              "url": "https://ghcr.io/v2/homebrew/core/kube-ps1/blobs/sha256:8b7dbe43c977fc6410a1c076cdd9d488a42201b62be6389e0f09b63030bf5e1b",
+              "sha256": "8b7dbe43c977fc6410a1c076cdd9d488a42201b62be6389e0f09b63030bf5e1b"
             }
           }
         }
@@ -634,21 +634,27 @@
         }
       },
       "google-chrome": {
-        "version": "126.0.6478.115",
+        "version": "126.0.6478.127",
         "options": {
           "full_name": "google-chrome"
         }
       },
       "google-drive": {
-        "version": "92.0",
+        "version": "93.0",
         "options": {
           "full_name": "google-drive"
         }
       },
       "obsidian": {
-        "version": "1.6.3",
+        "version": "1.6.5",
         "options": {
           "full_name": "obsidian"
+        }
+      },
+      "qlmarkdown": {
+        "version": "1.0.19",
+        "options": {
+          "full_name": "qlmarkdown"
         }
       },
       "visual-studio-code": {
@@ -658,7 +664,7 @@
         }
       },
       "whatsapp": {
-        "version": "2.24.11.85",
+        "version": "2.24.12.80",
         "options": {
           "full_name": "whatsapp"
         }
@@ -678,6 +684,10 @@
       "Numbers": {
         "id": "409203825",
         "version": "14.1"
+      },
+      "PhotoSweeper": {
+        "id": "463362050",
+        "version": "4.9.0"
       }
     },
     "vscode": {
@@ -688,7 +698,7 @@
   "system": {
     "macos": {
       "ventura": {
-        "HOMEBREW_VERSION": "4.3.6",
+        "HOMEBREW_VERSION": "4.3.7",
         "HOMEBREW_PREFIX": "/usr/local",
         "Homebrew/homebrew-core": "api",
         "CLT": "14.3.1.0.1.1683849156",
