@@ -17,7 +17,6 @@
 : 1716449130:0;mkdir github
 : 1716449136:0;mv repos.txt github
 : 1716449145:0;cat repos.txt
-: 1716449179:0;gcm
 : 1716449195:0;code .
 : 1716449209:0;/usr/bin/python3 /Users/smileprem/.vscode/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /Users/smileprem/.vscode/extensions/ms-python.python-2024.6.0/python_files/deactivate/zsh/envVars.txt
 : 1716449528:0;git remotes
@@ -28,7 +27,6 @@
 : 1716450288:0;git status
 : 1716835987:0;make configure
 : 1716836728:0;ping blog.smileprem.com
-: 1716837392:0;reload
 : 1716837423:0;which kube-ps1
 : 1716837444:0;kubectl
 : 1716837470:0;breew uninstall "gmp"
@@ -47,38 +45,43 @@
 : 1716883344:0;make setup
 : 1717679347:0;cat Makefile
 : 1717679961:0;git commit -m "added google drive"
-: 1717779573:0;cat homebrew/unused.txt
 : 1717779595:0;vim Brewfile
 : 1717862373:0;open .
-: 1717876117:0;du
 : 1718001360:0;git commit -m "installed google products"
 : 1718179508:0;git clone git@github.com:premkumar-masilamani/python-util-scripts.git
-: 1718179583:0;make create_env
 : 1718607554:0;cat homebrew/Brewfile
-: 1718943810:0;dot
-: 1718943929:0;make dump
-: 1718943945:0;make brew
-: 1718943970:0;git diff
-: 1718943994:0;git add .
 : 1718944010:0;git commit -m "installed endel"
-: 1718944013:0;git push
-: 1719480416:0;dot
 : 1719480428:0;cat homebrew/unused.txt
 : 1719480443:0;vim homebrew/Brewfile
-: 1719480462:0;make brew
-: 1719490375:0;du
 : 1719490956:0;qlmanage -m
-: 1719491403:0;dot
-: 1719491408:0;make dump
-: 1719491649:0;make brew
 : 1719491723:0;python chatgpt-summarizer.py
 : 1719491733:0;python3 chatgpt-summarizer.py
 : 1719491738:0;which python3
 : 1719491762:0;make create_env
-: 1719491777:0;git diff
 : 1719491812:0;which kube_ps1
 : 1719491819:0;source
 : 1719491824:0;profile
 : 1719491843:0;reload
 : 1719491862:0;git add -m "installed quick look for markdown"
 : 1719491874:0;git add .
+: 1719491883:0;git commit -m "installed quick look for markdown"
+: 1719491887:0;git push
+: 1719491922:0;blog
+: 1719491926:0;du
+: 1719492553:0;tamil
+: 1719492566:0;www
+: 1719492578:0;gcm
+: 1719492586:0;gcmain
+: 1721033262:0;rm -rf Drop\ Box
+: 1721033269:0;sudo -u rm -rf Drop\ Box
+: 1721033273:0;sudo rm -rf Drop\ Box
+: 1721104192:0;dot
+: 1721104197:0;make dump
+: 1721104225:0;make brew
+: 1721105367:0;git diff
+: 1721457215:0;make run
+: 1721457485:0;make dump
+: 1721457585:0;make dump
+: 1721457908:0;make dump
+: 1721467481:0;make dump
+: 1721467499:0;make brew

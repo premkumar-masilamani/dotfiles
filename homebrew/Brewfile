@@ -21,11 +21,10 @@ cask "google-chrome"
 cask "google-drive"
 cask "obsidian"
 cask "qlmarkdown"
+cask "thunderbird"
 cask "visual-studio-code"
 cask "whatsapp"
 cask "zoom"
-mas "Endel", id: 1346247457
 mas "Numbers", id: 409203825
-mas "PhotoSweeper", id: 463362050
 vscode "golang.go"
 vscode "ms-python.python"
