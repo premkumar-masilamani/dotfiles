@@ -75,13 +75,15 @@
 : 1721033262:0;rm -rf Drop\ Box
 : 1721033269:0;sudo -u rm -rf Drop\ Box
 : 1721033273:0;sudo rm -rf Drop\ Box
-: 1721104192:0;dot
-: 1721104197:0;make dump
-: 1721104225:0;make brew
 : 1721105367:0;git diff
 : 1721457215:0;make run
-: 1721457485:0;make dump
-: 1721457585:0;make dump
-: 1721457908:0;make dump
-: 1721467481:0;make dump
 : 1721467499:0;make brew
+: 1721710521:0;git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
+: 1721710528:0;gl
+: 1721750410:0;dot
+: 1721886880:0;make dump
+: 1721923430:0;dot
+: 1721923434:0;make dump
+: 1721923604:0;make brew
+: 1721923647:0;git diff
+: 1721923663:0;git add .
