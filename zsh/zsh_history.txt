@@ -24,7 +24,6 @@
 : 1716450155:0;vim zshrc.profile
 : 1716450264:0;cat zsh/zsh_history.txt
 : 1716450279:0;cat zsh/zsh_history.txt | grep make
-: 1716450288:0;git status
 : 1716835987:0;make configure
 : 1716836728:0;ping blog.smileprem.com
 : 1716837423:0;which kube-ps1
@@ -63,11 +62,8 @@
 : 1719491824:0;profile
 : 1719491843:0;reload
 : 1719491862:0;git add -m "installed quick look for markdown"
-: 1719491874:0;git add .
 : 1719491883:0;git commit -m "installed quick look for markdown"
-: 1719491887:0;git push
 : 1719491922:0;blog
-: 1719491926:0;du
 : 1719492553:0;tamil
 : 1719492566:0;www
 : 1719492578:0;gcm
@@ -75,15 +71,83 @@
 : 1721033262:0;rm -rf Drop\ Box
 : 1721033269:0;sudo -u rm -rf Drop\ Box
 : 1721033273:0;sudo rm -rf Drop\ Box
-: 1721105367:0;git diff
 : 1721457215:0;make run
-: 1721467499:0;make brew
 : 1721710521:0;git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
 : 1721710528:0;gl
-: 1721750410:0;dot
-: 1721886880:0;make dump
-: 1721923430:0;dot
-: 1721923434:0;make dump
-: 1721923604:0;make brew
-: 1721923647:0;git diff
-: 1721923663:0;git add .
+: 1721923676:0;git commit -m "updated config"
+: 1721923887:0;git clone git@github.com:premkumar-masilamani/pkm.git
+: 1722174232:0;find . -type f -name '\([0-9]\).JPG'\
+
+: 1722320684:0;git add Cash\ Flow\ Diagram.md
+: 1722320697:0;git add India\ -\ Mutual\ Funds\ based\ on\ Broad\ Indices.md
+: 1722320704:0;git add India\ -\ Retirement\ and\ Savings\ Schemes.md
+: 1722320714:0;git add Medicines.md
+: 1722320746:0;git commit -m "initial docs"
+: 1723030535:0;du
+: 1723179142:0;git add analytics.html
+: 1723179389:0;git add _layouts/default.html
+: 1723179414:0;git commit -m "added analytics to html layout"
+: 1723179491:0;git add _includes/analytics.html
+: 1723179814:0;git add .
+: 1723179823:0;git status
+: 1723179836:0;git commit -m "added google analytics"
+: 1723179838:0;git push
+: 1723704527:0;ffmpeg
+: 1723705042:0;convert 5fc28706-70a9-48d.bmp 5fc28706-70a9-48d.jpg
+: 1723705062:0;magick convert 5fc28706-70a9-48d.bmp 5fc28706-70a9-48d.jpg
+: 1723705073:0;magick 5fc28706-70a9-48d.bmp 5fc28706-70a9-48d.jpg
+: 1723706653:0;wxit
+: 1723712428:0;for file in *.heic; do\
+ convert "$file" "${file%}.jpg"\
+done
+: 1723712457:0;for file in *.heic; do\
+ magick "$file" "${file%}.jpg"\
+done
+: 1723712578:0;for file in *.heic; do\
+ base_name="${file%.heic}"\
+ magick "$file" "${base_name}.jpg"\
+done
+: 1723712651:0;for file in *.heic; do\
+ base_name="${file%.heic}"\
+ magick "$file" ../Test1/"${base_name}.jpg"\
+done\
+
+: 1723712705:0;for file in *.heic; do\
+ base_name="${file%.heic}"\
+ magick "$file" ../JPEGPhotos/"${base_name}.jpg"\
+done
+: 1723713390:0;for file in *.HEIC; do\
+ base_name="${file%.HEIC}"\
+ magick "$file" ../JPEGPhotos/"${base_name}.jpg"\
+done
+: 1723715303:0;git diff
+: 1723833094:0;dot
+: 1723838025:0;make dump
+: 1723838036:0;make brew
+: 1724168388:0;dot
+: 1724168393:0;make dump
+: 1724168417:0;makee brew
+: 1724168422:0;make brew
+: 1724168836:0;tldr --help
+: 1724168852:0;tldr -l
+: 1724169190:0;tree
+: 1724169497:0;source
+: 1724169506:0;profile
+: 1724169562:0;make dump
+: 1724169571:0;make brew
+: 1724169610:0;fzf
+: 1724169654:0;reload
+: 1724169828:0;rustbook
+: 1724169883:0;reload
+: 1724170231:0;rustc --version
+: 1724170329:0;rustup update
+: 1724170526:0;rustup default stable
+: 1724170595:0;make dump
+: 1724170609:0;make brew
+: 1724170642:0;rustc --version
+: 1724170657:0;curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+: 1724170684:0;reload
+: 1724170693:0;rustup update
+: 1724170703:0;rustbook
+: 1724170741:0;git diff
+: 1724170759:0;git add .

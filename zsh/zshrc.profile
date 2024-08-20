@@ -26,14 +26,14 @@ compinit
 # End of lines added by compinstall
 
 # ZSH Prompt
-source <(kubectl completion zsh)
-source "/usr/local/Cellar/kube-ps1/0.9.0/share/kube-ps1.sh"
+# source <(kubectl completion zsh)
+# source "/usr/local/Cellar/kube-ps1/0.9.0/share/kube-ps1.sh"
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' formats ' %s(%b)'
 precmd () { vcs_info }
 setopt prompt_subst
-PROMPT='%F{41}%~%f ${vcs_info_msg_0_} $(kube_ps1) '
+PROMPT='%F{41}%~%f ${vcs_info_msg_0_} '
 
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/usr/local/bin/brew shellenv)"
