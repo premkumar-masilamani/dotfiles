@@ -1,3 +1,5 @@
 git@github.com:english-blog/english-blog.github.io
 git@github.com:smileprem-www/smileprem-www.github.io
 git@github.com:tamil-blog/tamil-blog.github.io
+git@github.com:premkumar-masilamani/rust-projects
+git@github.com:premkumar-masilamani/python-projects

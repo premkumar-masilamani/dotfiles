@@ -41,7 +41,6 @@
 : 1716838850:0;cat ~/.ssh/config
 : 1716838867:0;ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 : 1716838880:0;pbcopy < ~/.ssh/id_ed25519.pub
-: 1716883344:0;make setup
 : 1717679347:0;cat Makefile
 : 1717679961:0;git commit -m "added google drive"
 : 1717779595:0;vim Brewfile
@@ -58,9 +57,6 @@
 : 1719491738:0;which python3
 : 1719491762:0;make create_env
 : 1719491812:0;which kube_ps1
-: 1719491819:0;source
-: 1719491824:0;profile
-: 1719491843:0;reload
 : 1719491862:0;git add -m "installed quick look for markdown"
 : 1719491883:0;git commit -m "installed quick look for markdown"
 : 1719491922:0;blog
@@ -83,12 +79,10 @@
 : 1722320704:0;git add India\ -\ Retirement\ and\ Savings\ Schemes.md
 : 1722320714:0;git add Medicines.md
 : 1722320746:0;git commit -m "initial docs"
-: 1723030535:0;du
 : 1723179142:0;git add analytics.html
 : 1723179389:0;git add _layouts/default.html
 : 1723179414:0;git commit -m "added analytics to html layout"
 : 1723179491:0;git add _includes/analytics.html
-: 1723179814:0;git add .
 : 1723179823:0;git status
 : 1723179836:0;git commit -m "added google analytics"
 : 1723179838:0;git push
@@ -120,30 +114,12 @@ done
  base_name="${file%.HEIC}"\
  magick "$file" ../JPEGPhotos/"${base_name}.jpg"\
 done
-: 1723715303:0;git diff
-: 1723833094:0;dot
-: 1723838025:0;make dump
-: 1723838036:0;make brew
-: 1724168388:0;dot
-: 1724168393:0;make dump
 : 1724168417:0;makee brew
-: 1724168422:0;make brew
 : 1724168836:0;tldr --help
 : 1724168852:0;tldr -l
-: 1724169190:0;tree
 : 1724169497:0;source
-: 1724169506:0;profile
-: 1724169562:0;make dump
-: 1724169571:0;make brew
-: 1724169610:0;fzf
-: 1724169654:0;reload
-: 1724169828:0;rustbook
-: 1724169883:0;reload
-: 1724170231:0;rustc --version
-: 1724170329:0;rustup update
 : 1724170526:0;rustup default stable
 : 1724170595:0;make dump
-: 1724170609:0;make brew
 : 1724170642:0;rustc --version
 : 1724170657:0;curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 : 1724170684:0;reload
@@ -151,3 +127,21 @@ done
 : 1724170703:0;rustbook
 : 1724170741:0;git diff
 : 1724170759:0;git add .
+: 1724789575:0;profile
+: 1724789647:0;make setup
+: 1724789735:0;dot
+: 1724789739:0;make brew
+: 1724790168:0;cask
+: 1724790201:0;openssl
+: 1724790210:0;fzf
+: 1724790237:0;htop
+: 1724790246:0;top
+: 1724790252:0;ncdu
+: 1724790258:0;du
+: 1724790276:0;tree
+: 1724851823:0;dot
+: 1724851830:0;make dump
+: 1724851839:0;make brew
+: 1724851862:0;git status
+: 1724853313:0;dot
+: 1724853319:0;git add .

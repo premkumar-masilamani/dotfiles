@@ -1,3 +1,0 @@
-cask "deckset"
-mas "Presentify", id: 1507246666
-mas "PhotoSweeper", id: 463362050
