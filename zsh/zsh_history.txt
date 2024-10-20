@@ -9,7 +9,6 @@
 : 1716366622:0;gh auth login
 : 1716367419:0;gh repo clone glanceapp/glance
 : 1716369771:0;cat README.md
-: 1716371422:0;docker ps
 : 1716371473:0;touch glance.yml
 : 1716371521:0;rm -rf glance.yml
 : 1716371570:0;vim glance.yml
@@ -21,7 +20,6 @@
 : 1716449209:0;/usr/bin/python3 /Users/smileprem/.vscode/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /Users/smileprem/.vscode/extensions/ms-python.python-2024.6.0/python_files/deactivate/zsh/envVars.txt
 : 1716449528:0;git remotes
 : 1716449531:0;git remote -v
-: 1716450155:0;vim zshrc.profile
 : 1716450264:0;cat zsh/zsh_history.txt
 : 1716450279:0;cat zsh/zsh_history.txt | grep make
 : 1716835987:0;make configure
@@ -41,10 +39,8 @@
 : 1716838850:0;cat ~/.ssh/config
 : 1716838867:0;ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 : 1716838880:0;pbcopy < ~/.ssh/id_ed25519.pub
-: 1717679347:0;cat Makefile
 : 1717679961:0;git commit -m "added google drive"
 : 1717779595:0;vim Brewfile
-: 1717862373:0;open .
 : 1718001360:0;git commit -m "installed google products"
 : 1718179508:0;git clone git@github.com:premkumar-masilamani/python-util-scripts.git
 : 1718607554:0;cat homebrew/Brewfile
@@ -60,14 +56,10 @@
 : 1719491862:0;git add -m "installed quick look for markdown"
 : 1719491883:0;git commit -m "installed quick look for markdown"
 : 1719491922:0;blog
-: 1719492553:0;tamil
 : 1719492566:0;www
-: 1719492578:0;gcm
-: 1719492586:0;gcmain
 : 1721033262:0;rm -rf Drop\ Box
 : 1721033269:0;sudo -u rm -rf Drop\ Box
 : 1721033273:0;sudo rm -rf Drop\ Box
-: 1721457215:0;make run
 : 1721710521:0;git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
 : 1721710528:0;gl
 : 1721923676:0;git commit -m "updated config"
@@ -83,9 +75,7 @@
 : 1723179389:0;git add _layouts/default.html
 : 1723179414:0;git commit -m "added analytics to html layout"
 : 1723179491:0;git add _includes/analytics.html
-: 1723179823:0;git status
 : 1723179836:0;git commit -m "added google analytics"
-: 1723179838:0;git push
 : 1723704527:0;ffmpeg
 : 1723705042:0;convert 5fc28706-70a9-48d.bmp 5fc28706-70a9-48d.jpg
 : 1723705062:0;magick convert 5fc28706-70a9-48d.bmp 5fc28706-70a9-48d.jpg
@@ -117,20 +107,11 @@ done
 : 1724168417:0;makee brew
 : 1724168836:0;tldr --help
 : 1724168852:0;tldr -l
-: 1724169497:0;source
 : 1724170526:0;rustup default stable
-: 1724170595:0;make dump
 : 1724170642:0;rustc --version
 : 1724170657:0;curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
-: 1724170684:0;reload
 : 1724170693:0;rustup update
 : 1724170703:0;rustbook
-: 1724170741:0;git diff
-: 1724170759:0;git add .
-: 1724789575:0;profile
-: 1724789647:0;make setup
-: 1724789735:0;dot
-: 1724789739:0;make brew
 : 1724790168:0;cask
 : 1724790201:0;openssl
 : 1724790210:0;fzf
@@ -138,10 +119,111 @@ done
 : 1724790246:0;top
 : 1724790252:0;ncdu
 : 1724790258:0;du
-: 1724790276:0;tree
-: 1724851823:0;dot
-: 1724851830:0;make dump
-: 1724851839:0;make brew
-: 1724851862:0;git status
-: 1724853313:0;dot
-: 1724853319:0;git add .
+: 1724853331:0;alias
+: 1724853394:0;git commit -m "updated config from latest mac installation"
+: 1724853752:0;rm -rf .DS_Store
+: 1724853789:0;vim _pages/books.md
+: 1724853815:0;git commit -m "added na muthukumar books"
+: 1725183961:0;tamil
+: 1725183967:0;cat CNAME
+: 1725184641:0;dig www.premkumarmasilamani.com
+: 1725776606:0;ln -s ~/My Drive/Obsidian ~/Library/Mobile\ Documents/com~apple~CloudDocs/Obsidian
+: 1725776670:0;ln -s ~/My Drive/Obsidian ~/Library/Mobile\ Documents/com~apple~CloudDocs
+: 1725776757:0;ln -s /Users/premkumar/My\ Drive/Obsidian /Users/premkumar/Library/Mobile\ Documents/com~apple~CloudDocs
+: 1725776982:0;make setup
+: 1725891375:0;mkdir PAPA
+: 1726575398:0;git clone git@github.com:0x90d/videoduplicatefinder.git
+: 1726575428:0;./VDF.GUI
+: 1726575437:0;sudo ./VDF.GUI
+: 1726575488:0;./VideoDuplicateFinder.sln
+: 1726596900:0;exot
+: 1726719272:0;make brew
+: 1726719468:0;make dump
+: 1726991392:0;ruby -v\
+
+: 1726991403:0;gem install jekyll\
+
+: 1726991455:0;open ../smileprem-www.github.io
+: 1726991591:0;sudo gem install jekyll\
+
+: 1726991837:0;echo "source /usr/local/opt/chruby/share/chruby/auto.sh" > ~/.zshrc
+: 1726991851:0;ruby-install ruby 3.3.5
+: 1726992523:0;ruby-install ruby 3.3.5\
+
+: 1726993446:0;echo "source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh" >> ~/.zshrc\
+echo "source $(brew --prefix)/opt/chruby/share/chruby/auto.sh" >> ~/.zshrc\
+echo "chruby ruby-3.3.5" >> ~/.zshrc # run 'chruby' to see actual version
+: 1726993452:0;cat ~/.zshrc
+: 1726993463:0;profile
+: 1726993474:0;source
+: 1726993562:0;gcm
+: 1726993645:0;git checkout zshrc.profile
+: 1726993665:0;vim zshrc.profile
+: 1726993788:0;reload
+: 1726993805:0;ruby -v
+: 1726993810:0;gem install jekyll
+: 1726993977:0;cat Makefile
+: 1726994009:0;gem install jekyll-paginate
+: 1726994024:0;gem install jekyll-redirect-from
+: 1726994038:0;gem install jekyll-seo-tag
+: 1726994074:0;gem install bundler\
+
+: 1726994086:0;vim Gemfile
+: 1726994193:0;open Gemfile
+: 1726994286:0;bundle install\
+
+: 1726994438:0;git diff
+: 1726994653:0;git commit -m "updated the homepage"
+: 1726994784:0;vim index.html
+: 1726994878:0;git commit -m "removed the hyperlink from the Home link in the footer"
+: 1726994943:0;python3 -m http.server 4000\
+
+: 1726995019:0;vim run.sh
+: 1726995330:0;mkdir docs
+: 1726995335:0;mv index.html docs
+: 1726995353:0;git commit -m "moved index to docs folder"
+: 1727510019:0;git branch multiple-blogs
+: 1727510028:0;git checkout multiple-blogs
+: 1727510038:0;git push --set-upstream origin multiple-blogs
+: 1727510115:0;git add .
+: 1727510126:0;git commit -m "dump from english blog"
+: 1727510175:0;jekyll serve --config _local-config.yml --watch --incremental --drafts
+: 1727590171:0;git status
+: 1727590182:0;tree
+: 1727590247:0;./run.sh
+: 1727592052:0;dot
+: 1727592094:0;open .
+: 1727592391:0;docker 84ba66c5e221
+: 1727592399:0;docker logs 84ba66c5e221
+: 1727592405:0;docker logs -f 84ba66c5e221
+: 1727592578:0;docker ps
+: 1727611462:0;gcr
+: 1727611473:0;grh
+: 1727611560:0;git branch tamil-blog
+: 1727611566:0;git checkout tamil-blog -blog
+: 1727611572:0;git checkout tamil-blog
+: 1727611583:0;git push --set-upstream origin tamil-blog
+: 1727614072:0;git pull
+: 1727616281:0;git push
+: 1727616410:0;git config pull.rebase false
+: 1727617178:0;pip install beautifulsoup4 requests\
+
+: 1727617186:0;pip3 install beautifulsoup4 requests\
+
+: 1727617196:0;python link-checker.py
+: 1727678730:0;make make run
+: 1727678973:0;python3 link-checker.py
+: 1727679943:0;make stop
+: 1727679956:0;make run
+: 1727680258:0;wget http://localhost:4000/english/
+: 1727681560:0;gcmain
+: 1729402059:0;git clone git@github.com:premkumar-masilamani/quant-projects.git
+: 1729402179:0;open .
+: 1729402226:0;make dump
+: 1729402250:0;make brew
+: 1729402349:0;git status
+: 1729402357:0;git diff
+: 1729402440:0;vim setup.sh
+: 1729402461:0;git status
+: 1729402467:0;git status
+: 1729402478:0;git add .

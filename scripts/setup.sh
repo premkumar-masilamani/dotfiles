@@ -1,8 +1,10 @@
 #!/bin/bash
 
+USERNAME=premkumar
+
 # Configure Z Shell
 echo "Configuring Z Shell..."
-ln -sf /Users/premkumar/Code/dotfiles/zsh/zshrc.profile ~/.zshrc
+ln -sf /Users/$USERNAME/Code/dotfiles/zsh/zshrc.profile ~/.zshrc
 
 # Configure Dracula Theme for Terminal
 echo "Configure Dracula Theme for Terminal..."
@@ -26,8 +28,8 @@ git config --global user.email "premkumar.masilamani.2020@gmail.com"
 
 # Download personal github repos
 echo "Downloading personal github repos..."
-REPO_LIST=/Users/premkumar/Code/dotfiles/github/repos.txt
-TARGET_DIR=/Users/premkumar/Code
+REPO_LIST=/Users/$USERNAME/Code/dotfiles/github/repos.txt
+TARGET_DIR=/Users/$USERNAME/Code
 mkdir -p "$TARGET_DIR"
 while IFS= read -r REPO_URL; do
   REPO_NAME=$(echo "$REPO_URL" | awk -F'/' '{print $2}')

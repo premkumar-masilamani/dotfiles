@@ -33,6 +33,12 @@ precmd () { vcs_info }
 setopt prompt_subst
 PROMPT='%F{41}%~%f ${vcs_info_msg_0_} '
 
+# Ruby Setup
+source /usr/local/opt/chruby/share/chruby/auto.sh
+source /usr/local/opt/chruby/share/chruby/chruby.sh
+source /usr/local/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.3.5
+
 # Set PATH, MANPATH, etc., for Homebrew.
 eval "$(/usr/local/bin/brew shellenv)"
 
