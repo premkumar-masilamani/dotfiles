@@ -130,15 +130,12 @@ done
 : 1725776606:0;ln -s ~/My Drive/Obsidian ~/Library/Mobile\ Documents/com~apple~CloudDocs/Obsidian
 : 1725776670:0;ln -s ~/My Drive/Obsidian ~/Library/Mobile\ Documents/com~apple~CloudDocs
 : 1725776757:0;ln -s /Users/premkumar/My\ Drive/Obsidian /Users/premkumar/Library/Mobile\ Documents/com~apple~CloudDocs
-: 1725776982:0;make setup
 : 1725891375:0;mkdir PAPA
 : 1726575398:0;git clone git@github.com:0x90d/videoduplicatefinder.git
 : 1726575428:0;./VDF.GUI
 : 1726575437:0;sudo ./VDF.GUI
 : 1726575488:0;./VideoDuplicateFinder.sln
 : 1726596900:0;exot
-: 1726719272:0;make brew
-: 1726719468:0;make dump
 : 1726991392:0;ruby -v\
 
 : 1726991403:0;gem install jekyll\
@@ -172,7 +169,6 @@ echo "chruby ruby-3.3.5" >> ~/.zshrc # run 'chruby' to see actual version
 : 1726994193:0;open Gemfile
 : 1726994286:0;bundle install\
 
-: 1726994438:0;git diff
 : 1726994653:0;git commit -m "updated the homepage"
 : 1726994784:0;vim index.html
 : 1726994878:0;git commit -m "removed the hyperlink from the Home link in the footer"
@@ -185,18 +181,14 @@ echo "chruby ruby-3.3.5" >> ~/.zshrc # run 'chruby' to see actual version
 : 1727510019:0;git branch multiple-blogs
 : 1727510028:0;git checkout multiple-blogs
 : 1727510038:0;git push --set-upstream origin multiple-blogs
-: 1727510115:0;git add .
 : 1727510126:0;git commit -m "dump from english blog"
 : 1727510175:0;jekyll serve --config _local-config.yml --watch --incremental --drafts
-: 1727590171:0;git status
 : 1727590182:0;tree
 : 1727590247:0;./run.sh
 : 1727592052:0;dot
-: 1727592094:0;open .
 : 1727592391:0;docker 84ba66c5e221
 : 1727592399:0;docker logs 84ba66c5e221
 : 1727592405:0;docker logs -f 84ba66c5e221
-: 1727592578:0;docker ps
 : 1727611462:0;gcr
 : 1727611473:0;grh
 : 1727611560:0;git branch tamil-blog
@@ -204,7 +196,6 @@ echo "chruby ruby-3.3.5" >> ~/.zshrc # run 'chruby' to see actual version
 : 1727611572:0;git checkout tamil-blog
 : 1727611583:0;git push --set-upstream origin tamil-blog
 : 1727614072:0;git pull
-: 1727616281:0;git push
 : 1727616410:0;git config pull.rebase false
 : 1727617178:0;pip install beautifulsoup4 requests\
 
@@ -213,7 +204,6 @@ echo "chruby ruby-3.3.5" >> ~/.zshrc # run 'chruby' to see actual version
 : 1727617196:0;python link-checker.py
 : 1727678730:0;make make run
 : 1727678973:0;python3 link-checker.py
-: 1727679943:0;make stop
 : 1727679956:0;make run
 : 1727680258:0;wget http://localhost:4000/english/
 : 1727681560:0;gcmain
@@ -221,9 +211,55 @@ echo "chruby ruby-3.3.5" >> ~/.zshrc # run 'chruby' to see actual version
 : 1729402179:0;open .
 : 1729402226:0;make dump
 : 1729402250:0;make brew
-: 1729402349:0;git status
 : 1729402357:0;git diff
 : 1729402440:0;vim setup.sh
-: 1729402461:0;git status
 : 1729402467:0;git status
 : 1729402478:0;git add .
+: 1729402490:0;git commit -m "added pycharm and other softwares"
+: 1729402494:0;git push
+: 1729402538:0;touch Makefile
+: 1729402809:0;docker ls
+: 1729402818:0;docker containers
+: 1729403295:0;docker images
+: 1729406637:0;docker exec
+: 1729406686:0;make exec
+: 1729406781:0;echo $USER
+: 1729406787:0;echo $HOME
+: 1729406862:0;docker ps
+: 1729411507:0;make setup p
+: 1729415132:0;make all
+: 1729415787:0;sudo .venv/bin/activate
+: 1729415870:0;.venv/bin/activate
+: 1729415881:0;./.venv/bin/activate
+: 1729416155:0;make clean
+: 1729416197:0;make setup
+: 1729416226:0;make stop
+: 1729416230:0;make start
+: 1729416235:0;make connect
+: 1729424340:0;rm -rf .venv
+: 1729424562:0;source venv/bin/activate
+: 1729424891:0;pip install python-dotenv\
+
+: 1729425105:0;rm -rf venv
+: 1729426568:0;deactivate
+: 1729426572:0;make venv
+: 1729426582:0;source .venv/bin/activate
+: 1729426630:0;pip uninstall smartapi-python\
+pip install smartapi-python\
+
+: 1729426643:0;pip3
+: 1729426645:0;uninstall smartapi-python
+: 1729426648:0;pip3 uninstall smartapi-python
+: 1729426657:0;pip3 install smartapi-python
+: 1729426686:0;pip3 install logzero
+: 1729426690:0;python3 historical_data.py
+: 1729429052:0;pip3 install websocket
+: 1729839876:0;dot
+: 1729839879:0;make dump
+: 1729839901:0;code .
+: 1729839979:0;make refresh
+: 1729840040:0;code .
+: 1729840056:0;make refresh
+: 1729840082:0;git diff
+: 1729840134:0;make refresh
+: 1729840169:0;git add .
