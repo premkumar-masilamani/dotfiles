@@ -16,7 +16,6 @@
 : 1716449130:0;mkdir github
 : 1716449136:0;mv repos.txt github
 : 1716449145:0;cat repos.txt
-: 1716449195:0;code .
 : 1716449209:0;/usr/bin/python3 /Users/smileprem/.vscode/extensions/ms-python.python-2024.6.0/python_files/printEnvVariablesToFile.py /Users/smileprem/.vscode/extensions/ms-python.python-2024.6.0/python_files/deactivate/zsh/envVars.txt
 : 1716449528:0;git remotes
 : 1716449531:0;git remote -v
@@ -159,7 +158,6 @@ echo "chruby ruby-3.3.5" >> ~/.zshrc # run 'chruby' to see actual version
 : 1726993788:0;reload
 : 1726993805:0;ruby -v
 : 1726993810:0;gem install jekyll
-: 1726993977:0;cat Makefile
 : 1726994009:0;gem install jekyll-paginate
 : 1726994024:0;gem install jekyll-redirect-from
 : 1726994038:0;gem install jekyll-seo-tag
@@ -185,7 +183,6 @@ echo "chruby ruby-3.3.5" >> ~/.zshrc # run 'chruby' to see actual version
 : 1727510175:0;jekyll serve --config _local-config.yml --watch --incremental --drafts
 : 1727590182:0;tree
 : 1727590247:0;./run.sh
-: 1727592052:0;dot
 : 1727592391:0;docker 84ba66c5e221
 : 1727592399:0;docker logs 84ba66c5e221
 : 1727592405:0;docker logs -f 84ba66c5e221
@@ -208,15 +205,8 @@ echo "chruby ruby-3.3.5" >> ~/.zshrc # run 'chruby' to see actual version
 : 1727680258:0;wget http://localhost:4000/english/
 : 1727681560:0;gcmain
 : 1729402059:0;git clone git@github.com:premkumar-masilamani/quant-projects.git
-: 1729402179:0;open .
-: 1729402226:0;make dump
-: 1729402250:0;make brew
-: 1729402357:0;git diff
 : 1729402440:0;vim setup.sh
-: 1729402467:0;git status
-: 1729402478:0;git add .
 : 1729402490:0;git commit -m "added pycharm and other softwares"
-: 1729402494:0;git push
 : 1729402538:0;touch Makefile
 : 1729402809:0;docker ls
 : 1729402818:0;docker containers
@@ -254,12 +244,30 @@ pip install smartapi-python\
 : 1729426686:0;pip3 install logzero
 : 1729426690:0;python3 historical_data.py
 : 1729429052:0;pip3 install websocket
-: 1729839876:0;dot
-: 1729839879:0;make dump
-: 1729839901:0;code .
-: 1729839979:0;make refresh
 : 1729840040:0;code .
-: 1729840056:0;make refresh
 : 1729840082:0;git diff
-: 1729840134:0;make refresh
 : 1729840169:0;git add .
+: 1729840173:0;git status
+: 1729840190:0;git commit -m "added jupyterlab"
+: 1729840193:0;git push
+: 1730476130:0;mkdir Investments
+: 1730873259:0;dot
+: 1730873264:0;make
+: 1730873272:0;cat Makefile
+: 1730873318:0;make dump
+: 1730873327:0;make brew
+: 1730873352:0;open .
+: 1730875775:0;make refresh
+: 1730906188:0;dot
+: 1730906191:0;make refresh
+: 1730906296:0;open homebrew/Brewfile
+: 1730906311:0;make brew
+: 1730906371:0;make dump
+: 1730906384:0;open homebrew/Brewfile
+: 1730906426:0;make dump
+: 1730906436:0;open homebrew/Brewfile
+: 1730906448:0;make refresh
+: 1730907052:0;make refresh
+: 1730907099:0;make refresh
+: 1730907147:0;git status
+: 1730907156:0;git add .
