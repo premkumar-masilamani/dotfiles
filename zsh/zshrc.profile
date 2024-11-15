@@ -1,5 +1,4 @@
 # Shell History Settings
-HISTFILE="/Users/premkumar/Code/dotfiles/zsh/zsh_history.txt"
 HISTSIZE=100000
 SAVEHIST=100000
 HISTORY_IGNORE="(ls|cd|pwd|exit|brew|clear|chmod)*"
@@ -50,7 +49,7 @@ alias top='htop'
 alias du='ncdu --color dark -rr -x'
 alias help='tldr'
 alias flushdns='sudo killall -HUP mDNSResponder'
-alias profile='code ~/.zshrc'
+alias profile='zed ~/.zshrc'
 alias reload='source ~/.zshrc'
 alias chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
 
@@ -68,6 +67,4 @@ alias grh='git reset --hard HEAD~1'
 
 # Directory aliases
 alias dot='cd ~/Code/dotfiles'
-alias blog='cd ~/Code/english-blog.github.io'
-alias tamil='cd ~/Code/tamil-blog.github.io'
-
+alias blog='cd ~/Code/premkumar-masilamani.github.io'
