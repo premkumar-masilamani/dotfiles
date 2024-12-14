@@ -6,4 +6,3 @@ This repository contains the brew bundle and zsh profile files that manages most
 - [ ] Install Command Line Developer Tools (needed for git)
 - [ ] Create and upload SSH Keys to Github. Refer https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
 - [ ] Download `dotfiles` GitHub private repo and run `make setup`
-- [ ] Use the `Dracula` theme for the terminal app.

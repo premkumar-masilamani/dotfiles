@@ -67,4 +67,4 @@ alias grh='git reset --hard HEAD~1'
 
 # Directory aliases
 alias dot='cd ~/Code/dotfiles'
-alias blog='cd ~/Code/premkumar-masilamani.github.io'
+alias blog='zed ~/Code/premkumar-masilamani.github.io'

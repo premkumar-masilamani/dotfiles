@@ -6,12 +6,6 @@ USERNAME=premkumar
 echo "Configuring Z Shell..."
 ln -sf /Users/$USERNAME/Code/dotfiles/zsh/zshrc.profile ~/.zshrc
 
-# Configure Dracula Theme for Terminal
-echo "Configure Dracula Theme for Terminal..."
-echo "1. Install Dracula Theme. Refer https://draculatheme.com/terminal"
-echo "2. Set Dracula Theme as the default theme"
-echo "3. Increase the font size to 14"
-
 # Check if Homebrew is installed
 if ! command -v brew &> /dev/null
 then
@@ -40,4 +34,3 @@ while IFS= read -r REPO_URL; do
     echo "Repository $REPO_NAME already exists in $TARGET_DIR, skipping..."
   fi
 done < "$REPO_LIST"
-
