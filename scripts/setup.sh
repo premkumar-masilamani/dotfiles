@@ -2,9 +2,11 @@
 
 USERNAME=premkumar
 
-# Configure Z Shell
 echo "Configuring Z Shell..."
 ln -sf /Users/$USERNAME/Code/dotfiles/zsh/zshrc.profile ~/.zshrc
+
+echo "Configuring Zed Editor..."
+ln -sf /Users/$USERNAME/Code/dotfiles/zed/settings.json ~/.config/zed/settings.json
 
 # Check if Homebrew is installed
 if ! command -v brew &> /dev/null
