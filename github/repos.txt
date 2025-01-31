@@ -1,4 +1,5 @@
 git@github.com:premkumar-masilamani/premkumar-masilamani.github.io
 git@github.com:premkumar-masilamani/rust-projects
 git@github.com:premkumar-masilamani/python-projects
+git@github.com:premkumar-masilamani/pinescript-projects
 git@github.com:premkumar-masilamani/pkm
