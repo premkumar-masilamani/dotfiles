@@ -1,4 +1,7 @@
 {
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
   "assistant": {
     "default_model": {
       "provider": "zed.dev",
@@ -15,5 +18,10 @@
   },
   "base_keymap": "JetBrains",
   "soft_wrap": "editor_width",
-  "autosave": "on_focus_change"
+  "autosave": "on_focus_change",
+  "languages": {
+    "HTML": {
+      "format_on_save": "off"
+    }
+  }
 }

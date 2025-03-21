@@ -1,3 +1,9 @@
+.PHONY: refresh
+refresh:
+	./scripts/dump.sh
+	./scripts/brew.sh
+	git diff homebrew/Brewfile
+
 .PHONY: setup
 setup:
 	./scripts/setup.sh
@@ -9,9 +15,3 @@ dump:
 .PHONY: brew
 brew:
 	./scripts/brew.sh
-
-.PHONY: refresh
-refresh:
-	./scripts/dump.sh
-	./scripts/brew.sh
-	git diff homebrew/Brewfile
