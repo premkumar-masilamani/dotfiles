@@ -65,3 +65,4 @@ alias grh='git reset --hard HEAD~1'
 # Directory aliases
 alias dot='zed ~/Code/dotfiles'
 alias blog='zed ~/Code/premkumar-masilamani.github.io'
+alias kanboard='docker rm -f kanboard || true && docker run -d --name kanboard -p 80:80 -v /Users/premkumar/Code/kanban-data:/var/www/app/data kanboard/kanboard'
