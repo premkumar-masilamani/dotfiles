@@ -33,11 +33,6 @@ PROMPT='%F{41}%~%f ${vcs_info_msg_0_} '
 # Homebrew setup
 eval "$(/usr/local/bin/brew shellenv)"
 
-# Ruby setup
-source $(brew --prefix)/opt/chruby/share/chruby/chruby.sh
-source $(brew --prefix)/opt/chruby/share/chruby/auto.sh
-chruby ruby-3.3.5
-
 # D2 TALA config
 export TSTRUCT_TOKEN=tstruct_eyJ2ZXJzaW9uIjoxLCJkYXRhIjp7InVzZXJJRCI6MSwidXNlckVtYWlsIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJ0ZWFtSUQiOjEsInRlYW1OYW1lIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJyZW5ld2FsRGF0ZSI6IjIwMjQtMDYtMjlUMjE6Mjg6MDVaIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yOVQyMToyODowOS43MjYyMjgxMjFaIn0sInNpZ25hdHVyZSI6ImZlRUI2NHltSHpyUFdJaUkweWhOTEFMSG5rcjRMUUYrdzZXTTBqREdTZUVORW5MV3gwWS9iQVExNm8vTjhMUmw3Q01ZQ0tzT0ZDNW0xS1ZUSDc2bkNRPT0ifQ==
 
@@ -65,4 +60,4 @@ alias grh='git reset --hard HEAD~1'
 # Directory aliases
 alias dot='zed ~/Code/dotfiles'
 alias blog='zed ~/Code/premkumar-masilamani.github.io'
-alias kanboard='docker rm -f kanboard || true && docker run -d --name kanboard -p 80:80 -v /Users/premkumar/Code/kanban-data:/var/www/app/data kanboard/kanboard'
+alias kanboard='docker rm -f kanboard || true && docker run --name kanboard -p 80:80 -v /Users/premkumar/Code/kanban-data:/var/www/app/data kanboard/kanboard'
