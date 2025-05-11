@@ -1,17 +1,24 @@
+# Makefile for dotfiles management
+
 .PHONY: refresh
 refresh:
-	./scripts/dump.sh
-	./scripts/brew.sh
+	./scripts/manage.sh dump
 	git diff homebrew/Brewfile
 
 .PHONY: setup
 setup:
-	./scripts/setup.sh
+	./scripts/manage.sh setup
 
 .PHONY: dump
 dump:
-	./scripts/dump.sh
+	./scripts/manage.sh dump
 
 .PHONY: brew
 brew:
-	./scripts/brew.sh
+	./scripts/manage.sh update
+
+.PHONY: all
+all:
+	./scripts/manage.sh all
+
+.DEFAULT_GOAL := all
