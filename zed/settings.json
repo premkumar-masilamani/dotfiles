@@ -2,26 +2,177 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
-  "agent": {
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-5-sonnet-latest"
-    },
-    "version": "2"
-  },
-  "ui_font_size": 16,
-  "buffer_font_size": 16,
-  "theme": {
-    "mode": "system",
-    "light": "One Light",
-    "dark": "One Dark"
-  },
   "base_keymap": "JetBrains",
   "soft_wrap": "editor_width",
   "autosave": "on_focus_change",
+  "current_line_highlight": "all",
+  "tabs": {
+    "file_icons": true,
+    "git_status": true
+  },
+  "preview_tabs": {
+    "enabled": true,
+    "enable_preview_from_file_finder": true,
+    "enable_preview_from_code_navigation": true
+  },
   "languages": {
+    "Python": {
+      "formatter": "language_server",
+      "format_on_save": {
+        "external": {
+          "command": "/Users/premkumar/.pyenv/versions/venv/bin/python",
+          "arguments": ["-m", "ruff", "format", "-"]
+        }
+      },
+      "soft_wrap": "editor_width",
+      "tab_size": 4,
+      "ensure_final_newline_on_save": true,
+      "remove_trailing_whitespace_on_save": true,
+      "preferred_line_length": 88
+    },
     "HTML": {
       "format_on_save": "off"
     }
+  },
+  "lsp": {
+    "pyright": {
+      "initialization_options": {
+        "disableLanguageServices": false,
+        "disableOrganizeImports": false,
+        "autoImportCompletions": true,
+        "analysis": {
+          "autoSearchPaths": true,
+          "useLibraryCodeForTypes": true,
+          "diagnosticMode": "workspace",
+          "typeCheckingMode": "strict",
+          "pythonVersion": "3.13",
+          "include": ["src"],
+          "extraPaths": ["src"],
+          "exclude": ["**/__pycache__"],
+          "autoFormatStrings": true,
+          "completeFunctionParens": true,
+          "reportMissingImports": true,
+          "reportUnusedImport": "error",
+          "reportUnusedVariable": "error",
+          "reportDuplicateImport": "error",
+          "reportGeneralTypeIssues": "error",
+          "reportOptionalSubscript": "error",
+          "reportOptionalMemberAccess": "error",
+          "reportPrivateUsage": "warning",
+          "reportUnboundVariable": "error",
+          "reportUnknownVariableType": "warning",
+          "reportUntypedFunctionDecorator": "warning",
+          "reportMissingTypeStubs": "warning",
+          "reportImportCycles": "warning",
+          "reportImplicitStringConcatenation": "warning",
+          "reportCallInDefaultInitializer": "warning"
+        }
+      },
+      "settings": {
+        "python": {
+          "pythonPath": "/Users/premkumar/.pyenv/versions/venv/bin/python"
+        }
+      }
+    }
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "bottom_dock_layout": "contained",
+  "active_pane_modifiers": {
+    "magnification": 1.0,
+    "border_size": 0.0,
+    "inactive_opacity": 1.0
+  },
+  "restore_on_startup": "last_session",
+  "jupyter": {
+    "kernel_selections": {
+      "python": "venv"
+    }
+  },
+  "auto_signature_help": true,
+  "show_signature_help_after_edits": true,
+  "show_completions_on_input": true,
+  "show_completion_documentation": true,
+  "linked_edits": true,
+  "editor_font_features": {
+    "calt": true
+  },
+  "gutter": {
+    "line_numbers": true,
+    "runnables": true,
+    "breakpoints": true,
+    "folds": true
+  },
+  "project_panel": {
+    "auto_reveal_entries": true,
+    "git_status": true,
+    "file_icons": true,
+    "dock": "left",
+    "default_width": 280,
+    "indent_size": 22
+  },
+  "vim_mode": false,
+  "relative_line_numbers": false,
+  "selection_highlight": true,
+  "show_whitespaces": "selection",
+  "indent_guides": {
+    "enabled": true,
+    "line_width": 1,
+    "active_line_width": 2,
+    "coloring": "indent_aware"
+  },
+  "completions": {
+    "lsp": true,
+    "lsp_insert_mode": "replace_subsequence",
+    "words": "fallback"
+  },
+  "git": {
+    "git_gutter": "tracked_files",
+    "inline_blame": {
+      "enabled": true,
+      "delay_ms": 300,
+      "show_commit_summary": true
+    }
+  },
+  "debugger": {
+    "stepping_granularity": "line",
+    "save_breakpoints": true,
+    "button": true
+  },
+  "agent": {
+    "always_allow_tool_actions": true,
+    "default_model": {
+      "provider": "google",
+      "model": "gemini-2.0-flash"
+    },
+    "version": "2"
+  },
+  "show_wrap_guides": true,
+  "preferred_line_length": 88,
+  "remove_trailing_whitespace_on_save": true,
+  "ensure_final_newline_on_save": true,
+  "use_on_type_format": true,
+  "scroll_beyond_last_line": "one_page",
+  "vertical_scroll_margin": 5,
+  "diagnostics_max_severity": "hint",
+  "outline_panel": {
+    "button": true,
+    "dock": "right",
+    "default_width": 300,
+    "auto_reveal_entries": true
+  },
+  "terminal": {
+    "font_size": 15,
+    "working_directory": "current_project_directory",
+    "dock": "bottom",
+    "default_height": 300
+  },
+  "inlay_hints": {
+    "enabled": true,
+    "show_type_hints": true,
+    "show_parameter_hints": true,
+    "show_other_hints": true
   }
 }
