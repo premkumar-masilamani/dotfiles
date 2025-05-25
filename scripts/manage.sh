@@ -9,7 +9,6 @@ readonly CODE_DIR="/Users/${USERNAME}/Code"
 readonly DOTFILES_DIR="${CODE_DIR}/dotfiles"
 
 readonly BREW_FILE="${DOTFILES_DIR}/homebrew/Brewfile"
-readonly REPO_LIST="${DOTFILES_DIR}/github/repos.txt"
 
 readonly GIT_NAME="Premkumar Masilamani"
 readonly GIT_EMAIL="premkumar.masilamani.2020@gmail.com"
@@ -92,27 +91,22 @@ setup_git() {
 }
 
 clone_repositories() {
-    echo "Downloading personal GitHub repositories..."
-    if [[ ! -f "$REPO_LIST" ]]; then
-        echo "Repository list not found at $REPO_LIST"
-        return 0
-    fi
+    echo "Downloading personal GitHub repositories using GitHub CLI..."
+    mkdir -p "$CODE_DIR"
+    cd "$CODE_DIR" || return
 
-    while IFS= read -r repo_url || [[ -n "$repo_url" ]]; do
-        [[ "$repo_url" =~ ^#.*$ || -z "$repo_url" ]] && continue
+    gh repo list --limit 1000 --json nameWithOwner,sshUrl --jq '.[] | "\(.nameWithOwner) \(.sshUrl)"' |
+    while read -r full_name ssh_url; do
+      local repo_dir=$(basename "$full_name")
+      if [ -d "$repo_dir" ]; then
+          echo "Skipping already cloned repo: $repo_dir"
+      else
+          echo "Cloning $full_name..."
+          git clone "$ssh_url"
+      fi
+    done
 
-        local repo_name
-        repo_name=$(echo "$repo_url" | awk -F'/' '{print $NF}' | sed 's/.git$//')
-local target_path="${CODE_DIR}/${repo_name}"
-
-
-        if [[ ! -d "$target_path" ]]; then
-            echo "Cloning $repo_url..."
-            git clone "$repo_url" "$target_path"
-        else
-            echo "Repository $repo_name already exists, skipping..."
-        fi
-    done < "$REPO_LIST"
+    echo "All repositories cloned to $CODE_DIR"
 }
 
 setup_system() {

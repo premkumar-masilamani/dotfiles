@@ -37,10 +37,8 @@ eval "$(/usr/local/bin/brew shellenv)"
 export TSTRUCT_TOKEN=tstruct_eyJ2ZXJzaW9uIjoxLCJkYXRhIjp7InVzZXJJRCI6MSwidXNlckVtYWlsIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJ0ZWFtSUQiOjEsInRlYW1OYW1lIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJyZW5ld2FsRGF0ZSI6IjIwMjQtMDYtMjlUMjE6Mjg6MDVaIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yOVQyMToyODowOS43MjYyMjgxMjFaIn0sInNpZ25hdHVyZSI6ImZlRUI2NHltSHpyUFdJaUkweWhOTEFMSG5rcjRMUUYrdzZXTTBqREdTZUVORW5MV3gwWS9iQVExNm8vTjhMUmw3Q01ZQ0tzT0ZDNW0xS1ZUSDc2bkNRPT0ifQ==
 
 # Utility Softwares
-alias ls='ls -l --color=auto'
 alias top='htop'
 alias du='ncdu --color dark -rr -x'
-alias help='tldr'
 alias flushdns='sudo killall -HUP mDNSResponder'
 alias profile='zed ~/.zshrc'
 alias reload='source ~/.zshrc'
@@ -49,7 +47,6 @@ alias chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\
 # Python aliases
 alias python=/usr/local/bin/python3
 alias pip=/usr/local/bin/pip3
-export PYTHONPATH="~/Code/sibros/odxtools:$PYTHONPATH"
 
 # Git aliases
 alias gcm='git checkout main; git pull; git submodule update'
