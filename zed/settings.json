@@ -155,8 +155,8 @@
     "play_sound_when_agent_done": true,
     "always_allow_tool_actions": true,
     "default_model": {
-      "provider": "google",
-      "model": "gemini-2.5-pro-preview-03-25"
+      "provider": "openai",
+      "model": "gpt-4"
     },
     "version": "2"
   },
