@@ -39,4 +39,5 @@ cask "orbstack"
 cask "tradingview"
 cask "zed"
 cask "zoom"
+mas "GarageBand", id: 682658836
 mas "Numbers", id: 409203825
