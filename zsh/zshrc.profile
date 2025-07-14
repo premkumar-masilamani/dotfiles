@@ -31,7 +31,8 @@ setopt prompt_subst
 PROMPT='%F{41}%~%f ${vcs_info_msg_0_} '
 
 # Path variable
-export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/.cargo/bin:/usr/local/opt/openjdk@21/bin:$PATH"
+export CPPFLAGS="-I/usr/local/opt/openjdk@21/include"
 
 # Homebrew setup
 eval "$(/usr/local/bin/brew shellenv)"
@@ -41,9 +42,9 @@ export TSTRUCT_TOKEN=tstruct_eyJ2ZXJzaW9uIjoxLCJkYXRhIjp7InVzZXJJRCI6MSwidXNlckV
 
 # Google Gemini API Key
 # Used in Generative AI SDK (Coaching Summaries)
-export GEMINI_API_KEY=AIzaSyBUEFEkjCd0Z0vNa0BHTuSsOo5_gaQukFE
+export GEMINI_API_KEY_UNUSED=AIzaSyBUEFEkjCd0Z0vNa0BHTuSsOo5_gaQukFE
 # Used in Zed Editor (Code Assist)
-export GOOGLE_AI_API_KEY=AIzaSyAmLP7pVoN0tOxXGBzfpxlG7SvEvjQI-MI
+export GOOGLE_AI_API_KEY_UNUSED=AIzaSyAmLP7pVoN0tOxXGBzfpxlG7SvEvjQI-MI
 
 # Utility Softwares
 alias top='htop'
