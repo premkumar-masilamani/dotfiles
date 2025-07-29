@@ -115,6 +115,7 @@ setup_system() {
     setup_zsh
     setup_zed
     setup_git
+    update_homebrew
     clone_repositories
 }
 
