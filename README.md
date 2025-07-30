@@ -3,6 +3,9 @@ This repository contains the brew bundle and zsh profile files that manages most
 
 ## Instructions to configure a new macbook
 
-- [ ] Install Command Line Developer Tools (needed for git)
-- [ ] Create and upload SSH Keys to Github. Refer https://docs.github.com/en/authentication/connecting-to-github-with-ssh/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent
-- [ ] Download `dotfiles` GitHub private repo and run `make setup`
+- [ ] Open the Terminal, type `git`. There will be a pop-up to install Command Line Developer Tools. Install it.
+- [ ] Create and upload SSH Keys to Github. 
+- [ ] Create a personal access token from Github and set it as an environment variable `GH_TOKEN`
+- [ ] Create a folder `mkdir ~/Code`
+- [ ] Clone the dotfiles repo `git clone git@github.com:premkumar-masilamani/dotfiles.git`
+- [ ] Run `make setup`
