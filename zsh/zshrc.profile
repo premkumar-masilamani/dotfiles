@@ -35,10 +35,13 @@ export PATH="$HOME/.cargo/bin:/usr/local/opt/openjdk@21/bin:$PATH"
 export CPPFLAGS="-I/usr/local/opt/openjdk@21/include"
 
 # Homebrew setup
-eval "$(/usr/local/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # D2 TALA config
 export TSTRUCT_TOKEN=tstruct_eyJ2ZXJzaW9uIjoxLCJkYXRhIjp7InVzZXJJRCI6MSwidXNlckVtYWlsIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJ0ZWFtSUQiOjEsInRlYW1OYW1lIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJyZW5ld2FsRGF0ZSI6IjIwMjQtMDYtMjlUMjE6Mjg6MDVaIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yOVQyMToyODowOS43MjYyMjgxMjFaIn0sInNpZ25hdHVyZSI6ImZlRUI2NHltSHpyUFdJaUkweWhOTEFMSG5rcjRMUUYrdzZXTTBqREdTZUVORW5MV3gwWS9iQVExNm8vTjhMUmw3Q01ZQ0tzT0ZDNW0xS1ZUSDc2bkNRPT0ifQ==
+
+# Github Personal Access Token
+export GH_TOKEN=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
 
 # Google Gemini API Key
 # Used in Generative AI SDK (Coaching Summaries)
@@ -67,4 +70,4 @@ alias grh='git reset --hard HEAD~1'
 # Directory aliases
 alias dot='zed ~/Code/dotfiles'
 alias blog='zed ~/Code/premkumar-masilamani.github.io'
-alias kanboard='docker rm -f kanboard || true && docker run --name kanboard -p 80:80 -v /Users/premkumar/Code/kanban-data:/var/www/app/data kanboard/kanboard'
+
