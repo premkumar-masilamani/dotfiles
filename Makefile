@@ -10,4 +10,4 @@ setup: $(MANAGE_SCRIPT)
 .PHONY: refresh
 refresh: $(MANAGE_SCRIPT)
 	@$(MANAGE_SCRIPT) refresh
-	@git diff homebrew/Brewfile
+	@git --no-pager diff homebrew/Brewfile

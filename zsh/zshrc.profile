@@ -30,12 +30,13 @@ precmd () { vcs_info }
 setopt prompt_subst
 PROMPT='%F{41}%~%f ${vcs_info_msg_0_} '
 
-# Path variable
-export PATH="$HOME/.cargo/bin:/usr/local/opt/openjdk@21/bin:$PATH"
-export CPPFLAGS="-I/usr/local/opt/openjdk@21/include"
-
 # Homebrew setup
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Environment Variables
+export PATH="/opt/homebrew/opt/openjdk@21/bin:/opt/homebrew/opt/node@20/bin:$PATH"
+export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
+export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 
 # D2 TALA config
 export TSTRUCT_TOKEN=tstruct_eyJ2ZXJzaW9uIjoxLCJkYXRhIjp7InVzZXJJRCI6MSwidXNlckVtYWlsIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJ0ZWFtSUQiOjEsInRlYW1OYW1lIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJyZW5ld2FsRGF0ZSI6IjIwMjQtMDYtMjlUMjE6Mjg6MDVaIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yOVQyMToyODowOS43MjYyMjgxMjFaIn0sInNpZ25hdHVyZSI6ImZlRUI2NHltSHpyUFdJaUkweWhOTEFMSG5rcjRMUUYrdzZXTTBqREdTZUVORW5MV3gwWS9iQVExNm8vTjhMUmw3Q01ZQ0tzT0ZDNW0xS1ZUSDc2bkNRPT0ifQ==
@@ -71,3 +72,10 @@ alias grh='git reset --hard HEAD~1'
 alias dot='zed ~/Code/dotfiles'
 alias blog='zed ~/Code/premkumar-masilamani.github.io'
 
+# OLLAMA aliases
+alias ols="ollama ls"
+alias ops="ollama ps"
+alias opull="ollama pull"
+alias orun="ollama run"
+alias ostop="ollama stop"
+alias orm="ollama rm"
