@@ -36,6 +36,7 @@ cask "iina"
 cask "netnewswire"
 cask "obsidian"
 cask "orbstack"
+cask "postman"
 cask "zed"
 cask "zoom"
 mas "Numbers", id: 409203825
