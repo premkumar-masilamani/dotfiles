@@ -50,6 +50,9 @@ export GEMINI_API_KEY_UNUSED=AIzaSyBUEFEkjCd0Z0vNa0BHTuSsOo5_gaQukFE
 # Used in Zed Editor (Code Assist)
 export GOOGLE_AI_API_KEY_UNUSED=AIzaSyAmLP7pVoN0tOxXGBzfpxlG7SvEvjQI-MI
 
+# Hugging Face User Access Token
+export HUGGINGFACE_UAT=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
+
 # Utility Softwares
 alias top='htop'
 alias du='ncdu --color dark -rr -x'

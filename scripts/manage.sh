@@ -9,7 +9,9 @@ readonly CODE_DIR="/Users/${USERNAME}/Code"
 readonly DOTFILES_DIR="${CODE_DIR}/dotfiles"
 
 readonly BREW_FILE="${DOTFILES_DIR}/homebrew/Brewfile"
+readonly GITHUB_RULESET_FILE="${DOTFILES_DIR}/github/protect-main-branch.json"
 
+readonly GIT_USERNAME="premkumar-masilamani"
 readonly GIT_NAME="Premkumar Masilamani"
 readonly GIT_EMAIL="premkumar.masilamani.2020@gmail.com"
 
@@ -111,6 +113,39 @@ clone_repositories() {
     echo "All repositories cloned to $CODE_DIR"
 }
 
+update_rulesets_github() {
+    echo "Updating GitHub rulesets..."
+
+    # Extract ruleset name from JSON
+    local ruleset_name
+    ruleset_name=$(jq -r '.name' "$GITHUB_RULESET_FILE")
+
+    # List all repos you own
+    local repos
+    repos=$(gh repo list "$GIT_USERNAME" --limit 200 --json nameWithOwner -q '.[].nameWithOwner')
+
+    for repo in $repos; do
+      echo "Processing $repo ..."
+
+      # Check if ruleset with same name exists in this repo
+      local exists
+      exists=$(gh api "repos/$repo/rulesets" --jq ".[] | select(.name==\"$ruleset_name\") | .id")
+
+      if [[ -n "$exists" ]]; then
+        echo "  → Ruleset '$ruleset_name' already exists in $repo (ID: $exists). Skipping."
+      else
+        echo "  → Creating ruleset '$ruleset_name' in $repo ..."
+        gh api \
+          --method POST \
+          -H "Accept: application/vnd.github+json" \
+          "/repos/$repo/rulesets" \
+          --input "$GITHUB_RULESET_FILE" >/dev/null
+      fi
+    done
+
+    echo "Ruleset '$ruleset_name' ensured in all repos."
+}
+
 setup_system() {
     install_homebrew
     setup_zsh
@@ -118,6 +153,7 @@ setup_system() {
     setup_git
     update_homebrew
     clone_repositories
+    update_rulesets_github
 }
 
 refresh_system() {
