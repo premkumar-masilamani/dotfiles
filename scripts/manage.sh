@@ -140,11 +140,23 @@ update_rulesets_github() {
           -H "Accept: application/vnd.github+json" \
           "/repos/$repo/rulesets" \
           --input "$GITHUB_RULESET_FILE" >/dev/null
+        echo "  → Ruleset created."
       fi
+
+      # Enable branch auto-delete after PR merge
+        gh api \
+          --method PATCH \
+          -H "Accept: application/vnd.github+json" \
+          "/repos/$repo" \
+          -f delete_branch_on_merge=true >/dev/null
+        echo "  → Automatic branch deletion enabled."
     done
 
-    echo "Ruleset '$ruleset_name' ensured in all repos."
+    echo "Rulesets ensured + auto-branch deletion set all the repositories."
 }
+
+
+
 
 setup_system() {
     install_homebrew
