@@ -1,87 +1,50 @@
 {
-  "disable_ai": true,
-  "theme": "One Dark",
-  "show_edit_predictions": false,
-  "base_keymap": "JetBrains",
-  "soft_wrap": "editor_width",
-  "autosave": "on_focus_change",
-  "current_line_highlight": "all",
-  "restore_on_startup": "last_session",
-  "auto_signature_help": true,
-  "show_signature_help_after_edits": true,
-  "tabs": {
-    "file_icons": true,
-    "git_status": true
-  },
-  "languages": {
-    "Python": {
-      "show_edit_predictions": false,
-      "formatter": "language_server",
-      "format_on_save": {
-        "external": {
-          "command": "/Users/premkumar/.pyenv/versions/venv/bin/python",
-          "arguments": ["-m", "ruff", "format", "-"]
-        }
-      },
-      "tab_size": 4,
-      "ensure_final_newline_on_save": true,
-      "remove_trailing_whitespace_on_save": true,
-      "preferred_line_length": 88
-    },
-    "HTML": {
-      "format_on_save": "off"
-    }
-  },
-  "lsp": {
-    "pyright": {
-      "initialization_options": {
-        "disableLanguageServices": false,
-        "disableOrganizeImports": false,
-        "autoImportCompletions": true,
-        "analysis": {
-          "autoSearchPaths": true,
-          "useLibraryCodeForTypes": true,
-          "diagnosticMode": "workspace",
-          "typeCheckingMode": "strict",
-          "pythonVersion": "3.13",
-          "include": ["src"],
-          "extraPaths": ["src"],
-          "exclude": ["**/__pycache__"],
-          "autoFormatStrings": true,
-          "completeFunctionParens": true,
-          "reportMissingImports": true,
-          "reportUnusedImport": "error",
-          "reportUnusedVariable": "error",
-          "reportDuplicateImport": "error",
-          "reportGeneralTypeIssues": "error",
-          "reportOptionalSubscript": "error",
-          "reportOptionalMemberAccess": "error",
-          "reportPrivateUsage": "warning",
-          "reportUnboundVariable": "error",
-          "reportUnknownVariableType": "warning",
-          "reportUntypedFunctionDecorator": "warning",
-          "reportMissingTypeStubs": "warning",
-          "reportImportCycles": "warning",
-          "reportImplicitStringConcatenation": "warning",
-          "reportCallInDefaultInitializer": "warning"
-        }
-      },
-      "settings": {
-        "python": {
-          "pythonPath": "/Users/premkumar/.pyenv/versions/venv/bin/python"
-        }
-      }
+  "agent_servers": {
+    "gemini": {
+      "command": "gemini"
     }
   },
   "agent": {
-    "play_sound_when_agent_done": true,
     "always_allow_tool_actions": true,
-    "default_model": {
-      "provider": "ollama",
-      "model": "qwen2.5-coder:7b"
-    }
+    "play_sound_when_agent_done": true
   },
-  "inlay_hints": {
-    "enabled": true
+  "icon_theme": "Material Icon Theme",
+  "theme": "Catppuccin Frappé",
+  "base_keymap": "JetBrains",
+  "confirm_quit": true,
+  "restore_on_startup": "last_workspace",
+  "close_on_file_delete": true,
+  "title_bar": {
+    "show_menus": true
+  },
+  "minimap": {
+    "show": "auto"
+  },
+  "autosave": "on_focus_change",
+  "soft_wrap": "editor_width",
+  "tabs": {
+    "git_status": true,
+    "file_icons": true
+  },
+  "lsp": {
+    "jdtls": {
+      "binary": {
+        "path": "/opt/homebrew/bin/jdtls"
+      },
+      "settings": {
+        "java": {
+          "jdt": {
+            "ls": {
+              "lombokSupport": {
+                "enabled": true
+              }
+            }
+          },
+          "saveActions": {
+            "organizeImports": true
+          }
+        }
+      }
+    }
   }
 }

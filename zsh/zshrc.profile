@@ -34,7 +34,7 @@ PROMPT='%F{41}%~%f ${vcs_info_msg_0_} '
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Environment Variables
-export PATH="/opt/homebrew/opt/openjdk@21/bin:/opt/homebrew/opt/node@20/bin:$PATH"
+export PATH="/opt/homebrew/opt/openjdk@21/bin:/opt/homebrew/opt/node@20/bin:$(go env GOPATH)/bin:$HOME/.cargo/bin:$PATH"
 export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 
