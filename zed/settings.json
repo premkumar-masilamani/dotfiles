@@ -1,10 +1,17 @@
 {
+  "terminal": {
+    "dock": "bottom"
+  },
   "agent_servers": {
     "gemini": {
       "command": "gemini"
     }
   },
   "agent": {
+    "default_model": {
+      "provider": "ollama",
+      "model": "minimax-m2:cloud"
+    },
     "always_allow_tool_actions": true,
     "play_sound_when_agent_done": true
   },
