@@ -52,6 +52,7 @@ export GOOGLE_AI_API_KEY_UNUSED=AIzaSyAmLP7pVoN0tOxXGBzfpxlG7SvEvjQI-MI
 
 # Hugging Face User Access Token
 export HUGGINGFACE_UAT=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
+export HUGGING_FACE_TOKEN=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
 
 # Utility Softwares
 alias top='htop'
@@ -62,14 +63,15 @@ alias reload='source ~/.zshrc'
 alias chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --args --user-data-dir="/tmp/chrome_dev_test" --disable-web-security'
 
 # Python aliases
-alias python=/usr/local/bin/python3
-alias pip=/usr/local/bin/pip3
+# alias python=/usr/local/bin/python3
+# alias pip=/usr/local/bin/pip3
 
 # Git aliases
 alias gcm='git checkout main; git pull; git submodule update'
 alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
 alias grs='git reset --soft HEAD~1'
 alias grh='git reset --hard HEAD~1'
+alias gf='git fetch --all --prune'
 
 # Directory aliases
 alias dot='zed ~/Code/dotfiles'
