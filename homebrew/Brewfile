@@ -33,15 +33,22 @@ brew "uv"
 brew "wget"
 brew "spring-io/tap/spring-boot"
 cask "dbeaver-community"
+cask "drawio"
+cask "gimp"
 cask "github"
 cask "google-chrome"
 cask "google-drive"
 cask "iina"
+<<<<<<< HEAD
 cask "jetbrains-toolbox"
+=======
+cask "intellij-idea"
+>>>>>>> f2660a79378343ffb12f94ec14a65b67ebfae8b8
 cask "obsidian"
 cask "orbstack"
 cask "postman"
 cask "thunderbird"
+cask "warp"
 cask "zed"
 cask "zoom"
 mas "Numbers", id: 409203825
