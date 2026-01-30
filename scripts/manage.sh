@@ -91,6 +91,7 @@ setup_git() {
     git config --global user.email "$GIT_EMAIL"
     git config --global pull.rebase false
     git config --global push.autoSetupRemote true
+    git config --global advice.forceDeleteBranch false
     echo "Git configuration updated successfully"
 }
 
