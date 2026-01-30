@@ -41,9 +41,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 # D2 TALA config
 export TSTRUCT_TOKEN=tstruct_eyJ2ZXJzaW9uIjoxLCJkYXRhIjp7InVzZXJJRCI6MSwidXNlckVtYWlsIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJ0ZWFtSUQiOjEsInRlYW1OYW1lIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJyZW5ld2FsRGF0ZSI6IjIwMjQtMDYtMjlUMjE6Mjg6MDVaIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yOVQyMToyODowOS43MjYyMjgxMjFaIn0sInNpZ25hdHVyZSI6ImZlRUI2NHltSHpyUFdJaUkweWhOTEFMSG5rcjRMUUYrdzZXTTBqREdTZUVORW5MV3gwWS9iQVExNm8vTjhMUmw3Q01ZQ0tzT0ZDNW0xS1ZUSDc2bkNRPT0ifQ==
 
-# Github Personal Access Token
-export GH_TOKEN=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
-
 # Google Gemini API Key
 # Used in Generative AI SDK (Coaching Summaries)
 export GEMINI_API_KEY_UNUSED=AIzaSyBUEFEkjCd0Z0vNa0BHTuSsOo5_gaQukFE
@@ -67,11 +64,15 @@ alias chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\
 # alias pip=/usr/local/bin/pip3
 
 # Git aliases
-alias gcm='git checkout main; git pull; git submodule update'
+# alias gcm='git checkout main; git pull origin main; git submodule update'
+alias gcm='git checkout main && git pull --rebase && git submodule update --init --recursive && git fetch --all --prune'
 alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
 alias grs='git reset --soft HEAD~1'
 alias grh='git reset --hard HEAD~1'
 alias gf='git fetch --all --prune'
+gc() {
+  git checkout "$1"
+}
 
 # Directory aliases
 alias dot='zed ~/Code/dotfiles'
