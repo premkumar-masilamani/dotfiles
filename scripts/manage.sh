@@ -9,7 +9,6 @@ readonly CODE_DIR="/Users/${USERNAME}/Code"
 readonly DOTFILES_DIR="${CODE_DIR}/dotfiles"
 
 readonly BREW_FILE="${DOTFILES_DIR}/homebrew/Brewfile"
-readonly GITHUB_RULESET_FILE="${DOTFILES_DIR}/github/protect-main-branch.json"
 
 readonly GIT_USERNAME="premkumar-masilamani"
 readonly GIT_NAME="Premkumar Masilamani"
@@ -115,49 +114,52 @@ clone_repositories() {
 }
 
 update_rulesets_github() {
-    echo "Updating GitHub rulesets..."
+    echo "Enforcing protection on main branch (solo-developer mode)..."
 
-    # Extract ruleset name from JSON
-    local ruleset_name
-    ruleset_name=$(jq -r '.name' "$GITHUB_RULESET_FILE")
-
-    # List all repos you own
     local repos
+    # Fetching repositories for the user
     repos=$(gh repo list "$GIT_USERNAME" --limit 200 --json nameWithOwner -q '.[].nameWithOwner')
 
     for repo in $repos; do
-      echo "Processing $repo ..."
+        echo "Processing $repo ..."
 
-      # Check if ruleset with same name exists in this repo
-      local exists
-      exists=$(gh api "repos/$repo/rulesets" --jq ".[] | select(.name==\"$ruleset_name\") | .id")
-
-      if [[ -n "$exists" ]]; then
-        echo "  → Ruleset '$ruleset_name' already exists in $repo (ID: $exists). Skipping."
-      else
-        echo "  → Creating ruleset '$ruleset_name' in $repo ..."
+        # 1. Apply Branch Protection
+        # - Reviews are set to null (No blocking 'Review Required' errors)
+        # - allow_force_pushes/allow_deletions set to false (The core safety rules)
         gh api \
-          --method POST \
+          --method PUT \
           -H "Accept: application/vnd.github+json" \
-          "/repos/$repo/rulesets" \
-          --input "$GITHUB_RULESET_FILE" >/dev/null
-        echo "  → Ruleset created."
-      fi
+          "/repos/$repo/branches/main/protection" \
+          --input - <<EOF
+{
+  "enforce_admins": false,
+  "required_pull_request_reviews": null,
+  "restrictions": null,
+  "required_status_checks": null,
+  "allow_force_pushes": false,
+  "allow_deletions": false
+}
+EOF
 
-      # Enable branch auto-delete after PR merge
+        if [ $? -eq 0 ]; then
+            echo "  → main branch protected (Force-push/Deletion disabled; Solo PRs allowed)."
+        else
+            echo "  → Failed to protect main branch for $repo. (Check if 'main' exists)"
+        fi
+
+        # 2. Enable automatic branch deletion on merge
         gh api \
           --method PATCH \
           -H "Accept: application/vnd.github+json" \
           "/repos/$repo" \
-          -f delete_branch_on_merge=true >/dev/null
+          -f delete_branch_on_merge=true
+
         echo "  → Automatic branch deletion enabled."
     done
 
-    echo "Rulesets ensured + auto-branch deletion set all the repositories."
+    echo "---"
+    echo "Github Rules are updated for all the repos."
 }
-
-
-
 
 setup_system() {
     install_homebrew
