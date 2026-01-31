@@ -114,7 +114,7 @@ clone_repositories() {
 }
 
 update_rulesets_github() {
-    echo "Enforcing PR-only protection on main branch..."
+    echo "Enforcing protection on main branch (solo-developer mode)..."
 
     local repos
     # Fetching repositories for the user
@@ -123,20 +123,17 @@ update_rulesets_github() {
     for repo in $repos; do
         echo "Processing $repo ..."
 
-        # 1. Apply Branch Protection using a JSON payload
-        # This fixes the "anyOf" and boolean/null string errors
+        # 1. Apply Branch Protection
+        # - Reviews are set to null (No blocking 'Review Required' errors)
+        # - allow_force_pushes/allow_deletions set to false (The core safety rules)
         gh api \
           --method PUT \
           -H "Accept: application/vnd.github+json" \
           "/repos/$repo/branches/main/protection" \
           --input - <<EOF
 {
-  "enforce_admins": true,
-  "required_pull_request_reviews": {
-    "dismiss_stale_reviews": false,
-    "require_code_owner_reviews": false,
-    "required_approving_review_count": 1
-  },
+  "enforce_admins": false,
+  "required_pull_request_reviews": null,
   "restrictions": null,
   "required_status_checks": null,
   "allow_force_pushes": false,
@@ -145,9 +142,9 @@ update_rulesets_github() {
 EOF
 
         if [ $? -eq 0 ]; then
-            echo "  → main branch protected (PRs required)."
+            echo "  → main branch protected (Force-push/Deletion disabled; Solo PRs allowed)."
         else
-            echo "  → Failed to protect main branch for $repo."
+            echo "  → Failed to protect main branch for $repo. (Check if 'main' exists)"
         fi
 
         # 2. Enable automatic branch deletion on merge
