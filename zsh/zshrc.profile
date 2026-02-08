@@ -64,14 +64,36 @@ alias chrome='open -n -a /Applications/Google\ Chrome.app/Contents/MacOS/Google\
 # alias pip=/usr/local/bin/pip3
 
 # Git aliases
-# alias gcm='git checkout main; git pull origin main; git submodule update'
-alias gcm='git checkout main && git pull --rebase && git submodule update --init --recursive && git fetch --all --prune'
-alias gl="git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short"
-alias grs='git reset --soft HEAD~1'
-alias grh='git reset --hard HEAD~1'
+alias gcm='git checkout main && git pull --rebase origin main && git submodule update --init --recursive'
 alias gf='git fetch --all --prune'
+alias gl='git log --graph --pretty=format:"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s" --date=short'
+
+git-undo-commit-local() {
+  echo "This will undo the last commit but keep changes staged."
+  git --no-pager log -1 --oneline
+  read -q "REPLY?Proceed? Type 'yes' to continue: "
+  echo
+  [[ "$REPLY" == "yes" ]] || { echo "Aborted."; return 1; }
+  git reset --soft HEAD~1
+}
+
+git-delete-last-commit-remote() {
+  echo "This will permanently delete the last commit in remote."
+  read -q "REPLY?Type 'yes' to continue: "
+  echo
+  [[ "$REPLY" == "yes" ]] || { echo "Aborted."; return 1; }
+  git reset --hard HEAD~1
+}
+
+git-rebase() {
+  local base=${1:-main}
+  git fetch origin || return 1
+  git rebase origin/$base || return 1
+  git push --force-with-lease
+}
+
 gc() {
-  git checkout "$1"
+  git switch "$1"
 }
 
 # Directory aliases
