@@ -32,6 +32,7 @@ brew "tree"
 brew "uv"
 brew "wget"
 brew "spring-io/tap/spring-boot"
+cask "codex-app"
 cask "dbeaver-community"
 cask "github"
 cask "google-chrome"
@@ -45,6 +46,6 @@ cask "postman"
 cask "zed"
 cask "zoom"
 mas "4.Do", id: 6443960155
-mas "Numbers", id: 409203825
+mas "Numbers", id: 361304891
 mas "Pages", id: 409201541
 go "golang.org/x/tools/gopls"
