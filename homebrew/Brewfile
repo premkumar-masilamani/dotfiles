@@ -26,7 +26,6 @@ brew "python@3.13"
 brew "tcl-tk"
 brew "python-tk@3.13"
 brew "ruff"
-brew "rust"
 brew "rustup"
 brew "tree"
 brew "uv"
@@ -45,7 +44,7 @@ cask "orbstack"
 cask "postman"
 cask "zed"
 cask "zoom"
-mas "4.Do", id: 6443960155
 mas "Numbers", id: 361304891
 mas "Pages", id: 409201541
+mas "VN", id: 1494451650
 go "golang.org/x/tools/gopls"

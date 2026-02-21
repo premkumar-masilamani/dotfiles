@@ -3,10 +3,9 @@
 set -euo pipefail
 
 # Configuration
-readonly USERNAME="premkumar"
-
-readonly CODE_DIR="/Users/${USERNAME}/Code"
-readonly DOTFILES_DIR="${CODE_DIR}/dotfiles"
+readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+readonly DOTFILES_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
+readonly CODE_DIR="${CODE_DIR:-${HOME}/Code}"
 
 readonly BREW_FILE="${DOTFILES_DIR}/homebrew/Brewfile"
 
@@ -15,7 +14,7 @@ readonly GIT_NAME="Premkumar Masilamani"
 readonly GIT_EMAIL="premkumar.masilamani.2020@gmail.com"
 
 verify_directories() {
-    local dirs=("$DOTFILES_DIR" "$CODE_DIR")
+    local dirs=("$CODE_DIR" "$DOTFILES_DIR")
     for dir in "${dirs[@]}"; do
         if [[ ! -d "$dir" ]]; then
             echo "Creating directory: $dir"
@@ -33,15 +32,19 @@ dump_homebrew() {
 
 update_homebrew() {
     echo "Updating Homebrew packages..."
+    if ! command -v brew &>/dev/null; then
+        echo "Homebrew is not installed. Run setup first."
+        return 1
+    fi
+
     if [[ ! -f "$BREW_FILE" ]]; then
         echo "Brewfile not found at $BREW_FILE"
         return 1
     fi
 
-    brew bundle install --file="$BREW_FILE" && \
-    brew update && \
-    brew upgrade && \
-    brew bundle --force cleanup --file="$BREW_FILE" && \
+    brew update
+    brew bundle install --file="$BREW_FILE"
+    brew bundle --force cleanup --file="$BREW_FILE"
     brew services cleanup
 
     echo "Homebrew packages updated successfully"
@@ -88,7 +91,6 @@ setup_git() {
     echo "Configuring Git..."
     git config --global user.name "$GIT_NAME"
     git config --global user.email "$GIT_EMAIL"
-    git config --global pull.rebase false
     git config --global push.autoSetupRemote true
     git config --global advice.forceDeleteBranch false
     git config --global pull.rebase true
@@ -96,14 +98,20 @@ setup_git() {
 }
 
 clone_repositories() {
+    if ! command -v gh &>/dev/null; then
+        echo "GitHub CLI (gh) is not installed. Skipping repository cloning."
+        return 0
+    fi
+
     echo "Downloading personal GitHub repositories using GitHub CLI..."
     mkdir -p "$CODE_DIR"
     cd "$CODE_DIR" || return
 
-    gh repo list --limit 1000 --json nameWithOwner,sshUrl --jq '.[] | "\(.nameWithOwner) \(.sshUrl)"' |
+    gh repo list "$GIT_USERNAME" --limit 1000 --json nameWithOwner,sshUrl --jq '.[] | "\(.nameWithOwner) \(.sshUrl)"' |
     while read -r full_name ssh_url; do
-      local repo_dir=$(basename "$full_name")
-      if [ -d "$repo_dir" ]; then
+      local repo_dir
+      repo_dir=$(basename "$full_name")
+      if [[ -d "$repo_dir" ]]; then
           echo "Skipping already cloned repo: $repo_dir"
       else
           echo "Cloning $full_name..."
@@ -115,11 +123,24 @@ clone_repositories() {
 }
 
 update_rulesets_github() {
+    if ! command -v gh &>/dev/null; then
+        echo "GitHub CLI (gh) is not installed. Skipping GitHub ruleset updates."
+        return 0
+    fi
+
     echo "Enforcing protection on main branch (solo-developer mode)..."
 
     local repos
     # Fetching repositories for the user
-    repos=$(gh repo list "$GIT_USERNAME" --limit 200 --json nameWithOwner -q '.[].nameWithOwner')
+    if ! repos=$(gh repo list "$GIT_USERNAME" --limit 200 --json nameWithOwner -q '.[].nameWithOwner'); then
+        echo "Failed to load repositories. Ensure gh is authenticated."
+        return 1
+    fi
+
+    if [[ -z "$repos" ]]; then
+        echo "No repositories found for $GIT_USERNAME."
+        return 0
+    fi
 
     for repo in $repos; do
         echo "Processing $repo ..."
@@ -127,11 +148,11 @@ update_rulesets_github() {
         # 1. Apply Branch Protection
         # - Reviews are set to null (No blocking 'Review Required' errors)
         # - allow_force_pushes/allow_deletions set to false (The core safety rules)
-        gh api \
-          --method PUT \
-          -H "Accept: application/vnd.github+json" \
-          "/repos/$repo/branches/main/protection" \
-          --input - <<EOF
+        if gh api \
+            --method PUT \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/$repo/branches/main/protection" \
+            --input - <<EOF
 {
   "enforce_admins": false,
   "required_pull_request_reviews": null,
@@ -141,21 +162,24 @@ update_rulesets_github() {
   "allow_deletions": false
 }
 EOF
-
-        if [ $? -eq 0 ]; then
+        then
             echo "  → main branch protected (Force-push/Deletion disabled; Solo PRs allowed)."
         else
             echo "  → Failed to protect main branch for $repo. (Check if 'main' exists)"
+            continue
         fi
 
         # 2. Enable automatic branch deletion on merge
-        gh api \
-          --method PATCH \
-          -H "Accept: application/vnd.github+json" \
-          "/repos/$repo" \
-          -f delete_branch_on_merge=true
-
-        echo "  → Automatic branch deletion enabled."
+        if gh api \
+            --method PATCH \
+            -H "Accept: application/vnd.github+json" \
+            "/repos/$repo" \
+            -f delete_branch_on_merge=true
+        then
+            echo "  → Automatic branch deletion enabled."
+        else
+            echo "  → Failed to enable automatic branch deletion for $repo."
+        fi
     done
 
     echo "---"
@@ -172,6 +196,11 @@ setup_system() {
     update_rulesets_github
 }
 
+all_system() {
+    setup_system
+    dump_homebrew
+}
+
 refresh_system() {
     dump_homebrew
     update_homebrew
@@ -186,7 +215,7 @@ Commands:
     update  - Update and install Homebrew packages
     refresh - Sync Homebrew packages (dump & update)
     setup   - Set up system configurations
-    all     - Perform all operations
+    all     - Setup system and refresh Brewfile snapshot
     help    - Show this help message
 
 Examples:
@@ -204,10 +233,7 @@ main() {
         "update")  update_homebrew ;;
         "refresh") refresh_system ;;
         "setup")   setup_system ;;
-        "all")
-            setup_system
-            refresh_system
-            ;;
+        "all")     all_system ;;
         *)       show_usage ;;
     esac
 }

@@ -19,7 +19,10 @@ setopt HIST_REDUCE_BLANKS    # Remove superfluous blanks from each command line 
 # The following lines were added by compinstall
 zstyle :compinstall filename '~/.zshrc'
 autoload -Uz compinit
-compinit
+ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+mkdir -p "$ZSH_CACHE_DIR"
+compinit -d "${ZSH_CACHE_DIR}/.zcompdump" -C
+unset ZSH_CACHE_DIR
 # End of lines added by compinstall
 
 # ZSH Prompt
@@ -31,25 +34,32 @@ setopt prompt_subst
 PROMPT='%F{41}%~%f ${vcs_info_msg_0_} '
 
 # Homebrew setup
-eval "$(/opt/homebrew/bin/brew shellenv)"
+if [[ -x /opt/homebrew/bin/brew ]] && [[ -z "${HOMEBREW_PREFIX:-}" ]]; then
+  eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 # Environment Variables
-export PATH="/opt/homebrew/opt/openjdk@21/bin:/opt/homebrew/opt/node@20/bin:$(go env GOPATH)/bin:$HOME/.cargo/bin:$PATH"
+typeset -U path
+path=(
+  /opt/homebrew/opt/openjdk@21/bin
+  /opt/homebrew/opt/node@20/bin
+  "$HOME/go/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/.local/bin"
+  $path
+)
+export PATH
 export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 
-# D2 TALA config
-export TSTRUCT_TOKEN=tstruct_eyJ2ZXJzaW9uIjoxLCJkYXRhIjp7InVzZXJJRCI6MSwidXNlckVtYWlsIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJ0ZWFtSUQiOjEsInRlYW1OYW1lIjoiY2xvdWQtYWRtaW5Ac2licm9zLnRlY2giLCJyZW5ld2FsRGF0ZSI6IjIwMjQtMDYtMjlUMjE6Mjg6MDVaIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0yOVQyMToyODowOS43MjYyMjgxMjFaIn0sInNpZ25hdHVyZSI6ImZlRUI2NHltSHpyUFdJaUkweWhOTEFMSG5rcjRMUUYrdzZXTTBqREdTZUVORW5MV3gwWS9iQVExNm8vTjhMUmw3Q01ZQ0tzT0ZDNW0xS1ZUSDc2bkNRPT0ifQ==
-
-# Google Gemini API Key
-# Used in Generative AI SDK (Coaching Summaries)
-export GEMINI_API_KEY_UNUSED=AIzaSyBUEFEkjCd0Z0vNa0BHTuSsOo5_gaQukFE
-# Used in Zed Editor (Code Assist)
-export GOOGLE_AI_API_KEY_UNUSED=AIzaSyAmLP7pVoN0tOxXGBzfpxlG7SvEvjQI-MI
-
-# Hugging Face User Access Token
-export HUGGINGFACE_UAT=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
-export HUGGING_FACE_TOKEN=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
+# Local secrets in project root (not tracked in git).
+DOTFILES_SECRETS_FILE="${${(%):-%x}:P:h:h}/.zshrc.secrets"
+if [[ -f "$DOTFILES_SECRETS_FILE" ]]; then
+  set -a
+  source "$DOTFILES_SECRETS_FILE"
+  set +a
+fi
+unset DOTFILES_SECRETS_FILE
 
 # Utility Softwares
 alias top='htop'
@@ -70,39 +80,67 @@ alias gl='git log --graph --pretty=format:"%C(yellow)%h %Cred%ad %Cblue%an%Cgree
 
 git_undo_last_commit_local() {
   echo "This will undo the last commit but keep changes staged."
-  git --no-pager log -1 --oneline
-  read -q "REPLY?Proceed? Type 'yes' to continue: "
+  git --no-pager log -1 --oneline || return 1
   echo
-  [[ "$REPLY" == "yes" ]] || { echo "Aborted."; return 1; }
+
+  read "REPLY?Type 'yes' to continue: "
+  echo
+  [[ "$REPLY" == "yes" ]] || {
+    echo "Aborted."
+    return 1
+  }
+
   git reset --soft HEAD~1
 }
 
 git_delete_last_commit_local() {
-  echo "This will permanently delete the last commit in remote."
-  read -q "REPLY?Type 'yes' to continue: "
+  echo "This will permanently delete the last commit locally."
+  git --no-pager log -1 --oneline || return 1
   echo
-  [[ "$REPLY" == "yes" ]] || { echo "Aborted."; return 1; }
+
+  read "REPLY?Type 'yes' to continue: "
+  echo
+  [[ "$REPLY" == "yes" ]] || {
+    echo "Aborted."
+    return 1
+  }
+
   git reset --hard HEAD~1
 }
 
 git_rebase_and_push() {
-  local base=${1:-main}
+  local base="${1:-main}"
 
   echo "Rebasing current branch onto origin/$base"
-  git --no-pager log -1 --oneline
-
-  read -q "REPLY?This will rewrite remote history. Type 'yes' to continue: "
+  git --no-pager log -1 --oneline || return 1
   echo
-  [[ "$REPLY" == "yes" ]] || { echo "Aborted."; return 1; }
+
+  # Confirm rebase
+  read "REPLY?About to rebase onto origin/$base. Type 'yes' to continue: "
+  echo
+  [[ "$REPLY" == "yes" ]] || {
+    echo "Rebase aborted."
+    return 1
+  }
 
   git fetch origin || return 1
-  git rebase origin/$base || return 1
+  git rebase "origin/$base" || return 1
+
+  echo
+
+  # Confirm force push
+  read "REPLY?Rebase completed. About to force push with --force-with-lease. Type 'yes' to continue: "
+  echo
+  [[ "$REPLY" == "yes" ]] || {
+    echo "Force push aborted."
+    return 1
+  }
+
   git push --force-with-lease
 }
 
 gc() {
-  [[ -z "$1" ]] && { echo "Usage: gc <branch>"; return 1; }
-  git switch "$1" 2>/dev/null || git switch -c "$1"
+  git switch "$1"
 }
 
 # Directory aliases
