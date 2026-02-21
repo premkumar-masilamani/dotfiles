@@ -9,3 +9,12 @@ This repository contains the brew bundle and zsh profile files that manages most
 - [ ] Create a folder `mkdir ~/Code`
 - [ ] Clone the dotfiles repo `git clone git@github.com:premkumar-masilamani/dotfiles.git`
 - [ ] Run `make setup`
+
+## Secrets
+
+- Keep machine-local tokens in `~/.zshrc.secrets` (this file is sourced by `~/.zshrc` if present).
+- Do not store API keys or access tokens directly in tracked files.
+
+## Validation
+
+- Run `make check` to execute shell syntax checks, optional shellcheck, and secret scanning.
