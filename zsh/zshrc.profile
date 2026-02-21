@@ -52,12 +52,14 @@ export PATH
 export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 
-# Local secrets (not tracked in git).
-if [[ -f "$HOME/.zshrc.secrets" ]]; then
+# Local secrets in project root (not tracked in git).
+DOTFILES_SECRETS_FILE="${${(%):-%x}:P:h:h}/.zshrc.secrets"
+if [[ -f "$DOTFILES_SECRETS_FILE" ]]; then
   set -a
-  source "$HOME/.zshrc.secrets"
+  source "$DOTFILES_SECRETS_FILE"
   set +a
 fi
+unset DOTFILES_SECRETS_FILE
 
 # Utility Softwares
 alias top='htop'
