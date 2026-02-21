@@ -12,7 +12,7 @@ This repository contains the brew bundle and zsh profile files that manages most
 
 ## Secrets
 
-- Keep project secrets in `/Users/premkumar/Code/dotfiles/.zshrc.secrets` (loaded from the dotfiles root by `zsh/zshrc.profile`).
+- Keep project secrets in `.zshrc.secrets` at the repository root (loaded by `zsh/zshrc.profile`).
 - All variables defined there are imported and exported automatically.
 - Do not store API keys or access tokens directly in tracked files.
 
