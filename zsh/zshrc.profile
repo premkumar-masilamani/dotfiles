@@ -54,7 +54,9 @@ export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 
 # Local secrets (not tracked in git).
 if [[ -f "$HOME/.zshrc.secrets" ]]; then
+  set -a
   source "$HOME/.zshrc.secrets"
+  set +a
 fi
 
 # Utility Softwares

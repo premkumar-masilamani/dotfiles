@@ -12,9 +12,10 @@ This repository contains the brew bundle and zsh profile files that manages most
 
 ## Secrets
 
-- Keep machine-local tokens in `~/.zshrc.secrets` (this file is sourced by `~/.zshrc` if present).
+- Keep machine-local secrets in `~/.zshrc.secrets` (this file is sourced by `~/.zshrc` if present).
+- All variables defined there are imported and exported automatically.
 - Do not store API keys or access tokens directly in tracked files.
 
 ## Validation
 
-- Run `make check` to execute shell syntax checks, optional shellcheck, and secret scanning.
+- Run `make check` to execute shell syntax checks and optional shellcheck.
