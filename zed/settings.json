@@ -1,21 +1,21 @@
 {
+  "agent_servers": {
+    "gemini": {
+      "type": "registry",
+    },
+  },
   "ssh_connections": [
     {
       "host": "github.com",
       "args": [],
-      "projects": []
-    }
+      "projects": [],
+    },
   ],
-  "agent_servers": {
-    "gemini": {
-      "command": "gemini"
-    }
-  },
   "agent": {
     "tool_permissions": {
-      "default": "allow"
+      "default": "allow",
     },
-    "play_sound_when_agent_done": true
+    "play_sound_when_agent_done": true,
   },
   "icon_theme": "Material Icon Theme",
   "theme": "Catppuccin Frappé",
@@ -24,36 +24,15 @@
   "restore_on_startup": "last_workspace",
   "close_on_file_delete": true,
   "title_bar": {
-    "show_menus": true
+    "show_menus": true,
   },
   "minimap": {
-    "show": "auto"
+    "show": "auto",
   },
   "autosave": "on_focus_change",
   "soft_wrap": "editor_width",
   "tabs": {
     "git_status": true,
-    "file_icons": true
+    "file_icons": true,
   },
-  "lsp": {
-    "jdtls": {
-      "binary": {
-        "path": "/opt/homebrew/bin/jdtls"
-      },
-      "settings": {
-        "java": {
-          "jdt": {
-            "ls": {
-              "lombokSupport": {
-                "enabled": true
-              }
-            }
-          },
-          "saveActions": {
-            "organizeImports": true
-          }
-        }
-      }
-    }
-  }
 }

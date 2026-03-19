@@ -33,6 +33,7 @@ brew "wget"
 brew "spring-io/tap/spring-boot"
 cask "codex-app"
 cask "dbeaver-community"
+cask "gcloud-cli"
 cask "github"
 cask "google-chrome"
 cask "google-drive"
@@ -44,6 +45,7 @@ cask "orbstack"
 cask "postman"
 cask "zed"
 cask "zoom"
+mas "GarageBand", id: 682658836
 mas "Numbers", id: 361304891
 mas "Pages", id: 409201541
 mas "VN", id: 1494451650
