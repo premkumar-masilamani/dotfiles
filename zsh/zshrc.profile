@@ -52,6 +52,12 @@ export PATH
 export JAVA_HOME=/opt/homebrew/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home
 export CPPFLAGS="-I/opt/homebrew/opt/openjdk@21/include"
 
+# AI Models
+export CLAUDE_CODE_USE_VERTEX=1
+export CLOUD_ML_REGION=us-east5
+export ANTHROPIC_VERTEX_PROJECT_ID=ai-code-assit-eval
+export ANTHROPIC_MODEL='claude-opus-4-7@default'
+
 # Local secrets in project root (not tracked in git).
 DOTFILES_SECRETS_FILE="${${(%):-%x}:P:h:h}/.zshrc.secrets"
 if [[ -f "$DOTFILES_SECRETS_FILE" ]]; then
