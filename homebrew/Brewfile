@@ -8,6 +8,7 @@ brew "d2"
 brew "ffmpeg"
 brew "readline"
 brew "xz"
+brew "node"
 brew "gemini-cli"
 brew "gh"
 brew "go"
@@ -27,6 +28,7 @@ brew "tcl-tk"
 brew "python-tk@3.13"
 brew "ruff"
 brew "rustup"
+brew "shellcheck"
 brew "tree"
 brew "uv"
 brew "wget"
@@ -48,5 +50,6 @@ cask "zoom"
 mas "GarageBand", id: 682658836
 mas "Numbers", id: 361304891
 mas "Pages", id: 409201541
-mas "VN", id: 1494451650
 go "golang.org/x/tools/gopls"
+cargo "mdbook"
+cargo "mdbook-mermaid"
