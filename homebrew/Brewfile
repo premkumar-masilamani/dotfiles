@@ -48,8 +48,12 @@ cask "postman"
 cask "zed"
 cask "zoom"
 mas "GarageBand", id: 682658836
+mas "Microsoft Word", id: 462054704
 mas "Numbers", id: 361304891
 mas "Pages", id: 409201541
 go "golang.org/x/tools/gopls"
 cargo "mdbook"
 cargo "mdbook-mermaid"
+npm "@anthropic-ai/claude-code"
+npm "esbuild"
+npm "firebase-tools"
