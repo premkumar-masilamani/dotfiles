@@ -1,3 +1,6 @@
+# shellcheck shell=bash
+# Note: This is a zsh config file. Many shellcheck warnings are false positives.
+
 # =========================================================
 # Homebrew
 # =========================================================
@@ -11,6 +14,7 @@ export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
+# shellcheck disable=SC2034  # Used by zsh internally
 SAVEHIST=100000
 
 setopt APPEND_HISTORY
@@ -28,6 +32,9 @@ setopt EXTENDED_HISTORY
 
 autoload -Uz compinit
 
+# shellcheck disable=SC2206  # zsh arrays don't word-split
+fpath=(~/.grok/completions/zsh $fpath)
+
 ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 mkdir -p "$ZSH_CACHE_DIR"
 
@@ -39,6 +46,7 @@ fi
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+# shellcheck disable=SC2296
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 unset ZSH_CACHE_DIR
@@ -53,15 +61,19 @@ eval "$(atuin init zsh)"
 # fzf
 # =========================================================
 
+# shellcheck disable=SC1090
 source <(fzf --zsh)
 
 # =========================================================
 # Auto Suggestions
 # =========================================================
 
+# shellcheck disable=SC1091
 source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
+# shellcheck disable=SC2034  # Used by zsh-autosuggestions plugin
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# shellcheck disable=SC2034  # Used by zsh-autosuggestions plugin
 ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 
 # =========================================================
@@ -69,6 +81,7 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 # MUST BE LAST PLUGIN
 # =========================================================
 
+# shellcheck disable=SC1091
 source "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 
 # =========================================================
@@ -86,26 +99,19 @@ export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk@21/include"
 
 typeset -U path PATH
 
+# shellcheck disable=SC2206  # zsh arrays don't word-split
 path=(
   "$HOMEBREW_PREFIX/opt/openjdk@21/bin"
   "$HOMEBREW_PREFIX/opt/node@20/bin"
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
   "$HOME/go/bin"
+  "$HOME/.grok/bin"
   "$HOME/.antigravity-ide/antigravity-ide/bin"
   $path
 )
 
 export PATH
-
-# =========================================================
-# AI Environment Variables
-# =========================================================
-
-export CLAUDE_CODE_USE_VERTEX=1
-export CLOUD_ML_REGION="us-east5"
-export ANTHROPIC_VERTEX_PROJECT_ID="ai-code-assit-eval"
-export ANTHROPIC_MODEL="claude-opus-4-7@default"
 
 # =========================================================
 # Secrets
@@ -115,6 +121,7 @@ DOTFILES_SECRETS_FILE="$HOME/.zshrc.secrets"
 
 if [[ -f "$DOTFILES_SECRETS_FILE" ]]; then
   set -a
+  # shellcheck disable=SC1090
   source "$DOTFILES_SECRETS_FILE"
   set +a
 fi
@@ -178,7 +185,7 @@ git_undo_last_commit_local() {
   git --no-pager log -1 --oneline || return 1
 
   echo
-  read "REPLY?Type 'yes' to continue: "
+  read -r "REPLY?Type 'yes' to continue: "
   echo
 
   [[ "$REPLY" == "yes" ]] || {
@@ -199,7 +206,7 @@ git_delete_last_commit_local() {
   git --no-pager log -1 --oneline || return 1
 
   echo
-  read "REPLY?Type 'yes' to continue: "
+  read -r "REPLY?Type 'yes' to continue: "
   echo
 
   [[ "$REPLY" == "yes" ]] || {
@@ -222,7 +229,7 @@ git_rebase_and_push() {
   git --no-pager log -1 --oneline || return 1
 
   echo
-  read "REPLY?About to rebase onto origin/$base. Type 'yes' to continue: "
+  read -r "REPLY?About to rebase onto origin/$base. Type 'yes' to continue: "
   echo
 
   [[ "$REPLY" == "yes" ]] || {
@@ -234,7 +241,7 @@ git_rebase_and_push() {
   git rebase "origin/$base" || return 1
 
   echo
-  read "REPLY?Rebase completed. About to force push with --force-with-lease. Type 'yes' to continue: "
+  read -r "REPLY?Rebase completed. About to force push with --force-with-lease. Type 'yes' to continue: "
   echo
 
   [[ "$REPLY" == "yes" ]] || {
@@ -251,3 +258,4 @@ git_rebase_and_push() {
 
 alias dot='zed "$HOME/Code/dotfiles"'
 alias blog='zed "$HOME/Code/premkumar-masilamani.github.io"'
+

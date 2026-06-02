@@ -1,55 +1,43 @@
 {
-  "cli_default_open_behavior": "new_window",
+  // --- Core Keymap ---
+  "diff_view_style": "split",
+  "base_keymap": "JetBrains",
+
+  // --- Appearance & Theming ---
+  "theme": "JetBrains Islands Dark",
+  "icon_theme": "JetBrains New UI Icons (Dark)",
+  "buffer_font_family": "JetBrains Mono",
+  "buffer_font_size": 15,
+
+  // --- Editor Layout ---
   "project_panel": {
-    "dock": "left"
+    "dock": "left",
   },
-  "outline_panel": {
-    "dock": "left"
-  },
-  "collaboration_panel": {
-    "dock": "left"
+  "terminal": {
+    "dock": "bottom",
   },
   "git_panel": {
-    "dock": "left"
+    "dock": "left",
   },
+  "agent": {
+    "sidebar_side": "right",
+    "dock": "right",
+  },
+
+  // --- Editor Behavior ---
+  "autosave": "on_focus_change",
+  "soft_wrap": "editor_width",
+
+  // --- AI Agents ---
   "agent_servers": {
-    "claude-acp": {
-      "type": "registry"
+    "grok-build": {
+      "type": "registry",
     },
     "gemini": {
       "type": "registry",
     },
-  },
-  "ssh_connections": [
-    {
-      "host": "github.com",
-      "args": [],
-      "projects": [],
+    "claude-acp": {
+      "type": "registry",
     },
-  ],
-  "agent": {
-    "dock": "right",
-    "tool_permissions": {
-      "default": "allow",
-    },
-    "play_sound_when_agent_done": "always",
-  },
-  "icon_theme": "Material Icon Theme",
-  "theme": "Catppuccin Frappé",
-  "base_keymap": "JetBrains",
-  "confirm_quit": true,
-  "restore_on_startup": "last_workspace",
-  "close_on_file_delete": true,
-  "title_bar": {
-    "show_menus": true,
-  },
-  "minimap": {
-    "show": "auto",
-  },
-  "autosave": "on_focus_change",
-  "soft_wrap": "editor_width",
-  "tabs": {
-    "git_status": true,
-    "file_icons": true,
   },
 }
