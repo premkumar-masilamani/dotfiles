@@ -4,10 +4,10 @@
   "base_keymap": "JetBrains",
 
   // --- Appearance & Theming ---
-  "theme": "JetBrains Islands Dark",
-  "icon_theme": "JetBrains New UI Icons (Dark)",
+  "theme": "JetBrains Dark",
+  "icon_theme": "Material Icon Theme",
   "buffer_font_family": "JetBrains Mono",
-  "buffer_font_size": 15,
+  "buffer_font_size": 13,
 
   // --- Editor Layout ---
   "project_panel": {
@@ -26,6 +26,7 @@
 
   // --- Editor Behavior ---
   "autosave": "on_focus_change",
+  "format_on_save": "off",
   "soft_wrap": "editor_width",
 
   // --- AI Agents ---
@@ -38,6 +39,15 @@
     },
     "claude-acp": {
       "type": "registry",
+    },
+  },
+
+  // --- Language Servers ---
+  "lsp": {
+    "jdtls": {
+      "settings": {
+        "lombok_support": true,
+      },
     },
   },
 }
