@@ -117,7 +117,7 @@ export PATH
 # Secrets
 # =========================================================
 
-DOTFILES_SECRETS_FILE="$HOME/.zshrc.secrets"
+DOTFILES_SECRETS_FILE="$HOME/zshrc.secrets"
 
 if [[ -f "$DOTFILES_SECRETS_FILE" ]]; then
   set -a
@@ -258,4 +258,3 @@ git_rebase_and_push() {
 
 alias dot='zed "$HOME/Code/dotfiles"'
 alias blog='zed "$HOME/Code/premkumar-masilamani.github.io"'
-
