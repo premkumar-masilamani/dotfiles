@@ -1,0 +1,53 @@
+# =========================================================
+# Intel (x86_64) Brewfile — reduced subset
+# =========================================================
+# This is the trimmed package set for the older Intel Mac.
+# It keeps the same shell look & feel (prompt, history,
+# completions, syntax highlighting) and core CLI utilities,
+# but drops the heavy developer toolchains that the Intel
+# laptop is too dated to run comfortably.
+#
+# The full package set lives in Brewfile.silicon.
+# `make refresh` / `make dump` re-dump THIS file on an Intel
+# Mac, so treat the list below as the curated starting point.
+
+# =========================================================
+# Shell look & feel (keep in sync with Brewfile.silicon)
+# =========================================================
+
+# Improved shell history for zsh, bash, fish and nushell
+brew "atuin"
+# Command-line fuzzy finder written in Go
+brew "fzf"
+# Cross-shell prompt for astronauts
+brew "starship"
+# Fish-like fast/unobtrusive autosuggestions for zsh
+brew "zsh-autosuggestions"
+# Feature-rich syntax highlighting for Zsh
+brew "zsh-fast-syntax-highlighting"
+
+# =========================================================
+# Core CLI utilities
+# =========================================================
+
+# GitHub command-line tool
+brew "gh"
+# Improved top (interactive process viewer)
+brew "htop"
+# NCurses Disk Usage
+brew "ncdu"
+# Static analysis and lint tool, for (ba)sh scripts
+brew "shellcheck"
+# Display directories as trees (with optional color/HTML output)
+brew "tree"
+# Internet file retriever
+brew "wget"
+
+# =========================================================
+# Applications (same daily-driver look & feel)
+# =========================================================
+
+# Web browser
+cask "google-chrome"
+# Multiplayer code editor
+cask "zed"
