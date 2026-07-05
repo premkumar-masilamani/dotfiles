@@ -4,8 +4,17 @@
 # =========================================================
 # Homebrew
 # =========================================================
+# The Homebrew prefix differs by architecture:
+#   Apple Silicon (arm64)  -> /opt/homebrew
+#   Intel (x86_64)         -> /usr/local
+# Detect it so the same profile works on both Macs.
 
-export HOMEBREW_PREFIX="/opt/homebrew"
+if [[ "$(uname -m)" == "arm64" ]]; then
+  export HOMEBREW_PREFIX="/opt/homebrew"
+else
+  export HOMEBREW_PREFIX="/usr/local"
+fi
+
 export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 
 # =========================================================
@@ -55,47 +64,60 @@ unset ZSH_CACHE_DIR
 # Atuin History
 # =========================================================
 
-eval "$(atuin init zsh)"
+if command -v atuin >/dev/null 2>&1; then
+  eval "$(atuin init zsh)"
+fi
 
 # =========================================================
 # fzf
 # =========================================================
 
-# shellcheck disable=SC1090
-source <(fzf --zsh)
+if command -v fzf >/dev/null 2>&1; then
+  # shellcheck disable=SC1090
+  source <(fzf --zsh)
+fi
 
 # =========================================================
 # Auto Suggestions
 # =========================================================
 
-# shellcheck disable=SC1091
-source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
+if [[ -f "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
+  # shellcheck disable=SC1091
+  source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-# shellcheck disable=SC2034  # Used by zsh-autosuggestions plugin
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-# shellcheck disable=SC2034  # Used by zsh-autosuggestions plugin
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+  # shellcheck disable=SC2034  # Used by zsh-autosuggestions plugin
+  ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+  # shellcheck disable=SC2034  # Used by zsh-autosuggestions plugin
+  ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
+fi
 
 # =========================================================
 # Syntax Highlighting
 # MUST BE LAST PLUGIN
 # =========================================================
 
-# shellcheck disable=SC1091
-source "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+if [[ -f "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]]; then
+  # shellcheck disable=SC1091
+  source "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
+fi
 
 # =========================================================
 # Starship Prompt
 # =========================================================
 
-eval "$(starship init zsh)"
+if command -v starship >/dev/null 2>&1; then
+  eval "$(starship init zsh)"
+fi
 
 # =========================================================
 # Environment Variables
 # =========================================================
 
-export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
-export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk@21/include"
+# Java toolchain (only present on the full Apple Silicon set)
+if [[ -d "$HOMEBREW_PREFIX/opt/openjdk@21" ]]; then
+  export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+  export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk@21/include"
+fi
 
 typeset -U path PATH
 
