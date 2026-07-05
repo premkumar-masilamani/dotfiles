@@ -5,8 +5,7 @@ This repository contains the brew bundle and zsh profile files that manages most
 
 The same repo works on both an Apple Silicon Mac and an older Intel Mac. The
 `make` commands auto-detect the architecture (via `uname -m`) and deploy the
-matching package set — everything else (zsh profile, prompt, Zed settings,
-terminal theme) is shared, so the look and feel stays identical.
+matching package set.
 
 | Architecture       | `uname -m` | Homebrew prefix | Brewfile                  |
 | ------------------ | ---------- | --------------- | ------------------------- |
@@ -26,8 +25,7 @@ optional dev-toolchain paths, so the same profile works unchanged on both Macs.
 
 Run the commands below in order in the Terminal. They are safe to copy‑paste
 as‑is. Steps 2 and 3 each have one manual GitHub website action, called out
-inline. If you'd rather skip most of this, see
-[Minimizing the setup](#minimizing-the-setup) below.
+inline.
 
 ### 1. Install the Command Line Developer Tools
 
@@ -110,30 +108,11 @@ That's it — `gh` stays signed in from now on, so you never repeat this step on
 this Mac. Everyday maintenance (`make refresh`) doesn't touch GitHub at all and
 needs no authentication.
 
-### Minimizing the setup
-
-A couple of ways to collapse the steps above:
-
-1. **Let the GitHub CLI handle SSH too.** In step 5, `gh auth login` can
-   generate and upload an SSH key for you — so if you clone this repo over
-   HTTPS in step 3
-   (`git clone https://github.com/premkumar-masilamani/dotfiles.git ~/Code/dotfiles`),
-   you can skip the manual `ssh-keygen` in step 2 entirely.
-
-2. **A one‑shot bootstrap.** A small `bootstrap.sh` (invokable as
-   `make bootstrap`) could install the Command Line Tools, install Homebrew,
-   install and authenticate `gh`, clone this repo, and run `make setup` — so a
-   fresh Mac goes from zero to configured with a single pasted command. I can
-   add this on request.
-
 ## Secrets
 
 - Keep secrets in `~/zshrc.secrets` in your home directory (loaded by `zsh/zshrc.profile`).
+- Run `chmod 600 ~/zshrc.secrets` to keep it private.
 - All variables defined there are imported and exported automatically (e.g. project API keys).
-- The file is outside this repo and untracked, so it is never committed. Run `chmod 600 ~/zshrc.secrets` to keep it private.
-- Do not store API keys or access tokens directly in tracked files.
-- GitHub access does **not** belong here — the GitHub CLI (`gh auth login`) manages its own token in the Keychain, so no `GH_TOKEN` is needed.
+- The file is outside this repo and untracked, so it is never committed.
+- Do not store API keys or access tokens directly in any tracked files.
 
-## Validation
-
-- Run `make check` to execute shell syntax checks and optional shellcheck.
