@@ -11,7 +11,7 @@ setup: $(MANAGE_SCRIPT)
 .PHONY: refresh
 refresh: $(MANAGE_SCRIPT)
 	@$(MANAGE_SCRIPT) refresh
-	@git --no-pager diff homebrew/Brewfile
+	@git --no-pager diff homebrew/
 
 .PHONY: check
 check: $(MANAGE_SCRIPT) $(ZSH_PROFILE)
