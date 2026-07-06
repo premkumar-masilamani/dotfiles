@@ -66,10 +66,10 @@ update_homebrew() {
         return 1
     fi
 
-    brew update
-    brew bundle install --file="$BREW_FILE"
-    brew bundle --force cleanup --file="$BREW_FILE"
-    brew services cleanup
+    brew update --verbose
+    brew bundle install --verbose --file="$BREW_FILE"
+    brew bundle --verbose --force cleanup --file="$BREW_FILE"
+    brew services cleanup --verbose
 
     echo "Homebrew packages updated successfully"
 }
