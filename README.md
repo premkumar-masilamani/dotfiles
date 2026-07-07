@@ -13,35 +13,22 @@ matching package set.
 | Intel (older Mac)  | `x86_64`   | `/usr/local`    | `homebrew/Brewfile.intel`   |
 
 - `homebrew/Brewfile.silicon` is the full package set.
-- `homebrew/Brewfile.intel` is a drastically reduced subset (shell look & feel
-  + core CLI utilities) for the dated Intel laptop.
-- `make refresh` / `make dump` re-dump only the Brewfile for the machine you
-  run them on, so each Mac keeps its own snapshot in sync.
-
-The `zsh/zshrc.profile` detects the Homebrew prefix at load time and guards the
-optional dev-toolchain paths, so the same profile works unchanged on both Macs.
+- `homebrew/Brewfile.intel` is a drastically reduced subset for the Intel laptop.
 
 ## Instructions to configure a new macbook
 
-Run the commands below in order in the Terminal. They are safe to copy‑paste
-as‑is. Steps 2 and 3 each have one manual GitHub website action, called out
-inline.
+Run the commands below in order in the Terminal. 
 
 ### 1. Install the Command Line Developer Tools
-
-This provides `git` and the compilers Homebrew needs.
 
 ```bash
 xcode-select --install
 ```
-
 A pop‑up appears — click **Install** and wait for it to finish before
 continuing.
 
 ### 2. Create an SSH key and add it to GitHub
 
-Generate a key, load it into the agent/Keychain, and copy the public half to
-the clipboard:
 
 ```bash
 # Generate an ed25519 key (no passphrase, for a fully copy‑paste setup).
@@ -83,36 +70,30 @@ cd ~/Code/dotfiles
 
 ### 4. Run the setup
 
-This installs Homebrew (including the GitHub CLI), links the zsh/Zed configs,
-and installs the right package set for this Mac's architecture.
-
 ```bash
 make setup
 ```
 
-Open a new Terminal window (or run `source ~/.zshrc`) to pick up the new shell.
-
-### 5. Sign in to the GitHub CLI, then re‑run setup
-
-`make setup` also clones your other repos and applies branch protection, which
-needs GitHub authentication. Sign in **once** with the GitHub CLI (it stores
-the token in the macOS Keychain — no personal access token to create or
-manage), then run setup again to pick up those steps:
+### 5. Initialize CLI tools, then re‑run setup
 
 ```bash
-gh auth login   # choose GitHub.com → SSH → your existing key; authenticate in the browser
+gh auth login
+gcloud auth init
 make setup      # now clones your repos and applies branch protection
 ```
-
-That's it — `gh` stays signed in from now on, so you never repeat this step on
-this Mac. Everyday maintenance (`make refresh`) doesn't touch GitHub at all and
-needs no authentication.
 
 ## Secrets
 
 - Keep secrets in `~/zshrc.secrets` in your home directory (loaded by `zsh/zshrc.profile`).
 - Run `chmod 600 ~/zshrc.secrets` to keep it private.
 - All variables defined there are imported and exported automatically (e.g. project API keys).
-- The file is outside this repo and untracked, so it is never committed.
-- Do not store API keys or access tokens directly in any tracked files.
+- Run `chmod 600 ~/zshrc.secrets` to keep it private.
+- Do not store API keys or access tokens directly in tracked files.
 
+# Maintenance
+
+Run the below command, after installing or uninstalling any software in either of the mac machines
+
+```bash
+make refresh
+```
