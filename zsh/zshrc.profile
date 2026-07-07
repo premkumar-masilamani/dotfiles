@@ -16,6 +16,31 @@ fi
 eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 # =========================================================
+# PATH & Environment Variables
+# =========================================================
+
+# Java toolchain (only present on the full Apple Silicon set)
+if [[ -d "$HOMEBREW_PREFIX/opt/openjdk@21" ]]; then
+  export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+  export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk@21/include"
+fi
+
+typeset -U path PATH
+
+path=(
+  "$HOMEBREW_PREFIX/bin"
+  "$HOMEBREW_PREFIX/sbin"
+  "$HOMEBREW_PREFIX/opt/openjdk@21/bin"
+  "$HOMEBREW_PREFIX/opt/node@20/bin"
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/go/bin"
+  $path
+)
+
+export PATH
+
+# =========================================================
 # History
 # =========================================================
 
@@ -37,8 +62,6 @@ setopt EXTENDED_HISTORY
 # =========================================================
 
 autoload -Uz compinit
-
-fpath=(~/.grok/completions/zsh $fpath)
 
 ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 mkdir -p "$ZSH_CACHE_DIR"
@@ -98,33 +121,6 @@ fi
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
-
-# =========================================================
-# Environment Variables
-# =========================================================
-
-# Java toolchain (only present on the full Apple Silicon set)
-if [[ -d "$HOMEBREW_PREFIX/opt/openjdk@21" ]]; then
-  export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
-  export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk@21/include"
-fi
-
-typeset -U path PATH
-
-path=(
-  "$HOMEBREW_PREFIX/bin"
-  "$HOMEBREW_PREFIX/sbin"
-  "$HOMEBREW_PREFIX/opt/openjdk@21/bin"
-  "$HOMEBREW_PREFIX/opt/node@20/bin"
-  "$HOME/.local/bin"
-  "$HOME/.cargo/bin"
-  "$HOME/go/bin"
-  "$HOME/.grok/bin"
-  "$HOME/.antigravity-ide/antigravity-ide/bin"
-  $path
-)
-
-export PATH
 
 # =========================================================
 # Secrets
