@@ -1,6 +1,3 @@
-# shellcheck shell=bash
-# Note: This is a zsh config file. Many shellcheck warnings are false positives.
-
 # =========================================================
 # Homebrew
 # =========================================================
@@ -15,7 +12,8 @@ else
   export HOMEBREW_PREFIX="/usr/local"
 fi
 
-export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
+# Core Homebrew initialization (Sets up internal vars securely)
+eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 # =========================================================
 # History
@@ -23,7 +21,6 @@ export PATH="$HOMEBREW_PREFIX/bin:$HOMEBREW_PREFIX/sbin:$PATH"
 
 HISTFILE="$HOME/.zsh_history"
 HISTSIZE=100000
-# shellcheck disable=SC2034  # Used by zsh internally
 SAVEHIST=100000
 
 setopt APPEND_HISTORY
@@ -41,7 +38,6 @@ setopt EXTENDED_HISTORY
 
 autoload -Uz compinit
 
-# shellcheck disable=SC2206  # zsh arrays don't word-split
 fpath=(~/.grok/completions/zsh $fpath)
 
 ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
@@ -55,7 +51,6 @@ fi
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-# shellcheck disable=SC2296
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 unset ZSH_CACHE_DIR
@@ -73,7 +68,6 @@ fi
 # =========================================================
 
 if command -v fzf >/dev/null 2>&1; then
-  # shellcheck disable=SC1090
   source <(fzf --zsh)
 fi
 
@@ -82,12 +76,9 @@ fi
 # =========================================================
 
 if [[ -f "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
-  # shellcheck disable=SC1091
   source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-  # shellcheck disable=SC2034  # Used by zsh-autosuggestions plugin
   ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-  # shellcheck disable=SC2034  # Used by zsh-autosuggestions plugin
   ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 fi
 
@@ -97,7 +88,6 @@ fi
 # =========================================================
 
 if [[ -f "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]]; then
-  # shellcheck disable=SC1091
   source "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 fi
 
@@ -121,8 +111,9 @@ fi
 
 typeset -U path PATH
 
-# shellcheck disable=SC2206  # zsh arrays don't word-split
 path=(
+  "$HOMEBREW_PREFIX/bin"
+  "$HOMEBREW_PREFIX/sbin"
   "$HOMEBREW_PREFIX/opt/openjdk@21/bin"
   "$HOMEBREW_PREFIX/opt/node@20/bin"
   "$HOME/.local/bin"
@@ -143,7 +134,6 @@ DOTFILES_SECRETS_FILE="$HOME/zshrc.secrets"
 
 if [[ -f "$DOTFILES_SECRETS_FILE" ]]; then
   set -a
-  # shellcheck disable=SC1090
   source "$DOTFILES_SECRETS_FILE"
   set +a
 fi

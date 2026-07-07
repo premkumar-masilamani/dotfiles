@@ -6,8 +6,6 @@ brew "gmp"
 brew "openssl@3"
 # Incremental parsing library
 brew "tree-sitter"
-# Emacs dependency management
-brew "cask"
 # Cross-platform make
 brew "cmake"
 # Modern diagram scripting language that turns text to diagrams
