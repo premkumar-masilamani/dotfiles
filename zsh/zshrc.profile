@@ -18,12 +18,6 @@ eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 # =========================================================
 # PATH & Environment Variables
 # =========================================================
-# NOTE: PATH must be fully assembled BEFORE any tool is initialized
-# below (atuin, fzf, starship, ...). Those sections guard on
-# `command -v <tool>`, and tools like atuin/starship live in
-# ~/.cargo/bin. If PATH isn't set up first, the guards fail on a
-# fresh GUI-launched shell (e.g. Terminal.app from Finder) and the
-# tools silently never load.
 
 # Java toolchain (only present on the full Apple Silicon set)
 if [[ -d "$HOMEBREW_PREFIX/opt/openjdk@21" ]]; then
@@ -41,8 +35,6 @@ path=(
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
   "$HOME/go/bin"
-  "$HOME/.grok/bin"
-  "$HOME/.antigravity-ide/antigravity-ide/bin"
   $path
 )
 
@@ -70,8 +62,6 @@ setopt EXTENDED_HISTORY
 # =========================================================
 
 autoload -Uz compinit
-
-fpath=(~/.grok/completions/zsh $fpath)
 
 ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
 mkdir -p "$ZSH_CACHE_DIR"
