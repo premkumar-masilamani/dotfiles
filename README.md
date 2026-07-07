@@ -5,8 +5,7 @@ This repository contains the brew bundle and zsh profile files that manages most
 
 The same repo works on both an Apple Silicon Mac and an older Intel Mac. The
 `make` commands auto-detect the architecture (via `uname -m`) and deploy the
-matching package set — everything else (zsh profile, prompt, Zed settings,
-terminal theme) is shared, so the look and feel stays identical.
+matching package set.
 
 | Architecture       | `uname -m` | Homebrew prefix | Brewfile                  |
 | ------------------ | ---------- | --------------- | ------------------------- |
@@ -86,6 +85,7 @@ make setup      # now clones your repos and applies branch protection
 ## Secrets
 
 - Keep secrets in `~/zshrc.secrets` in your home directory (loaded by `zsh/zshrc.profile`).
+- Run `chmod 600 ~/zshrc.secrets` to keep it private.
 - All variables defined there are imported and exported automatically (e.g. project API keys).
 - Run `chmod 600 ~/zshrc.secrets` to keep it private.
 - Do not store API keys or access tokens directly in tracked files.
