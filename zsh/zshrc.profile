@@ -16,6 +16,39 @@ fi
 eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 
 # =========================================================
+# PATH & Environment Variables
+# =========================================================
+# NOTE: PATH must be fully assembled BEFORE any tool is initialized
+# below (atuin, fzf, starship, ...). Those sections guard on
+# `command -v <tool>`, and tools like atuin/starship live in
+# ~/.cargo/bin. If PATH isn't set up first, the guards fail on a
+# fresh GUI-launched shell (e.g. Terminal.app from Finder) and the
+# tools silently never load.
+
+# Java toolchain (only present on the full Apple Silicon set)
+if [[ -d "$HOMEBREW_PREFIX/opt/openjdk@21" ]]; then
+  export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
+  export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk@21/include"
+fi
+
+typeset -U path PATH
+
+path=(
+  "$HOMEBREW_PREFIX/bin"
+  "$HOMEBREW_PREFIX/sbin"
+  "$HOMEBREW_PREFIX/opt/openjdk@21/bin"
+  "$HOMEBREW_PREFIX/opt/node@20/bin"
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/go/bin"
+  "$HOME/.grok/bin"
+  "$HOME/.antigravity-ide/antigravity-ide/bin"
+  $path
+)
+
+export PATH
+
+# =========================================================
 # History
 # =========================================================
 
@@ -98,33 +131,6 @@ fi
 if command -v starship >/dev/null 2>&1; then
   eval "$(starship init zsh)"
 fi
-
-# =========================================================
-# Environment Variables
-# =========================================================
-
-# Java toolchain (only present on the full Apple Silicon set)
-if [[ -d "$HOMEBREW_PREFIX/opt/openjdk@21" ]]; then
-  export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
-  export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk@21/include"
-fi
-
-typeset -U path PATH
-
-path=(
-  "$HOMEBREW_PREFIX/bin"
-  "$HOMEBREW_PREFIX/sbin"
-  "$HOMEBREW_PREFIX/opt/openjdk@21/bin"
-  "$HOMEBREW_PREFIX/opt/node@20/bin"
-  "$HOME/.local/bin"
-  "$HOME/.cargo/bin"
-  "$HOME/go/bin"
-  "$HOME/.grok/bin"
-  "$HOME/.antigravity-ide/antigravity-ide/bin"
-  $path
-)
-
-export PATH
 
 # =========================================================
 # Secrets
