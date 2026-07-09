@@ -1,13 +1,11 @@
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
 # GitHub command-line tool
 brew "gh"
 # Open-source, cross-platform JavaScript runtime environment
-brew "node@20"
+brew "node"
 # Python dependency management tool
 brew "pipenv"
-# Python version management
-brew "pyenv"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.13"
 # Safe, concurrent, practical language
 brew "rust"
 # Agent orchestration platform
@@ -21,6 +19,8 @@ cask "gcloud-cli"
 cask "google-chrome"
 # Free and open-source RSS reader
 cask "netnewswire"
+# JDK from the Eclipse Foundation (Adoptium)
+cask "temurin@21"
 # Multiplayer code editor
 cask "zed"
 # Video communication and virtual meeting platform
