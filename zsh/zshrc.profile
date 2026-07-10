@@ -1,16 +1,9 @@
 # =========================================================
 # Homebrew
 # =========================================================
-# The Homebrew prefix differs by architecture:
-#   Apple Silicon (arm64)  -> /opt/homebrew
-#   Intel (x86_64)         -> /usr/local
-# Detect it so the same profile works on both Macs.
+# Dedicated to Apple Silicon (arm64) Macs.
 
-if [[ "$(uname -m)" == "arm64" ]]; then
-  export HOMEBREW_PREFIX="/opt/homebrew"
-else
-  export HOMEBREW_PREFIX="/usr/local"
-fi
+export HOMEBREW_PREFIX="/opt/homebrew"
 
 # Core Homebrew initialization (Sets up internal vars securely)
 eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
