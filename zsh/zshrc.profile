@@ -19,10 +19,9 @@ eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 # PATH & Environment Variables
 # =========================================================
 
-# Java toolchain (only present on the full Apple Silicon set)
-if [[ -d "$HOMEBREW_PREFIX/opt/openjdk@21" ]]; then
-  export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk@21/libexec/openjdk.jdk/Contents/Home"
-  export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk@21/include"
+# Java toolchain (keg-only, so it needs an explicit JAVA_HOME for gradle)
+if [[ -d "$HOMEBREW_PREFIX/opt/openjdk" ]]; then
+  export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk/libexec/openjdk.jdk/Contents/Home"
 fi
 
 typeset -U path PATH
@@ -30,8 +29,7 @@ typeset -U path PATH
 path=(
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
-  "$HOMEBREW_PREFIX/opt/openjdk@21/bin"
-  "$HOMEBREW_PREFIX/opt/node@20/bin"
+  "$HOMEBREW_PREFIX/opt/openjdk/bin"
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
   "$HOME/go/bin"
@@ -74,7 +72,6 @@ fi
 
 zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 
 unset ZSH_CACHE_DIR
 
@@ -84,34 +81,6 @@ unset ZSH_CACHE_DIR
 
 if command -v atuin >/dev/null 2>&1; then
   eval "$(atuin init zsh)"
-fi
-
-# =========================================================
-# fzf
-# =========================================================
-
-if command -v fzf >/dev/null 2>&1; then
-  source <(fzf --zsh)
-fi
-
-# =========================================================
-# Auto Suggestions
-# =========================================================
-
-if [[ -f "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]]; then
-  source "$HOMEBREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
-  ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-  ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
-fi
-
-# =========================================================
-# Syntax Highlighting
-# MUST BE LAST PLUGIN
-# =========================================================
-
-if [[ -f "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh" ]]; then
-  source "$HOMEBREW_PREFIX/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh"
 fi
 
 # =========================================================
@@ -140,7 +109,6 @@ unset DOTFILES_SECRETS_FILE
 # Aliases
 # =========================================================
 
-alias top='htop'
 alias du='ncdu --color dark -rr -x'
 
 alias flushdns='sudo killall -HUP mDNSResponder'
