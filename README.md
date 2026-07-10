@@ -31,11 +31,8 @@ continuing.
 
 
 ```bash
-# Generate an ed25519 key (no passphrase, for a fully copy‑paste setup).
-# To add a passphrase instead, drop the `-N ""` and type one when prompted.
 ssh-keygen -t ed25519 -C "premkumar.masilamani.2020@gmail.com" -f ~/.ssh/id_ed25519 -N ""
 
-# Make macOS load the key from the Keychain automatically on every login.
 mkdir -p ~/.ssh
 cat >> ~/.ssh/config <<'EOF'
 Host github.com
@@ -44,7 +41,6 @@ Host github.com
   IdentityFile ~/.ssh/id_ed25519
 EOF
 
-# Add the key to the agent and copy the public key to the clipboard.
 eval "$(ssh-agent -s)"
 ssh-add --apple-use-keychain ~/.ssh/id_ed25519
 pbcopy < ~/.ssh/id_ed25519.pub
@@ -57,7 +53,7 @@ and click **Add SSH key**.
 Verify it works:
 
 ```bash
-ssh -T git@github.com   # expect: "Hi premkumar-masilamani! You've successfully authenticated..."
+ssh -T git@github.com
 ```
 
 ### 3. Clone the dotfiles repo
@@ -78,14 +74,13 @@ make setup
 
 ```bash
 gh auth login
-gcloud auth init
-make setup      # now clones your repos and applies branch protection
+gcloud auth login
+make setup
 ```
 
 ## Secrets
 
 - Keep secrets in `~/zshrc.secrets` in your home directory (loaded by `zsh/zshrc.profile`).
-- Run `chmod 600 ~/zshrc.secrets` to keep it private.
 - All variables defined there are imported and exported automatically (e.g. project API keys).
 - Run `chmod 600 ~/zshrc.secrets` to keep it private.
 - Do not store API keys or access tokens directly in tracked files.
