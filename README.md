@@ -1,19 +1,12 @@
 # dotfiles
 This repository contains the brew bundle and zsh profile files that manages most of the softwares that I use in my Macbook.
 
-## Architecture-aware setup (Apple Silicon & Intel)
+## Requirements
 
-The same repo works on both an Apple Silicon Mac and an older Intel Mac. The
-`make` commands auto-detect the architecture (via `uname -m`) and deploy the
-matching package set.
+This repository is designed exclusively for Apple Silicon (`arm64`) Macs.
 
-| Architecture       | `uname -m` | Homebrew prefix | Brewfile                  |
-| ------------------ | ---------- | --------------- | ------------------------- |
-| Apple Silicon      | `arm64`    | `/opt/homebrew` | `homebrew/Brewfile.silicon` |
-| Intel (older Mac)  | `x86_64`   | `/usr/local`    | `homebrew/Brewfile.intel`   |
-
-- `homebrew/Brewfile.silicon` is the full package set.
-- `homebrew/Brewfile.intel` is a drastically reduced subset for the Intel laptop.
+- **Homebrew Prefix**: `/opt/homebrew`
+- **Homebrew Package Set**: Managed via `homebrew/Brewfile`
 
 ## Instructions to configure a new macbook
 
@@ -87,7 +80,7 @@ make setup
 
 # Maintenance
 
-Run the below command, after installing or uninstalling any software in either of the mac machines
+Run the below command after installing or uninstalling any software to keep the `Brewfile` up-to-date:
 
 ```bash
 make refresh

@@ -7,31 +7,14 @@ readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly DOTFILES_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 readonly CODE_DIR="${CODE_DIR:-${HOME}/Code}"
 
-# Detect Mac architecture so the same repo works on both an
-# Apple Silicon Mac and an older Intel Mac. Each architecture
-# gets its own Brewfile and Homebrew prefix.
-detect_arch() {
-    case "$(uname -m)" in
-        arm64)  echo "silicon" ;;
-        x86_64) echo "intel" ;;
-        *)      echo "unsupported" ;;
-    esac
-}
-
-readonly ARCH="$(detect_arch)"
-
-if [[ "$ARCH" == "unsupported" ]]; then
-    echo "Unsupported architecture: $(uname -m)" >&2
+# This configuration is designed for Apple Silicon (arm64) Macs only.
+if [[ "$(uname -m)" != "arm64" ]]; then
+    echo "Error: This configuration is designed for Apple Silicon (arm64) Macs only." >&2
     exit 1
 fi
 
-if [[ "$ARCH" == "silicon" ]]; then
-    readonly BREW_PREFIX="/opt/homebrew"
-else
-    readonly BREW_PREFIX="/usr/local"
-fi
-
-readonly BREW_FILE="${DOTFILES_DIR}/homebrew/Brewfile.${ARCH}"
+readonly BREW_PREFIX="/opt/homebrew"
+readonly BREW_FILE="${DOTFILES_DIR}/homebrew/Brewfile"
 
 readonly GIT_USERNAME="premkumar-masilamani"
 readonly GIT_NAME="Premkumar Masilamani"
@@ -258,7 +241,7 @@ EOF
 main() {
     verify_directories
 
-    echo "Detected architecture: ${ARCH} (Homebrew prefix: ${BREW_PREFIX})"
+    echo "Homebrew prefix: ${BREW_PREFIX}"
     echo "Using Brewfile: ${BREW_FILE}"
 
     case "${1:-help}" in
