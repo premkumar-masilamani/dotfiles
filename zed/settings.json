@@ -38,10 +38,18 @@
 
   // --- AI Agents ---
   "agent_servers": {
+    "Antigravity": {
+      "args": [
+        "@shubzkothekar/antigravity-acp"
+      ],
+      "type": "custom",
+      "command": "npx"
+    },
     "grok-build": {
       "type": "registry",
     },
     "gemini": {
+      "default_mode": "yolo",
       "type": "registry",
     },
     "claude-acp": {

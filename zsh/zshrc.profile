@@ -225,5 +225,5 @@ git_rebase_and_push() {
 # Project Shortcuts
 # =========================================================
 
-alias dot='zed "$HOME/Code/dotfiles"'
-alias blog='zed "$HOME/Code/premkumar-masilamani.github.io"'
+alias dot='zed "$HOME/Documents/Code/dotfiles"'
+alias blog='zed "$HOME/Documents/Code/premkumar-masilamani.github.io"'

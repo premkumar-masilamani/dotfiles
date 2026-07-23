@@ -20,14 +20,16 @@ brew "python@3.14"
 brew "mas"
 # NCurses Disk Usage
 brew "ncdu"
-# Python dependency management tool
-brew "pipenv"
+# Open-source, cross-platform JavaScript runtime environment
+brew "node"
 # Safe, concurrent, practical language
 brew "rust"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
 # Agent orchestration platform
 cask "antigravity"
+# Bitcoin client and wallet
+cask "bitcoin-core"
 # Anthropic's official Claude AI desktop app
 cask "claude"
 # Universal database tool and SQL client
@@ -45,6 +47,8 @@ cask "netnewswire"
 cask "obsidian"
 # Replacement for Docker Desktop
 cask "orbstack"
+# Multimedia player
+cask "vlc"
 # Multiplayer code editor
 cask "zed"
 # Video communication and virtual meeting platform
@@ -54,3 +58,5 @@ mas "Xcode", id: 497799835
 go "golang.org/x/tools/gopls"
 cargo "atuin"
 cargo "starship"
+npm "esbuild"
+npm "firebase-tools"

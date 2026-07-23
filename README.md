@@ -52,9 +52,9 @@ ssh -T git@github.com
 ### 3. Clone the dotfiles repo
 
 ```bash
-mkdir -p ~/Code
-git clone git@github.com:premkumar-masilamani/dotfiles.git ~/Code/dotfiles
-cd ~/Code/dotfiles
+mkdir -p ~/Documents/Code
+git clone git@github.com:premkumar-masilamani/dotfiles.git ~/Documents/Code/dotfiles
+cd ~/Documents/Code/dotfiles
 ```
 
 ### 4. Run the setup

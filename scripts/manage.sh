@@ -5,7 +5,7 @@ set -euo pipefail
 # Configuration
 readonly SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 readonly DOTFILES_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
-readonly CODE_DIR="${CODE_DIR:-${HOME}/Code}"
+readonly CODE_DIR="${CODE_DIR:-${HOME}/Documents/Code}"
 
 # This configuration is designed for Apple Silicon (arm64) Macs only.
 if [[ "$(uname -m)" != "arm64" ]]; then
