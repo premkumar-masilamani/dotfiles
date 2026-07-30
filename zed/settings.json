@@ -10,7 +10,7 @@
     "make": true
   },
   "auto_update": true,
-  "theme": "JetBrains Dark",
+  "theme": "Matrix",
   "icon_theme": "Material Icon Theme",
   "buffer_font_family": "JetBrains Mono",
   "buffer_font_size": 13,

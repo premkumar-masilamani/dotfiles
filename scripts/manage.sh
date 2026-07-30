@@ -98,6 +98,16 @@ setup_zed() {
         echo "Zed settings not found at $zed_config"
         return 1
     fi
+
+    local zed_themes="${DOTFILES_DIR}/zed/themes"
+    if [[ -d "$zed_themes" ]]; then
+        mkdir -p "${zed_dir}/themes"
+        for theme in "$zed_themes"/*.json; do
+            [[ -e "$theme" ]] || continue
+            ln -sf "$theme" "${zed_dir}/themes/$(basename "$theme")"
+        done
+        echo "Zed themes linked successfully"
+    fi
 }
 
 setup_git() {
