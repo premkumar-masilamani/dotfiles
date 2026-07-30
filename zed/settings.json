@@ -21,6 +21,8 @@
   },
   "terminal": {
     "dock": "bottom",
+    "cursor_shape": "underline",
+    "blinking": "on",
   },
   "git_panel": {
     "dock": "left",
