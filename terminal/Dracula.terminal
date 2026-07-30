@@ -149,7 +149,7 @@
 	<key>BellBounceCritical</key>
 	<true/>
 	<key>CursorBlink</key>
-	<false/>
+	<true/>
 	<key>CursorType</key>
 	<integer>1</integer>
 	<key>Font</key>
