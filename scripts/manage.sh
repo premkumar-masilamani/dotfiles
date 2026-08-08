@@ -110,6 +110,23 @@ setup_git() {
     echo "Git configuration updated successfully"
 }
 
+setup_ai_agents() {
+    echo "Configuring AI Agent directories..."
+    local cloud_ai_dir="${HOME}/Library/Mobile Documents/com~apple~CloudDocs/AI-Agents"
+    local gemini_dir="${cloud_ai_dir}/Gemini"
+    local claude_dir="${cloud_ai_dir}/Claude"
+
+    if [[ -d "$cloud_ai_dir" ]]; then
+        mkdir -p "$gemini_dir" "$claude_dir"
+        ln -sfn "$gemini_dir" ~/.gemini
+        ln -sfn "$claude_dir" ~/.claude
+        echo "AI Agent symlinks linked successfully"
+    else
+        echo "iCloud AI-Agents directory not found at $cloud_ai_dir"
+        return 1
+    fi
+}
+
 clone_repositories() {
     if ! command -v gh &>/dev/null; then
         echo "GitHub CLI (gh) is not installed. Skipping repository cloning."
@@ -204,6 +221,7 @@ setup_system() {
     setup_zsh
     setup_zed
     setup_git
+    setup_ai_agents
     update_homebrew
     clone_repositories
     update_rulesets_github
@@ -228,6 +246,7 @@ Commands:
     update  - Update and install Homebrew packages
     refresh - Sync Homebrew packages (dump & update)
     setup   - Set up system configurations
+    agents  - Link AI Agent directories (~/.gemini, ~/.claude)
     all     - Setup system and refresh Brewfile snapshot
     help    - Show this help message
 
@@ -249,6 +268,7 @@ main() {
         "update")  update_homebrew ;;
         "refresh") refresh_system ;;
         "setup")   setup_system ;;
+        "agents")  setup_ai_agents ;;
         "all")     all_system ;;
         *)       show_usage ;;
     esac
