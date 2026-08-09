@@ -102,7 +102,7 @@ unset DOTFILES_SECRETS_FILE
 # Aliases
 # =========================================================
 
-alias du='ncdu --color dark -rr -x'
+alias du='ncdu --enable-shell --color dark -rr -x'
 
 alias flushdns='sudo killall -HUP mDNSResponder'
 
