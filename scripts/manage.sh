@@ -107,6 +107,7 @@ setup_git() {
     git config --global push.autoSetupRemote true
     git config --global advice.forceDeleteBranch false
     git config --global pull.rebase true
+    git config --global core.ignorecase false
     echo "Git configuration updated successfully"
 }
 
