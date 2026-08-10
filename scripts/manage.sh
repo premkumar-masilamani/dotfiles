@@ -112,20 +112,8 @@ setup_git() {
 }
 
 setup_ai_agents() {
-    echo "Configuring AI Agent directories..."
-    local cloud_ai_dir="${HOME}/Library/Mobile Documents/com~apple~CloudDocs/AI-Agents"
-    local gemini_dir="${cloud_ai_dir}/Gemini"
-    local claude_dir="${cloud_ai_dir}/Claude"
-
-    if [[ -d "$cloud_ai_dir" ]]; then
-        mkdir -p "$gemini_dir" "$claude_dir"
-        ln -sfn "$gemini_dir" ~/.gemini
-        ln -sfn "$claude_dir" ~/.claude
-        echo "AI Agent symlinks linked successfully"
-    else
-        echo "iCloud AI-Agents directory not found at $cloud_ai_dir"
-        return 1
-    fi
+    ln -s "/Users/premkumar/Library/Mobile Documents/com~apple~CloudDocs/AI-Agents/Gemini" ~/.gemini
+    ln -s "/Users/premkumar/Library/Mobile Documents/com~apple~CloudDocs/AI-Agents/Claude" ~/.claude
 }
 
 clone_repositories() {
