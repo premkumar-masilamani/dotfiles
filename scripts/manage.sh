@@ -112,8 +112,8 @@ setup_git() {
 }
 
 setup_ai_agents() {
-    ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/AI-Agents/Gemini" ~/.gemini
-    ln -s "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/AI-Agents/Claude" ~/.claude
+    ln -sfn "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/AI-Agents/Gemini" ~/.gemini
+    ln -sfn "${HOME}/Library/Mobile Documents/com~apple~CloudDocs/AI-Agents/Claude" ~/.claude
 }
 
 clone_repositories() {
