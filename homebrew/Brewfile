@@ -2,14 +2,14 @@
 brew "container"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
+# General-purpose data compression with high compression ratio
+brew "xz"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
 # GitHub command-line tool
 brew "gh"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# General-purpose data compression with high compression ratio
-brew "xz"
 # Development kit for the Java programming language
 brew "openjdk"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
@@ -23,7 +23,7 @@ brew "mas"
 # NCurses Disk Usage
 brew "ncdu"
 # Open-source, cross-platform JavaScript runtime environment
-brew "node"
+brew "node@22", link: true
 # Safe, concurrent, practical language
 brew "rust"
 # Display directories as trees (with optional color/HTML output)
@@ -55,6 +55,3 @@ mas "Numbers", id: 361304891
 mas "Xcode", id: 497799835
 go "golang.org/x/tools/gopls"
 cargo "atuin"
-cargo "starship"
-npm "esbuild"
-npm "firebase-tools"

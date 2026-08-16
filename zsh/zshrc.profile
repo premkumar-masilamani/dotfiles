@@ -69,19 +69,33 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 unset ZSH_CACHE_DIR
 
 # =========================================================
+# Prompt & Appearance
+# =========================================================
+
+builtin autoload -Uz vcs_info
+builtin autoload -Uz colors && colors
+
+# Configure Git branch detection
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats ' on %F{magenta} %b%f'
+
+# Update VCS info before each prompt display
+precmd() {
+  vcs_info
+}
+
+# Allow parameter expansion and command substitution in PROMPT
+setopt PROMPT_SUBST
+
+# Prompt layout: directory on  branch ❯ (green on success, red on error)
+PROMPT='%F{cyan}%1~%f${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
+
+# =========================================================
 # Atuin History
 # =========================================================
 
 if command -v atuin >/dev/null 2>&1; then
   eval "$(atuin init zsh)"
-fi
-
-# =========================================================
-# Starship Prompt
-# =========================================================
-
-if command -v starship >/dev/null 2>&1; then
-  eval "$(starship init zsh)"
 fi
 
 # =========================================================
@@ -103,7 +117,6 @@ unset DOTFILES_SECRETS_FILE
 # =========================================================
 
 alias du='ncdu --enable-shell --color dark -rr -x'
-
 alias flushdns='sudo killall -HUP mDNSResponder'
 
 alias profile='zed ~/.zshrc'
@@ -122,9 +135,7 @@ alias mv='mv -i'
 # =========================================================
 
 alias gcm='git switch main && git pull --rebase origin main && git submodule update --init --recursive'
-
 alias gf='git fetch --all --prune'
-
 alias gl='git log --graph --pretty=format:"%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s" --date=short'
 
 gc() {
