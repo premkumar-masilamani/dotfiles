@@ -23,7 +23,7 @@ brew "mas"
 # NCurses Disk Usage
 brew "ncdu"
 # Open-source, cross-platform JavaScript runtime environment
-brew "node@22", link: true
+brew "node@22"
 # Safe, concurrent, practical language
 brew "rust"
 # Display directories as trees (with optional color/HTML output)
