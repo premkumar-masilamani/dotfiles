@@ -12,17 +12,13 @@ eval "$($HOMEBREW_PREFIX/bin/brew shellenv)"
 # PATH & Environment Variables
 # =========================================================
 
-# Java toolchain (keg-only, so it needs an explicit JAVA_HOME for gradle)
-if [[ -d "$HOMEBREW_PREFIX/opt/openjdk" ]]; then
-  export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk/libexec/openjdk.jdk/Contents/Home"
-fi
-
 typeset -U path PATH
 
 path=(
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
   "$HOMEBREW_PREFIX/opt/openjdk/bin"
+  "$HOMEBREW_PREFIX/opt/node@22/bin"
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
   "$HOME/go/bin"
@@ -30,6 +26,10 @@ path=(
 )
 
 export PATH
+
+export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk/libexec/openjdk.jdk/Contents/Home"
+export LDFLAGS="-L$HOMEBREW_PREFIX/opt/node@22/lib"
+export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/node@22/include"
 
 # =========================================================
 # History
@@ -87,8 +87,11 @@ precmd() {
 # Allow parameter expansion and command substitution in PROMPT
 setopt PROMPT_SUBST
 
-# Prompt layout: directory on  branch ❯ (green on success, red on error)
-PROMPT='%F{cyan}%1~%f${vcs_info_msg_0_} %(?.%F{green}.%F{red})❯%f '
+# Prompt layout:
+# Line 1: full path on  branch
+# Line 2: ❯ (green on success, red on error)
+PROMPT='%F{cyan}%~%f${vcs_info_msg_0_}
+%(?.%F{green}.%F{red})❯%f '
 
 # =========================================================
 # Atuin History
