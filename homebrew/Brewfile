@@ -1,17 +1,24 @@
+tap "hashicorp/tap"
 # Create and run Linux containers using lightweight virtual machines
 brew "container"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
+# General-purpose data compression with high compression ratio
+brew "xz"
+# Play, record, convert, and stream select audio and video codecs
+brew "ffmpeg"
 # GitHub command-line tool
 brew "gh"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
-# General-purpose data compression with high compression ratio
-brew "xz"
+# TIFF library and utilities
+brew "libtiff"
 # Development kit for the Java programming language
 brew "openjdk"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
+# Website copier/offline browser
+brew "httrack"
 # Mac App Store command-line interface
 brew "mas"
 # NCurses Disk Usage
@@ -19,13 +26,15 @@ brew "ncdu"
 # Library for command-line editing
 brew "readline"
 # Open-source, cross-platform JavaScript runtime environment
-brew "node@22"
+brew "node@22", link: true
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.14"
 # Safe, concurrent, practical language
 brew "rust"
 # Display directories as trees (with optional color/HTML output)
 brew "tree"
+# Terraform
+brew "hashicorp/tap/terraform", trusted: true
 # Agent orchestration platform
 cask "antigravity"
 # Anthropic's official Claude AI desktop app
@@ -53,3 +62,6 @@ mas "Numbers", id: 361304891
 mas "Xcode", id: 497799835
 go "golang.org/x/tools/gopls"
 cargo "atuin"
+npm "corepack"
+npm "esbuild"
+npm "firebase-tools"

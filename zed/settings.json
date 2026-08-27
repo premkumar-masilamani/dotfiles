@@ -44,6 +44,13 @@
 
   // --- AI Agents ---
   "agent_servers": {
+    "antigravity-acp": {
+      "default_config_options": {
+        "mode": "yolo",
+        "model": "gemini-3.7-flash-high"
+      },
+      "type": "registry"
+    },
     "grok-build": {
       "type": "registry",
     },
