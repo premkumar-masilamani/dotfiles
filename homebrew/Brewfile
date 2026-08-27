@@ -1,29 +1,27 @@
 # Create and run Linux containers using lightweight virtual machines
 brew "container"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
-# General-purpose data compression with high compression ratio
-brew "xz"
-# Play, record, convert, and stream select audio and video codecs
-brew "ffmpeg"
 # GitHub command-line tool
 brew "gh"
 # Open source programming language to build simple/reliable/efficient software
 brew "go"
+# General-purpose data compression with high compression ratio
+brew "xz"
 # Development kit for the Java programming language
 brew "openjdk"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
-# Library for command-line editing
-brew "readline"
-# Interpreted, interactive, object-oriented programming language
-brew "python@3.14"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3"
 # Mac App Store command-line interface
 brew "mas"
 # NCurses Disk Usage
 brew "ncdu"
+# Library for command-line editing
+brew "readline"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node@22"
+# Interpreted, interactive, object-oriented programming language
+brew "python@3.14"
 # Safe, concurrent, practical language
 brew "rust"
 # Display directories as trees (with optional color/HTML output)
