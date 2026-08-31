@@ -235,6 +235,22 @@ git_rebase_and_push() {
   git push --force-with-lease
 }
 
+git_branches() {
+  git branch --format="%(color:green)%(committerdate:iso8601) %(color:blue)%(committerdate:relative)%(color:reset)	%(refname:short)" "$@"
+}
+
+git_clear_branches() {
+  local branches
+  branches=($(git branch --format="%(refname:short)" | grep -v -E '^(main|master)$'))
+
+  if [[ ${#branches[@]} -eq 0 ]]; then
+    echo "No branches to delete."
+    return 0
+  fi
+
+  git branch -D "${branches[@]}"
+}
+
 # =========================================================
 # Project Shortcuts
 # =========================================================
