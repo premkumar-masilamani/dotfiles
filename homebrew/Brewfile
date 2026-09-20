@@ -12,13 +12,13 @@ brew "d2"
 # GitHub command-line tool
 brew "gh"
 # Open source programming language to build simple/reliable/efficient software
-brew "go"
+brew "go@1.27"
 # TIFF library and utilities
 brew "libtiff"
 # Development kit for the Java programming language
 brew "openjdk@25"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
-brew "gradle"
+brew "gradle@9"
 # Mac App Store command-line interface
 brew "mas"
 # NCurses Disk Usage

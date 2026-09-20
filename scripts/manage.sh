@@ -34,6 +34,10 @@ dump_homebrew() {
     echo "Dumping Homebrew packages..."
     rm -f "${BREW_FILE}" "${BREW_FILE}.lock.json"
     brew bundle dump --file="$BREW_FILE"
+    sed -i '' \
+        -e 's/^brew "go"$/brew "go@1.27"/' \
+        -e 's/^brew "gradle"$/brew "gradle@9"/' \
+        "$BREW_FILE"
     echo "Brewfile updated successfully"
 }
 
