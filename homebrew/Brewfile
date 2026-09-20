@@ -1,12 +1,12 @@
 tap "hashicorp/tap"
-# Create and run Linux containers using lightweight virtual machines
-brew "container"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # General-purpose data compression with high compression ratio
 brew "xz"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# Music player with an ncurses based interface
+brew "cmus"
 # GitHub command-line tool
 brew "gh"
 # Open source programming language to build simple/reliable/efficient software
