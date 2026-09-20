@@ -1,12 +1,14 @@
 tap "hashicorp/tap"
-# Create and run Linux containers using lightweight virtual machines
-brew "container"
 # Cryptography and SSL/TLS Toolkit
 brew "openssl@3"
 # General-purpose data compression with high compression ratio
 brew "xz"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# Music player with an ncurses based interface
+brew "cmus"
+# Modern diagram scripting language that turns text to diagrams
+brew "d2"
 # GitHub command-line tool
 brew "gh"
 # Open source programming language to build simple/reliable/efficient software
@@ -14,11 +16,9 @@ brew "go"
 # TIFF library and utilities
 brew "libtiff"
 # Development kit for the Java programming language
-brew "openjdk"
+brew "openjdk@25"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
-# Website copier/offline browser
-brew "httrack"
 # Mac App Store command-line interface
 brew "mas"
 # NCurses Disk Usage
@@ -26,7 +26,7 @@ brew "ncdu"
 # Library for command-line editing
 brew "readline"
 # Open-source, cross-platform JavaScript runtime environment
-brew "node@22", link: true
+brew "node@22"
 # Interpreted, interactive, object-oriented programming language
 brew "python@3.14"
 # Safe, concurrent, practical language
@@ -62,6 +62,5 @@ mas "Numbers", id: 361304891
 mas "Xcode", id: 497799835
 go "golang.org/x/tools/gopls"
 cargo "atuin"
-npm "corepack"
 npm "esbuild"
 npm "firebase-tools"

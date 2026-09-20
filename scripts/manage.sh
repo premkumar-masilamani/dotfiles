@@ -108,6 +108,7 @@ setup_git() {
     git config --global advice.forceDeleteBranch false
     git config --global pull.rebase true
     git config --global core.ignorecase false
+    git config --global branch.sort -committerdate
     echo "Git configuration updated successfully"
 }
 
