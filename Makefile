@@ -11,3 +11,9 @@ setup: $(MANAGE_SCRIPT)
 refresh: $(MANAGE_SCRIPT)
 	@$(MANAGE_SCRIPT) refresh
 	@git --no-pager diff homebrew/
+
+.PHONY: repos
+repos: $(MANAGE_SCRIPT)
+	@$(MANAGE_SCRIPT) repos
+
+

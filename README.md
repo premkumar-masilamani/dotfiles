@@ -85,3 +85,9 @@ Run the below command after installing or uninstalling any software to keep the 
 ```bash
 make refresh
 ```
+
+Run the below command to clone personal GitHub repositories (skips already cloned repositories):
+
+```bash
+make repos
+```

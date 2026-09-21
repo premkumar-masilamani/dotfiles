@@ -237,11 +237,13 @@ Commands:
     refresh - Sync Homebrew packages (dump & update)
     setup   - Set up system configurations
     agents  - Link AI Agent directories (~/.gemini, ~/.claude)
+    repos   - Clone personal GitHub repositories (skip existing)
     all     - Setup system and refresh Brewfile snapshot
     help    - Show this help message
 
 Examples:
     $(basename "$0") setup
+    $(basename "$0") repos
     $(basename "$0") all
 EOF
     exit 1
@@ -259,8 +261,9 @@ main() {
         "refresh") refresh_system ;;
         "setup")   setup_system ;;
         "agents")  setup_ai_agents ;;
+        "repos")   clone_repositories ;;
         "all")     all_system ;;
-        *)       show_usage ;;
+        *)         show_usage ;;
     esac
 }
 
