@@ -59,7 +59,6 @@ cask "zed"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Numbers", id: 361304891
-mas "Xcode", id: 497799835
 go "golang.org/x/tools/gopls"
 cargo "atuin"
 npm "esbuild"
