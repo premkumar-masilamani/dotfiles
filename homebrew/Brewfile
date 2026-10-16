@@ -50,8 +50,6 @@ cask "gcloud-cli"
 cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
-# Desktop automation application
-cask "hammerspoon"
 # Free and open-source RSS reader
 cask "netnewswire"
 # Knowledge base that works on top of a local folder of plain text Markdown files
