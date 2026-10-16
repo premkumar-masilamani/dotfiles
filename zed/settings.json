@@ -1,5 +1,31 @@
 {
   // --- Core Keymap ---
+  "outline_panel": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "disable_ai": true,
+  "cursor_animation": {
+    "enabled": false
+  },
+  "cursor_blink": true,
+  "text_rendering_mode": "platform_default",
+  "ui_font_family": "JetBrains Mono",
+  "agent_ui_font_family": "JetBrains Mono",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+    "anthropic_retention": false
+  },
+  "session": {
+    "restore_unsaved_buffers": false
+  },
+  "default_open_behavior": "new_window",
+  "reveal_if_open": true,
+  "on_last_window_closed": "quit_app",
+  "proxy": "",
   "diff_view_style": "split",
   "base_keymap": "JetBrains",
 
@@ -32,12 +58,14 @@
     "dock": "left",
   },
   "agent": {
-    "sidebar_side": "right",
+    "threads_sidebar": {
+      "position": "right"
+    },
     "dock": "right",
   },
 
   // --- Editor Behavior ---
-  "cli_default_open_behavior": "existing_window",
+  "cli_default_open_behavior": "new_window",
   "autosave": "on_focus_change",
   "format_on_save": "off",
   "soft_wrap": "editor_width",
