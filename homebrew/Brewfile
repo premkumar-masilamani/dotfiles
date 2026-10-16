@@ -15,6 +15,8 @@ brew "gh"
 brew "go"
 # TIFF library and utilities
 brew "libtiff"
+# Development kit for the Java programming language
+brew "openjdk"
 # Open-source build automation tool based on the Groovy and Kotlin DSL
 brew "gradle"
 # Mac App Store command-line interface
@@ -25,8 +27,6 @@ brew "ncdu"
 brew "readline"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
-# Development kit for the Java programming language
-brew "openjdk@25"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Interpreted, interactive, object-oriented programming language

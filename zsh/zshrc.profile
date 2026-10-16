@@ -17,7 +17,7 @@ typeset -U path PATH
 path=(
   "$HOMEBREW_PREFIX/bin"
   "$HOMEBREW_PREFIX/sbin"
-  "$HOMEBREW_PREFIX/opt/openjdk@25/bin"
+  "$HOMEBREW_PREFIX/opt/openjdk/bin"
   "$HOMEBREW_PREFIX/opt/node@26/bin"
   "$HOME/.local/bin"
   "$HOME/.cargo/bin"
@@ -27,9 +27,9 @@ path=(
 
 export PATH
 
-export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk@25"
-export LDFLAGS="-L$HOMEBREW_PREFIX/opt/openjdk@25/lib -L$HOMEBREW_PREFIX/opt/node@26/lib"
-export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk@25/include -I$HOMEBREW_PREFIX/opt/node@26/include"
+export JAVA_HOME="$HOMEBREW_PREFIX/opt/openjdk"
+export LDFLAGS="-L$HOMEBREW_PREFIX/opt/openjdk/lib -L$HOMEBREW_PREFIX/opt/node@26/lib"
+export CPPFLAGS="-I$HOMEBREW_PREFIX/opt/openjdk/include -I$HOMEBREW_PREFIX/opt/node@26/include"
 
 # =========================================================
 # History
