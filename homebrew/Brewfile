@@ -1,10 +1,10 @@
 tap "hashicorp/tap"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3"
 # General-purpose data compression with high compression ratio
 brew "xz"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3", link: true
 # Music player with an ncurses based interface
 brew "cmus"
 # Modern diagram scripting language that turns text to diagrams
@@ -15,10 +15,6 @@ brew "gh"
 brew "go"
 # TIFF library and utilities
 brew "libtiff"
-# Development kit for the Java programming language
-brew "openjdk@25"
-# Open-source build automation tool based on the Groovy and Kotlin DSL
-brew "gradle"
 # Mac App Store command-line interface
 brew "mas"
 # NCurses Disk Usage
@@ -27,6 +23,8 @@ brew "ncdu"
 brew "readline"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
+# Development kit for the Java programming language
+brew "openjdk@25"
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Interpreted, interactive, object-oriented programming language
@@ -52,6 +50,8 @@ cask "gcloud-cli"
 cask "google-chrome"
 # Client for the Google Drive storage service
 cask "google-drive"
+# Desktop automation application
+cask "hammerspoon"
 # Free and open-source RSS reader
 cask "netnewswire"
 # Knowledge base that works on top of a local folder of plain text Markdown files
