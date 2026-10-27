@@ -47,6 +47,10 @@ cask "claude"
 cask "cloudflare-warp"
 # Universal database tool and SQL client
 cask "dbeaver-community"
+# Voice and text chat software
+cask "discord"
+# Online diagram software
+cask "drawio"
 cask "font-jetbrains-mono"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
@@ -62,11 +66,14 @@ cask "netnewswire"
 cask "obsidian"
 # Replacement for Docker Desktop
 cask "orbstack"
+# JavaScript IDE
+cask "webstorm"
 # Multiplayer code editor
 cask "zed"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Numbers", id: 361304891
+mas "Xcode", id: 497799835
 go "golang.org/x/tools/gopls"
 cargo "atuin"
 npm "esbuild"
