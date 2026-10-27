@@ -50,7 +50,7 @@ update_homebrew() {
     fi
 
     brew update --verbose
-    brew bundle install --file="$BREW_FILE" --verbose
+    brew bundle install --file="$BREW_FILE"
     brew bundle cleanup --file="$BREW_FILE" --force --verbose
     brew services cleanup --verbose
 
