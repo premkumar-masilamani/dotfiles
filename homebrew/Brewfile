@@ -1,14 +1,10 @@
 tap "hashicorp/tap"
+# Modern diagram scripting language that turns text to diagrams
+brew "d2"
 # General-purpose data compression with high compression ratio
 brew "xz"
 # Play, record, convert, and stream select audio and video codecs
 brew "ffmpeg"
-# Cryptography and SSL/TLS Toolkit
-brew "openssl@3", link: true
-# Music player with an ncurses based interface
-brew "cmus"
-# Modern diagram scripting language that turns text to diagrams
-brew "d2"
 # GitHub command-line tool
 brew "gh"
 # Open source programming language to build simple/reliable/efficient software
@@ -27,6 +23,8 @@ brew "ncdu"
 brew "readline"
 # Open-source, cross-platform JavaScript runtime environment
 brew "node"
+# Cryptography and SSL/TLS Toolkit
+brew "openssl@3", link: true
 # Swiss-army knife of markup format conversion
 brew "pandoc"
 # Interpreted, interactive, object-oriented programming language
@@ -41,16 +39,12 @@ brew "typst"
 brew "hashicorp/tap/terraform", trusted: true
 # Agent orchestration platform
 cask "antigravity"
-# Anthropic's official Claude AI desktop app
-cask "claude"
 # Free app that makes your Internet safer
 cask "cloudflare-warp"
 # Universal database tool and SQL client
 cask "dbeaver-community"
-# Voice and text chat software
-cask "discord"
-# Online diagram software
-cask "drawio"
+# Presentations from Markdown
+cask "deckset"
 cask "font-jetbrains-mono"
 # Set of tools to manage resources and applications hosted on Google Cloud
 cask "gcloud-cli"
@@ -66,14 +60,13 @@ cask "netnewswire"
 cask "obsidian"
 # Replacement for Docker Desktop
 cask "orbstack"
-# JavaScript IDE
-cask "webstorm"
+# Team communication and collaboration software
+cask "slack"
 # Multiplayer code editor
 cask "zed"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Numbers", id: 361304891
-mas "Xcode", id: 497799835
 go "golang.org/x/tools/gopls"
 cargo "atuin"
 npm "esbuild"
